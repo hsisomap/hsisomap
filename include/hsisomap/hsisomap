@@ -1,0 +1,13 @@
+//
+// Created by Can on 1/11/16.
+//
+
+#ifndef HSISOMAP_HSISOMAP
+#define HSISOMAP_HSISOMAP
+
+#include "typedefs.h"
+#include "Matrix.h"
+#include "HsiData.h"
+#include "Logger.h"
+
+#endif //HSISOMAP_HSISOMAP

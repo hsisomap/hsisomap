@@ -1,0 +1,19 @@
+ENVI
+description = {
+  File Resize Result, x resize factor: 1.000000, y resize factor: 1.000000.
+  [Sun Jan 17 14:36:12 2016]}
+samples = 5
+lines   = 4
+bands   = 3
+header offset = 0
+file type = ENVI Standard
+data type = 4
+interleave = bil
+sensor type = Unknown
+byte order = 0
+x start = 146
+y start = 175
+wavelength units = Unknown
+band names = {
+ ROI Resize (Band 1:PaviaU), ROI Resize (Band 2:PaviaU), 
+ ROI Resize (Band 3:PaviaU)}
