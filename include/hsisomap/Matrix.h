@@ -42,6 +42,11 @@ class Matrix {
   //! \param initialValue the value to be initialized with.
   Matrix(Index rows, Index cols, Scalar initialValue);
 
+  //! Constructor with Initialization using Initializer List.
+  //! Construct a matrix with the initializer list. The width of the matrix is the size of the first Scalar initializer list.
+  //! \param initializerList the initializer list of initializer lists of Scalar type.
+  Matrix(std::initializer_list<std::initializer_list<Scalar>> initializerList);
+
   //! Copy Constructor.
   //! Construct a matrix with an existing matrix. The old matrix will be copied.
   Matrix(const Matrix& other);
@@ -122,6 +127,10 @@ class Matrix {
   //! Check the equality of the matrix by checking all corresponding elements.
   //! equality_limit will be used as the precision of the equality.
   bool operator==(const Matrix& other) const;
+
+  //! Reset the gsl_matrix pointer.
+  //! Reset the internal gsl_matrix raw pointer to a new one. Release the old memory.
+  void Reset(gsl_matrix * new_m);
 };
 
 std::ostream& operator<<(std::ostream& os, const Matrix& matrix);

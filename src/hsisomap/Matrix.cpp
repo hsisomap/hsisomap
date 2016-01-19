@@ -20,6 +20,21 @@ Matrix::Matrix(Index rows, Index cols, Scalar initialValue) {
   }
 }
 
+Matrix::Matrix(std::initializer_list<std::initializer_list<Scalar>> initializerList) {
+  if (initializerList.size() == 0) throw std::invalid_argument("Empty initializer list");
+  m_ = gsl_matrix_calloc(initializerList.size(), initializerList.begin()->size());
+  Index row = 0, col = 0;
+  for (auto initializer_list_row : initializerList) {
+    for (Scalar element : initializer_list_row) {
+      gsl_matrix_set(m_, row, col, element);
+      col++;
+      if (col == m_->size2) break;
+    }
+    row++;
+    col = 0;
+  }
+}
+
 Matrix::~Matrix() {
   if (m_) gsl_matrix_free(m_);
 }
@@ -105,6 +120,13 @@ void Matrix::Set(Index row, Index col, Scalar val) {
   gsl_matrix_set(m_, row, col, val);
 }
 
+void Matrix::Reset(gsl_matrix * new_m) {
+  if (new_m == m_) return;
+  if (new_m == nullptr) return;
+  if (m_) gsl_matrix_free(m_);
+  m_ = new_m;
+}
+
 bool Matrix::operator==(const Matrix &other) const {
   if (this == &other) return true;
   if (m_->size1 != other.rows() || m_->size2 != other.cols()) return false;
@@ -132,4 +154,5 @@ std::ostream &operator<<(std::ostream &os, const Matrix &matrix) {
   }
   return os;
 }
+
 } // namespace gsl

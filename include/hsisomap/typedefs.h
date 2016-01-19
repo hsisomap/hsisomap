@@ -31,8 +31,10 @@
 
 typedef size_t Index;
 typedef double Scalar;
-
+typedef const Scalar kScalar;
+typedef const std::string Key;
 
 typedef std::unordered_map<std::string, std::string> StringPropertyList;
+typedef std::unordered_map<std::string, Scalar> PropertyList;
 
 #endif //HSISOMAP_TYPEDEFS_H

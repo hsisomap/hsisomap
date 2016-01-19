@@ -249,6 +249,8 @@ info.interleave = diffstr{3};
 enviwrite(data, info, [rootpath, test_data_files{3}], [rootpath, test_data_files{3}, '.hdr']);
 
 %%
+data_serial = squeeze(reshape(permute(data, [2, 3, 1]), [size(data, 1) * size(data, 2), 1, size(data, 3)]));
+
 clc
 
 for d = 1:3
