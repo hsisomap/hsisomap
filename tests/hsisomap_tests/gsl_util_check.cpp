@@ -31,26 +31,26 @@ TEST(gsl_util_check, pca) {
        {639, 496, 646}}
   ));
   auto result_space = std::make_shared<gsl::Matrix>(std::initializer_list<std::initializer_list<Scalar>>(
-      {{7.124635e+02, -1.876492e+02, 1.463782e+02},
-       {8.557943e+02, -1.806343e+01, 2.864173e+02},
-       {1.193456e+03, -1.693220e+02, 1.898440e+02},
-       {1.415463e+03, -3.525812e+02, 1.930199e+02},
-       {1.116023e+03, -1.241672e+01, 2.081151e+02},
-       {1.295665e+03, -3.308468e+02, 1.784869e+02},
-       {1.286579e+03, -3.330540e+02, 2.290988e+02},
-       {9.686287e+02, -2.489345e+02, 1.660637e+02},
-       {1.699362e+03, -8.710378e+01, 1.755842e+02},
-       {1.712752e+03, -1.532728e+01, 6.823963e+01},
-       {1.455666e+03, -3.226491e+02, 2.752013e+02},
-       {7.660333e+02, -4.192493e+01, 1.802119e+02},
-       {6.827383e+02, -2.361323e+02, 2.034378e+02},
-       {1.477641e+03, -1.613010e+02, 2.275998e+02},
-       {1.481308e+03, -1.369896e+01, 3.861217e+02},
-       {1.393491e+03, -1.846597e+02, 2.591306e+02},
-       {1.111367e+03, -1.450077e+02, 3.319010e+02},
-       {1.589612e+03, -2.487714e+02, 2.823762e+02},
-       {1.393737e+03, -5.619611e+01, 2.023410e+02},
-       {9.596506e+02, -2.308191e+02, 3.121638e+02}}
+      {{-5.159080e+02, -1.782623e+01, -7.870849e+01},
+       {-3.725772e+02, 1.517595e+02, 6.133063e+01},
+       {-3.491547e+01, 5.009619e-01, -3.524261e+01},
+       {1.870913e+02, -1.827582e+02, -3.206677e+01},
+       {-1.123487e+02, 1.574062e+02, -1.697152e+01},
+       {6.729390e+01, -1.610238e+02, -4.659977e+01},
+       {5.820760e+01, -1.632310e+02, 4.012166e+00},
+       {-2.597429e+02, -7.911151e+01, -5.902290e+01},
+       {4.709905e+02, 8.271917e+01, -4.950248e+01},
+       {4.843802e+02, 1.544957e+02, -1.568470e+02},
+       {2.272943e+02, -1.528261e+02, 5.011467e+01},
+       {-4.623382e+02, 1.278980e+02, -4.487479e+01},
+       {-5.456332e+02, -6.630935e+01, -2.164886e+01},
+       {2.492696e+02, 8.521900e+00, 2.513179e+00},
+       {2.529362e+02, 1.561240e+02, 1.610350e+02},
+       {1.651198e+02, -1.483672e+01, 3.404396e+01},
+       {-1.170046e+02, 2.481526e+01, 1.068144e+02},
+       {3.612405e+02, -7.894842e+01, 5.728958e+01},
+       {1.653652e+02, 1.136268e+02, -2.274561e+01},
+       {-2.687209e+02, -6.099616e+01, 8.707717e+01}}
   ));
   auto result_vectors = std::make_shared<gsl::Matrix>(std::initializer_list<std::initializer_list<Scalar>>(
       {{7.207580e-01, 6.272547e-01, 2.950584e-01},
@@ -60,7 +60,15 @@ TEST(gsl_util_check, pca) {
   auto result_values = std::make_shared<gsl::Matrix>(std::initializer_list<std::initializer_list<Scalar>>(
       {{1.024164e+05, 1.385935e+04, 5.269492e+03}}
   ));
+  // This test case's eigenvectors happens to be having the same direction as
+  // (1, 0, ...,0) so that the direction of eigenvectors does not need to be
+  // corrected to be compared with the ground-truth. If any new test cases
+  // failed because of the directions of eigenvectors, make sure the
+  // ground-truth eigenvectors have the same direction as (1, 0, ...,0) and
+  // compile the code with the definition TEST_ENABLE_EIGENVECTOR_DIRECTION_CORRECTION
   gsl::Embedding result = gsl::PCA(*data);
+
+  // Set appropriate equality determination limit.
   result.space->equality_limit_ = 1e-3;
   result.vectors->equality_limit_ = 1e-3;
   result.values->equality_limit_ = 1e-1;

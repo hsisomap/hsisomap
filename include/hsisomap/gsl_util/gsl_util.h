@@ -149,7 +149,9 @@ void gsl_util_covariance_matrix_intrusive(gsl_matrix *data, gsl_matrix *covarian
 // Calculate covariance matrix using matrix multiplication.
 // The unbiased is 1 by default to calculate the unbiased estimated sample covariances
 //
-void gsl_util_covariance_matrix(const gsl_matrix *data, gsl_matrix *covariance, int unbiased = 1) {
+const int GSL_UTIL_COVARIANCE_MATRIX_BIASED = 0;
+const int GSL_UTIL_COVARIANCE_MATRIX_UNBIASED = 1;
+void gsl_util_covariance_matrix(const gsl_matrix *data, gsl_matrix *covariance, int unbiased = 1, gsl_matrix *centered_data_return = NULL, gsl_vector *means_return = NULL) {
 
   size_t dims = data->size2;
   size_t obs = data->size1;
@@ -158,11 +160,23 @@ void gsl_util_covariance_matrix(const gsl_matrix *data, gsl_matrix *covariance, 
     return;
   }
 
-  gsl_vector *means = gsl_vector_alloc(dims);
+  gsl_vector *means;
+  if (means_return) {
+    means = means_return;
+  } else {
+    means = gsl_vector_alloc(dims);
+  }
+
   for (size_t c = 0; c < dims; ++c) {
     gsl_vector_set(means, c, gsl_stats_mean(data->data + c, dims, obs));
   }
-  gsl_matrix *centered_data = gsl_matrix_alloc(obs, dims);
+
+  gsl_matrix *centered_data;
+  if (centered_data_return) {
+    centered_data = centered_data_return;
+  } else {
+    centered_data = gsl_matrix_alloc(obs, dims);
+  }
 
   for (size_t r = 0; r < obs; ++r) {
     for (size_t c = 0; c < dims; ++c) {
@@ -173,8 +187,12 @@ void gsl_util_covariance_matrix(const gsl_matrix *data, gsl_matrix *covariance, 
 
   gsl_blas_dgemm(CblasTrans, CblasNoTrans, 1.0, centered_data, centered_data, 0.0, covariance);
   gsl_matrix_scale(covariance, 1.0 / (obs - unbiased));
-  gsl_vector_free(means);
-  gsl_matrix_free(centered_data);
+  if (!means_return) {
+    gsl_vector_free(means);
+  }
+  if (!centered_data_return) {
+    gsl_matrix_free(centered_data);
+  }
 
 }
 

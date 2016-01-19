@@ -17,7 +17,8 @@ Embedding PCA(const Matrix &data, Index reduced_dimensions) {
   Index dimensions = data.cols(), samples = data.rows();
 
   Matrix covariance(dimensions, dimensions);
-  gsl_util_covariance_matrix(data.m_, covariance.m_);
+  Matrix centered_data(samples, dimensions);
+  gsl_util_covariance_matrix(data.m_, covariance.m_, GSL_UTIL_COVARIANCE_MATRIX_UNBIASED, centered_data.m_);
 
   gsl_vector* eigenvalues = gsl_vector_alloc(dimensions);
   std::shared_ptr<Matrix> vectors = std::make_shared<Matrix>(dimensions, dimensions);
@@ -32,12 +33,18 @@ Embedding PCA(const Matrix &data, Index reduced_dimensions) {
   gsl_matrix_set_row(values->m_, 0, eigenvalues);
   gsl_vector_free(eigenvalues);
 
+#ifdef TEST_ENABLE_EIGENVECTOR_DIRECTION_CORRECTION
   // Make the eigenvectors have similar direction as the vector (1, 0, ..., 0);
-  // It doesn't matter for the results but it is easy to test and compare with other programs if do so.
+  // It doesn't matter for the results unless compared with results from other
+  // programs. The operation is disabled by default for performance considerations.
+  // If any test cases failed, enable this operation when testing, and make sure
+  // the ground-truth eigenvectors received the same handling.
   gsl::MakeBasesSameDirectionAs(*vectors);
+#endif
 
+  // Note that PCA returns the score in a centered coordinates.
   gsl_matrix_view reduced_eigenvectors = gsl_matrix_submatrix(vectors->m_, 0, 0, dimensions, reduced_dimensions);
-  gsl_blas_dgemm(CblasNoTrans, CblasNoTrans, 1.0, data.m_, &reduced_eigenvectors.matrix, 0.0, space->m_);
+  gsl_blas_dgemm(CblasNoTrans, CblasNoTrans, 1.0, centered_data.m_, &reduced_eigenvectors.matrix, 0.0, space->m_);
 
   result.space = space;
   result.vectors = vectors;
