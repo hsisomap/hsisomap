@@ -1,4 +1,4 @@
-set(HSISOMAP_TESTS_SOURCE_FILES basic_check.cpp HsiData_check.cpp gsl_util_check.cpp)
+set(HSISOMAP_TESTS_SOURCE_FILES basic_check.cpp HsiData_check.cpp gsl_util_check.cpp Subsetter_check.cpp)
 
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 

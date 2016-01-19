@@ -35,6 +35,20 @@ Matrix::Matrix(std::initializer_list<std::initializer_list<Scalar>> initializerL
   }
 }
 
+// Supported casts to std::vector<std::vector<Scalar>> needs to be explicitly
+// instantiated in the implementation file:
+template Matrix::Matrix(std::vector<std::vector<Index>>);
+template Matrix::Matrix(std::vector<std::vector<float>>);
+template Matrix::Matrix(std::vector<std::vector<long>>);
+template Matrix::Matrix(std::vector<std::vector<short>>);
+template Matrix::Matrix(std::vector<std::vector<unsigned long>>);
+template Matrix::Matrix(std::vector<std::vector<unsigned short>>);
+template Matrix::Matrix(std::vector<std::vector<long long>>);
+template Matrix::Matrix(std::vector<std::vector<unsigned long long>>);
+template Matrix::Matrix(std::vector<std::vector<char>>);
+template Matrix::Matrix(std::vector<std::vector<unsigned char>>);
+template Matrix::Matrix(std::vector<std::vector<bool>>);
+
 template<typename T>
 Matrix::Matrix(std::vector<std::vector<T>> vector_of_vectors) {
   if (vector_of_vectors.size() == 0) throw std::invalid_argument("Empty std::vector of vectors");

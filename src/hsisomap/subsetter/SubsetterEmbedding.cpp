@@ -26,14 +26,15 @@ SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<HsiData> hsi_data, Proper
   Index num_subsets = static_cast<Index>(property_list_[SUBSETTER_SUBSETS]);
   Index recursion_depth = static_cast<Index>(ceil(log2(num_subsets)));
 
-
-  std::function<std::pair<std::vector<Index>, std::vector<Index>>(std::vector<Index>, gsl::Matrix)> divider;
+  // Define different division criteria based on embeddings as functions.
+  std::function<std::pair<std::vector<Index>, std::vector<Index>>(std::vector<Index>, gsl::Matrix)> Divider;
   // Note that the ``score'' is destructible in the current algorithm, which is easier to implement.
   if (property_list_[SUBSETTER_EMBEDDING_SLICING_MODE] == SUBSETTER_EMBEDDING_SLICING_MODE_FIRST_MEAN) {
-    divider = [] (std::vector<Index> group, gsl::Matrix score) {
+    Divider = [] (std::vector<Index> group, gsl::Matrix score) {
+      // score is a column vector, i.e., a matrix with width of 1.
       std::pair<std::vector<Index>, std::vector<Index>> result;
-      for (Index i = 0; i < score.cols(); ++i) {
-        if (score(0, i) >= 0.0) {
+      for (Index i = 0; i < score.rows(); ++i) {
+        if (score(i, 0) >= 0.0) {
           result.first.push_back(group[i]);
         } else {
           result.second.push_back(group[i]);
@@ -42,7 +43,7 @@ SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<HsiData> hsi_data, Proper
       return result;
     };
   } else if (property_list_[SUBSETTER_EMBEDDING_SLICING_MODE] == SUBSETTER_EMBEDDING_SLICING_MODE_FIRST_MEDIAN) {
-    divider = [] (std::vector<Index> group, gsl::Matrix score) {
+    Divider = [] (std::vector<Index> group, gsl::Matrix score) {
       std::pair<std::vector<Index>, std::vector<Index>> result;
       gsl::Matrix group_matrix(std::vector<std::vector<Index>>(1, group));
       gsl::SortMatrixRows(score, group_matrix);
@@ -61,17 +62,28 @@ SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<HsiData> hsi_data, Proper
 
   std::vector<std::vector<Index>> current_groups;
   std::vector<std::vector<Index>> next_groups;
-  std::vector<Index> initial_indices;
+  std::vector<Index> initial_indices(hsi_data_->data()->rows(), 0);
   std::iota(initial_indices.begin(), initial_indices.end(), 0);
   current_groups.push_back(initial_indices);
 
-  Index group_counter = 0;
+  Index group_counter = 1; // initially there is one subset before starting division.
   for (Index level = 0; level < recursion_depth; ++level) {
     for (Index group = 0; group < current_groups.size(); ++group) {
       auto current_indices = current_groups[group];
       auto current_image_data = hsi_data_->data()->GetRows(current_indices);
-      auto pca_result = gsl::PCA(current_image_data, 1);
-      auto divided = divider(current_indices, *pca_result.space);
+
+      // Calculate embeddings using the designated embedding function, except
+      // for the initial embedding, which might be specified from outside.
+      std::shared_ptr<gsl::Matrix> embedding(nullptr);
+      if (level == 0) {
+        embedding = embedding_;
+      } else {
+        embedding = (EmbeddingFunction(current_image_data)).space;
+      }
+
+      // Divide the current group into two groups using the Divider function.
+      auto divided = Divider(current_indices, *embedding);
+
       next_groups.push_back(divided.first);
       next_groups.push_back(divided.second);
       group_counter++;

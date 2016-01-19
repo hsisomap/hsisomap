@@ -7,10 +7,10 @@
 
 HSISOMAP_NAMESPACE_BEGIN
 
-std::shared_ptr<hsisomap::Subsetter>SubsetterWithImplementation(SubsetterImplementation
-subsetter_implementation, std::shared_ptr<HsiData> hsi_data,
-PropertyList property_list, std::shared_ptr<gsl::Matrix>
-optional_embedding){
+std::shared_ptr<hsisomap::Subsetter> SubsetterWithImplementation(SubsetterImplementation subsetter_implementation,
+                                                                 std::shared_ptr<HsiData> hsi_data,
+                                                                 PropertyList property_list,
+                                                                 std::shared_ptr<gsl::Matrix> optional_embedding) {
 
   switch (subsetter_implementation) {
     case SUBSETTER_IMPLEMENTATION_RANDOMSKEL:

@@ -10,6 +10,7 @@
 namespace gsl {
 
 void MakeBasesSameDirectionAs(Matrix &bases, const Matrix &optional_datum) {
+  std::cout << "AAA";
   Matrix datum = optional_datum;
   if (datum.cols() != bases.rows()) {
     datum = Matrix(1, bases.rows(), 0.0);

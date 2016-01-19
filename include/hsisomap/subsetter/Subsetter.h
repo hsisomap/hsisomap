@@ -29,7 +29,10 @@ class Subsetter {
   virtual std::shared_ptr<HsiData> hsi_data() = 0;
 };
 
-std::shared_ptr<Subsetter> SubsetterWithImplementation(SubsetterImplementation subsetter_implementation, std::shared_ptr<HsiData> hsi_data, PropertyList property_list, std::shared_ptr<gsl::Matrix> optional_embedding = nullptr);
+std::shared_ptr<Subsetter> SubsetterWithImplementation(SubsetterImplementation subsetter_implementation,
+                                                       std::shared_ptr<HsiData> hsi_data,
+                                                       PropertyList property_list,
+                                                       std::shared_ptr<gsl::Matrix> optional_embedding = nullptr);
 
 HSISOMAP_NAMESPACE_END
 
