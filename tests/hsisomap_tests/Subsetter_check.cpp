@@ -30,7 +30,7 @@ TEST_F(SubsetterFixture, subsetter_subsetterembedding_check) {
   using namespace ::hsisomap;
   auto
       subsetter = SubsetterWithImplementation(SUBSETTER_IMPLEMENTATION_EMBEDDING,
-                                              hsi_data_[0],
+                                              hsi_data_[0]->data(),
                                               PropertyList({{SUBSETTER_DEFAULT_EMBEDDING,
                                                              SUBSETTER_DEFAULT_EMBEDDING_PCA},
                                                             {SUBSETTER_EMBEDDING_SLICING_MODE,

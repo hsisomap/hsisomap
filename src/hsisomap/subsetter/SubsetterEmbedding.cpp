@@ -10,9 +10,12 @@
 
 HSISOMAP_NAMESPACE_BEGIN
 
-SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<HsiData> hsi_data, PropertyList property_list, std::shared_ptr<gsl::Matrix> optional_embedding) : hsi_data_(hsi_data), property_list_(property_list), embedding_(optional_embedding) {
+SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<gsl::Matrix> data,
+                                       PropertyList property_list,
+                                       std::shared_ptr<gsl::Matrix> optional_embedding)
+    : data_(data), property_list_(property_list), embedding_(optional_embedding) {
 
-  std::function <gsl::Embedding(const gsl::Matrix&)> EmbeddingFunction;
+  std::function<gsl::Embedding(const gsl::Matrix &)> EmbeddingFunction;
   if (property_list[SUBSETTER_DEFAULT_EMBEDDING] == SUBSETTER_DEFAULT_EMBEDDING_PCA) {
     EmbeddingFunction = std::bind(gsl::PCA, std::placeholders::_1, 1);
   } else {
@@ -20,7 +23,7 @@ SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<HsiData> hsi_data, Proper
   }
 
   if (embedding_.get() == nullptr) {
-    embedding_ = EmbeddingFunction(*(hsi_data_->data())).space;
+    embedding_ = EmbeddingFunction(*data_).space;
   }
 
   Index num_subsets = static_cast<Index>(property_list_[SUBSETTER_SUBSETS]);
@@ -30,7 +33,7 @@ SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<HsiData> hsi_data, Proper
   std::function<std::pair<std::vector<Index>, std::vector<Index>>(std::vector<Index>, gsl::Matrix)> Divider;
   // Note that the ``score'' is destructible in the current algorithm, which is easier to implement.
   if (property_list_[SUBSETTER_EMBEDDING_SLICING_MODE] == SUBSETTER_EMBEDDING_SLICING_MODE_FIRST_MEAN) {
-    Divider = [] (std::vector<Index> group, gsl::Matrix score) {
+    Divider = [](std::vector<Index> group, gsl::Matrix score) {
       // score is a column vector, i.e., a matrix with width of 1.
       std::pair<std::vector<Index>, std::vector<Index>> result;
       for (Index i = 0; i < score.rows(); ++i) {
@@ -43,7 +46,7 @@ SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<HsiData> hsi_data, Proper
       return result;
     };
   } else if (property_list_[SUBSETTER_EMBEDDING_SLICING_MODE] == SUBSETTER_EMBEDDING_SLICING_MODE_FIRST_MEDIAN) {
-    Divider = [] (std::vector<Index> group, gsl::Matrix score) {
+    Divider = [](std::vector<Index> group, gsl::Matrix score) {
       std::pair<std::vector<Index>, std::vector<Index>> result;
       gsl::Matrix group_matrix(std::vector<std::vector<Index>>(1, group));
       gsl::SortMatrixRows(score, group_matrix);
@@ -62,7 +65,7 @@ SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<HsiData> hsi_data, Proper
 
   std::vector<std::vector<Index>> current_groups;
   std::vector<std::vector<Index>> next_groups;
-  std::vector<Index> initial_indices(hsi_data_->data()->rows(), 0);
+  std::vector<Index> initial_indices(data_->rows(), 0);
   std::iota(initial_indices.begin(), initial_indices.end(), 0);
   current_groups.push_back(initial_indices);
 
@@ -70,7 +73,7 @@ SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<HsiData> hsi_data, Proper
   for (Index level = 0; level < recursion_depth; ++level) {
     for (Index group = 0; group < current_groups.size(); ++group) {
       auto current_indices = current_groups[group];
-      auto current_image_data = hsi_data_->data()->GetRows(current_indices);
+      auto current_image_data = data_->GetRows(current_indices);
 
       // Calculate embeddings using the designated embedding function, except
       // for the initial embedding, which might be specified from outside.
@@ -99,7 +102,7 @@ SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<HsiData> hsi_data, Proper
     if (group_counter == num_subsets) break;
 
     // Reorder the remaining groups such that the largest group gets divided first.
-    std::sort(next_groups.begin(), next_groups.end(), [] (const std::vector<Index> a, const std::vector<Index> b) {
+    std::sort(next_groups.begin(), next_groups.end(), [](const std::vector<Index> a, const std::vector<Index> b) {
       return a.size() > b.size();
     });
     current_groups = next_groups;
@@ -107,7 +110,6 @@ SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<HsiData> hsi_data, Proper
   }
 
 }
-
 
 HSISOMAP_NAMESPACE_END
 

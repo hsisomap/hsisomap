@@ -26,11 +26,11 @@ kScalar SUBSETTER_EMBEDDING_SLICING_MODE_FIRST_MEAN = 1.0;
 class Subsetter {
  public:
   virtual std::vector<std::vector<Index>> subsets() = 0;
-  virtual std::shared_ptr<HsiData> hsi_data() = 0;
+  virtual std::shared_ptr<gsl::Matrix> data() = 0;
 };
 
 std::shared_ptr<Subsetter> SubsetterWithImplementation(SubsetterImplementation subsetter_implementation,
-                                                       std::shared_ptr<HsiData> hsi_data,
+                                                       std::shared_ptr<gsl::Matrix> data,
                                                        PropertyList property_list,
                                                        std::shared_ptr<gsl::Matrix> optional_embedding = nullptr);
 
