@@ -15,7 +15,7 @@ struct Embedding {
   std::shared_ptr<Matrix> values;
 };
 
-Embedding PCA(std::shared_ptr<Matrix> data, Index reduced_dimensions = -1);
+Embedding PCA(const Matrix &data, Index reduced_dimensions = 0);
 
 
 } // namespace gsl

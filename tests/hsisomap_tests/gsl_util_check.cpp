@@ -60,7 +60,7 @@ TEST(gsl_util_check, pca) {
   auto result_values = std::make_shared<gsl::Matrix>(std::initializer_list<std::initializer_list<Scalar>>(
       {{1.024164e+05, 1.385935e+04, 5.269492e+03}}
   ));
-  gsl::Embedding result = gsl::PCA(data);
+  gsl::Embedding result = gsl::PCA(*data);
   result.space->equality_limit_ = 1e-3;
   result.vectors->equality_limit_ = 1e-3;
   result.values->equality_limit_ = 1e-1;

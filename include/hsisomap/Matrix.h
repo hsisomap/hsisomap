@@ -15,6 +15,7 @@
 
 #include <gsl/gsl_matrix.h>
 #include <iostream>
+#include <vector>
 #include "typedefs.h"
 
 namespace gsl {
@@ -46,6 +47,12 @@ class Matrix {
   //! Construct a matrix with the initializer list. The width of the matrix is the size of the first Scalar initializer list.
   //! \param initializerList the initializer list of initializer lists of Scalar type.
   Matrix(std::initializer_list<std::initializer_list<Scalar>> initializerList);
+
+  //! Constructor with Initialization using STL vector of vectors.
+  //! Construct a matrix with the std::vector<std::vector<T>> type. The width of the matrix is the size of the first vector of Scalar. T will be casted to Scalar.
+  //! \param vector_of_vectors the row-major vector of vectors representing a matrix.
+  template<typename T>
+  explicit Matrix(const std::vector<std::vector<T>> vector_of_vectors);
 
   //! Copy Constructor.
   //! Construct a matrix with an existing matrix. The old matrix will be copied.
@@ -131,6 +138,15 @@ class Matrix {
   //! Reset the gsl_matrix pointer.
   //! Reset the internal gsl_matrix raw pointer to a new one. Release the old memory.
   void Reset(gsl_matrix * new_m);
+
+  //! Get a copy of the rows with the indices.
+  //! \param rows the indices of the rows to be extracted.
+  Matrix GetRows(std::vector<Index> rows) const;
+
+  //! Get a copy of the columns with the indices.
+  //! \param cols the indices of the rows to be extracted.
+  Matrix GetCols(std::vector<Index> cols) const;
+
 };
 
 std::ostream& operator<<(std::ostream& os, const Matrix& matrix);

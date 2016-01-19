@@ -35,6 +35,22 @@ Matrix::Matrix(std::initializer_list<std::initializer_list<Scalar>> initializerL
   }
 }
 
+template<typename T>
+Matrix::Matrix(std::vector<std::vector<T>> vector_of_vectors) {
+  if (vector_of_vectors.size() == 0) throw std::invalid_argument("Empty std::vector of vectors");
+  m_ = gsl_matrix_calloc(vector_of_vectors.size(), vector_of_vectors.begin()->size());
+  Index row = 0, col = 0;
+  for (auto vector_row : vector_of_vectors) {
+    for (T element : vector_row) {
+      gsl_matrix_set(m_, row, col, static_cast<Scalar>(element));
+      col++;
+      if (col == m_->size2) break;
+    }
+    row++;
+    col = 0;
+  }
+}
+
 Matrix::~Matrix() {
   if (m_) gsl_matrix_free(m_);
 }
@@ -82,7 +98,8 @@ const Matrix &Matrix::operator=(const Matrix &other) {
   return *this;
 }
 
-Matrix::Matrix(const Matrix &other) {
+Matrix::Matrix(const Matrix &other) : m_(NULL) {
+  // always initialize raw pointer (m_); remember this in copy constructor; otherwise could cause problems in Copy();
   Copy(other);
 }
 
@@ -153,6 +170,26 @@ std::ostream &operator<<(std::ostream &os, const Matrix &matrix) {
     os << std::endl;
   }
   return os;
+}
+
+Matrix Matrix::GetRows(std::vector<Index> rows) const {
+  Matrix result(rows.size(), cols());
+  for (Index r = 0; r < rows.size(); ++r) {
+    for (Index c = 0; c < cols(); ++c) {
+      gsl_matrix_set(result.m_, r, c, gsl_matrix_get(m_, rows[r], c));
+    }
+  }
+  return result;
+}
+
+Matrix Matrix::GetCols(std::vector<Index> cols) const {
+  Matrix result(rows(), cols.size());
+  for (Index r = 0; r < rows(); ++r) {
+    for (Index c = 0; c < cols.size(); ++c) {
+      gsl_matrix_set(result.m_, r, c, gsl_matrix_get(m_, r, cols[c]));
+    }
+  }
+  return result;
 }
 
 } // namespace gsl

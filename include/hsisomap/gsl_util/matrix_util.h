@@ -9,7 +9,12 @@
 
 namespace gsl {
 
-void MakeBasesSameDirectionAs(std::shared_ptr<Matrix> bases, std::shared_ptr<Matrix> vector = nullptr);
+void MakeBasesSameDirectionAs(Matrix &bases, const Matrix &optional_datum = Matrix(1, 1, 1.0));
+
+void SortMatrixRows(Matrix &matrix, Matrix &also_arrange, bool do_not_also_arrange = false);
+
+void SortMatrixRows(Matrix &matrix);
+
 
 } // namespace gsl
 

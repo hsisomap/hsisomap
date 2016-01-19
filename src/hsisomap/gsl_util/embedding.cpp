@@ -9,15 +9,15 @@
 
 namespace gsl {
 
-Embedding PCA(std::shared_ptr<Matrix> data, Index reduced_dimensions) {
-  if (reduced_dimensions == -1) reduced_dimensions = data->cols();
-  if (reduced_dimensions < 0 || reduced_dimensions > data->cols()) throw std::invalid_argument("Reduced dimensions should be less than or equal to the total dimensions.");
+Embedding PCA(const Matrix &data, Index reduced_dimensions) {
+  if (reduced_dimensions == 0) reduced_dimensions = data.cols();
+  if (reduced_dimensions > data.cols()) throw std::invalid_argument("Reduced dimensions should be less than or equal to the total dimensions.");
 
   Embedding result;
-  Index dimensions = data->cols(), samples = data->rows();
+  Index dimensions = data.cols(), samples = data.rows();
 
   Matrix covariance(dimensions, dimensions);
-  gsl_util_covariance_matrix(data->m_, covariance.m_);
+  gsl_util_covariance_matrix(data.m_, covariance.m_);
 
   gsl_vector* eigenvalues = gsl_vector_alloc(dimensions);
   std::shared_ptr<Matrix> vectors = std::make_shared<Matrix>(dimensions, dimensions);
@@ -34,10 +34,10 @@ Embedding PCA(std::shared_ptr<Matrix> data, Index reduced_dimensions) {
 
   // Make the eigenvectors have similar direction as the vector (1, 0, ..., 0);
   // It doesn't matter for the results but it is easy to test and compare with other programs if do so.
-  gsl::MakeBasesSameDirectionAs(vectors);
+  gsl::MakeBasesSameDirectionAs(*vectors);
 
   gsl_matrix_view reduced_eigenvectors = gsl_matrix_submatrix(vectors->m_, 0, 0, dimensions, reduced_dimensions);
-  gsl_blas_dgemm(CblasNoTrans, CblasNoTrans, 1.0, data->m_, &reduced_eigenvectors.matrix, 0.0, space->m_);
+  gsl_blas_dgemm(CblasNoTrans, CblasNoTrans, 1.0, data.m_, &reduced_eigenvectors.matrix, 0.0, space->m_);
 
   result.space = space;
   result.vectors = vectors;
