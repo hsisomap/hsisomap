@@ -12,7 +12,6 @@ set(HSISOMAP_SOURCE_FILES ${HSISOMAP_HEADER_FILES} HsiData.cpp Matrix.cpp Logger
 set(HSISOMAP_SOURCE_FILES ${HSISOMAP_SOURCE_FILES} subsetter/Subsetter.cpp subsetter/SubsetterEmbedding.cpp)
 set(HSISOMAP_SOURCE_FILES ${HSISOMAP_SOURCE_FILES} gsl_util/embedding.cpp gsl_util/matrix_util.cpp)
 set(HSISOMAP_SOURCE_FILES ${HSISOMAP_SOURCE_FILES} backbone/Backbone.cpp)
-set(HSISOMAP_SOURCE_FILES ${HSISOMAP_SOURCE_FILES} util/VpTree.cpp)
 
 find_package(OpenCL REQUIRED)
 include_directories(${OpenCL_INCLUDE_DIR})
