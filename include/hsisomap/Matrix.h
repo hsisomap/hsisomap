@@ -143,13 +143,23 @@ class Matrix {
   //! \param rows the indices of the rows to be extracted.
   Matrix GetRows(std::vector<Index> rows) const;
 
+  //! Get a copy of the row with the index.
+  //! \param row the indices of the row to be extracted.
+  Matrix GetRow(Index row) const;
+
   //! Get a copy of the columns with the indices.
-  //! \param cols the indices of the rows to be extracted.
+  //! \param cols the indices of the columns to be extracted.
   Matrix GetCols(std::vector<Index> cols) const;
+
+  //! Get a copy of the column with the index.
+  //! \param col the indices of the column to be extracted.
+  Matrix GetCol(Index col) const;
 
 };
 
 std::ostream& operator<<(std::ostream& os, const Matrix& matrix);
+
+std::istream& operator>>(std::istream& is, Matrix& matrix);
 
 } // namespace gsl
 

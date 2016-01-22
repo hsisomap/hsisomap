@@ -17,5 +17,6 @@ include_directories(${HSISOMAP_INCLUDE_DIR})
 
 add_subdirectory(src/hsisomap)
 add_subdirectory(src/cli)
+add_subdirectory(src/demo)
 add_subdirectory(tests)
 

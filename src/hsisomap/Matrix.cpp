@@ -171,7 +171,7 @@ bool Matrix::operator==(const Matrix &other) const {
   return true;
 }
 
-std::ostream &operator<<(std::ostream &os, const Matrix &matrix) {
+std::ostream& operator<<(std::ostream &os, const Matrix &matrix) {
   for (Index r = 0; r < matrix.m_->size1; ++r) {
     for (Index c = 0; c < matrix.m_->size2; ++c) {
       double val = gsl_matrix_get(matrix.m_, r, c);
@@ -186,6 +186,17 @@ std::ostream &operator<<(std::ostream &os, const Matrix &matrix) {
   return os;
 }
 
+std::istream& operator>>(std::istream& is, Matrix& matrix) {
+   for (Index r = 0; r < matrix.m_->size1; ++r) {
+    for (Index c = 0; c < matrix.m_->size2; ++c) {
+      double val;
+      is >> val;
+      gsl_matrix_set(matrix.m_, r, c, val);
+    }
+  }
+  return is;
+}
+
 Matrix Matrix::GetRows(std::vector<Index> rows) const {
   Matrix result(rows.size(), cols());
   for (Index r = 0; r < rows.size(); ++r) {
@@ -196,12 +207,28 @@ Matrix Matrix::GetRows(std::vector<Index> rows) const {
   return result;
 }
 
+Matrix Matrix::GetRow(Index row) const {
+  Matrix result(1, cols());
+  for (Index c = 0; c < cols(); ++c) {
+    gsl_matrix_set(result.m_, 0, c, gsl_matrix_get(m_, row, c));
+  }
+  return result;
+}
+
 Matrix Matrix::GetCols(std::vector<Index> cols) const {
   Matrix result(rows(), cols.size());
   for (Index r = 0; r < rows(); ++r) {
     for (Index c = 0; c < cols.size(); ++c) {
       gsl_matrix_set(result.m_, r, c, gsl_matrix_get(m_, r, cols[c]));
     }
+  }
+  return result;
+}
+
+Matrix Matrix::GetCol(Index col) const {
+  Matrix result(rows(), 1);
+  for (Index r = 0; r < rows(); ++r) {
+    gsl_matrix_set(result.m_, r, 0, gsl_matrix_get(m_, r, col));
   }
   return result;
 }

@@ -30,6 +30,7 @@
 #endif
 
 typedef size_t Index;
+typedef const size_t kIndex;
 typedef double Scalar;
 typedef const Scalar kScalar;
 typedef const std::string Key;

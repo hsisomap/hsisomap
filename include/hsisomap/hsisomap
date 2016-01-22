@@ -9,5 +9,7 @@
 #include "Matrix.h"
 #include "HsiData.h"
 #include "Logger.h"
+#include "backbone/Backbone.h"
+#include "subsetter/Subsetter.h"
 
 #endif //HSISOMAP_HSISOMAP

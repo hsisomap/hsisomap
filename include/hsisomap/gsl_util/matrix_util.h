@@ -15,6 +15,15 @@ void SortMatrixRows(Matrix &matrix, Matrix &also_arrange, bool do_not_also_arran
 
 void SortMatrixRows(Matrix &matrix);
 
+// GetRows generates a new matrix with the rows of the original matrix specified.
+// The different with the Matrix::GetRows is that this function uses shared_ptr.
+std::shared_ptr<gsl::Matrix> GetRows(const std::shared_ptr<const gsl::Matrix> matrix_ptr, std::vector<Index> rows);
+
+Scalar RowVectorDistance(const Matrix &matrix, Index a, Index b);
+Scalar RowVectorDistanceSquare(const Matrix &matrix, Index a, Index b);
+Scalar RowVectorDistanceToRowVector(const Matrix &matrix_a, const Matrix &matrix_b, Index a = 0, Index b = 0);
+Scalar RowVectorDistanceSquareToRowVector(const Matrix &matrix_a, const Matrix &matrix_b, Index a = 0, Index b = 0);
+
 
 } // namespace gsl
 

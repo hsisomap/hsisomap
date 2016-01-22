@@ -10,7 +10,6 @@
 namespace gsl {
 
 void MakeBasesSameDirectionAs(Matrix &bases, const Matrix &optional_datum) {
-  std::cout << "AAA";
   Matrix datum = optional_datum;
   if (datum.cols() != bases.rows()) {
     datum = Matrix(1, bases.rows(), 0.0);
@@ -45,6 +44,70 @@ void SortMatrixRows(Matrix &matrix, Matrix &also_arrange, bool do_not_also_arran
 void SortMatrixRows(Matrix &matrix) {
   Matrix pseudo(1, 1);
   SortMatrixRows(matrix, pseudo, true);
+}
+
+std::shared_ptr<gsl::Matrix> GetRows(const std::shared_ptr<const gsl::Matrix> matrix_ptr, std::vector<Index> rows) {
+
+  auto result = std::make_shared<gsl::Matrix>(rows.size(), matrix_ptr->cols());
+  for (Index r = 0; r < rows.size(); ++r) {
+    for (Index c = 0; c < matrix_ptr->cols(); ++c) {
+      gsl_matrix_set(result->m_, r, c, gsl_matrix_get(matrix_ptr->m_, rows[r], c));
+    }
+  }
+  return result;
+}
+
+Scalar RowVectorDistance(const Matrix &matrix, Index a, Index b) {
+  gsl_vector *va = gsl_vector_alloc(matrix.cols());
+  gsl_matrix_get_row(va, matrix.m_, a);
+  gsl_vector_const_view vb_view = gsl_matrix_const_row(matrix.m_, b);
+  gsl_vector_sub(va, &vb_view.vector);
+  Scalar result = gsl_blas_dnrm2(va);
+  gsl_vector_free(va); // Remember to deallocate memory when using GSL C API.
+  return result;
+}
+
+Scalar RowVectorDistanceSquare(const Matrix &matrix, Index a, Index b) {
+//  gsl_vector *va = gsl_vector_alloc(matrix.cols());
+//  gsl_matrix_get_row(va, matrix.m_, a);
+//  gsl_vector_const_view vb_view = gsl_matrix_const_row(matrix.m_, b);
+//  gsl_vector_sub(va, &vb_view.vector);
+//  gsl_vector_mul(va, va);
+//  Scalar result = gsl_blas_dasum(va);
+//  gsl_vector_free(va);
+
+  Scalar result = 0;
+  for (Index i = 0; i < matrix.cols(); ++i) {
+    result += pow(matrix(a, i) - matrix(b, i), 2);
+  }
+  return result;
+}
+
+Scalar RowVectorDistanceToRowVector(const Matrix &matrix_a, const Matrix &matrix_b, Index a, Index b) {
+  gsl_vector *va = gsl_vector_alloc(matrix_a.cols());
+  gsl_matrix_get_row(va, matrix_a.m_, a);
+  gsl_vector_const_view vb_view = gsl_matrix_const_row(matrix_b.m_, b);
+  gsl_vector_sub(va, &vb_view.vector);
+  Scalar result = gsl_blas_dnrm2(va);
+  gsl_vector_free(va);
+  return result;
+}
+
+Scalar RowVectorDistanceSquareToRowVector(const Matrix &matrix_a, const Matrix &matrix_b, Index a, Index b) {
+//  gsl_vector *va = gsl_vector_alloc(matrix_a.cols());
+//  gsl_matrix_get_row(va, matrix_a.m_, a);
+//  gsl_vector_const_view vb_view = gsl_matrix_const_row(matrix_b.m_, b);
+//  gsl_vector_sub(va, &vb_view.vector);
+//  gsl_vector_mul(va, va);
+//  Scalar result = gsl_blas_dasum(va);
+//  gsl_vector_free(va);
+
+  Scalar result = 0;
+  for (Index i = 0; i < matrix_a.cols(); ++i) {
+    result += pow(matrix_a(a, i) - matrix_b(b, i), 2);
+  }
+
+  return result;
 }
 
 } // namespace gsl
