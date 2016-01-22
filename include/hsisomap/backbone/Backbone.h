@@ -37,7 +37,6 @@ class Backbone {
  private:
   std::shared_ptr<gsl::Matrix> nn_cache_;
   std::vector<Index> sampling_indices_;
-  std::unordered_set<Index> sampling_indices_set_;
   std::unordered_map<Index, Index> sampling_indices_reverse_table_;
   const std::shared_ptr<const gsl::Matrix> data_;
   std::shared_ptr<gsl::Matrix> sampled_data_;

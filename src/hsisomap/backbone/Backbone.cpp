@@ -6,7 +6,6 @@
 #include <hsisomap/gsl_util/matrix_util.h>
 #include <hsisomap/Logger.h>
 #include <hsisomap/util/VpTree.h>
-#include <unordered_set>
 #include <gsl/gsl_blas.h>
 #include <hsisomap/gsl_util/gsl_util.h>
 
@@ -20,10 +19,9 @@ Backbone::Backbone(const std::shared_ptr<const gsl::Matrix> data, const std::vec
 
   // Make a copy of sampling indices as a set to facilitate finding.
   for (Index i = 0; i < sampling_indices_.size(); ++i) {
-    sampling_indices_set_.insert(sampling_indices_[i]);
     sampling_indices_reverse_table_[sampling_indices_[i]] = i;
   }
-  if (sampling_indices_set_.size() != sampling_indices.size()) throw std::invalid_argument("No repeated sampling allowed.");
+  if (sampling_indices_reverse_table_.size() != sampling_indices.size()) throw std::invalid_argument("No repeated sampling allowed.");
 
 }
 
@@ -56,7 +54,7 @@ void Backbone::PrepareNNCache(Index neighborhood_size, PropertyList optional_set
     }
 
     // If it is found in the sampling indices set, ignore.
-    if (sampling_indices_set_.find(full_idx) != sampling_indices_set_.end()) continue;
+    if (sampling_indices_reverse_table_.find(full_idx) != sampling_indices_reverse_table_.end()) continue;
 
     // Otherwise, a non-backbone pixel is found.
     (*nn_cache_)(recon_idx, 0) = full_idx;
@@ -72,7 +70,7 @@ void Backbone::PrepareNNCache(Index neighborhood_size, PropertyList optional_set
       Index encountered_backbone_count = 0;
 
       for (auto result : results) {
-        if (sampling_indices_set_.find(result.index) != sampling_indices_set_.end()) {
+        if (sampling_indices_reverse_table_.find(result.index) != sampling_indices_reverse_table_.end()) {
           (*nn_cache_)(recon_idx, encountered_backbone_count + 1) = result.index;
           encountered_backbone_count++;
           if (encountered_backbone_count == neighborhood_size) break;
