@@ -2,7 +2,7 @@ set(HSISOMAP_HEADER_FILE_NAMES hsisomap HsiData.h Matrix.h typedefs.h Logger.h H
 set(HSISOMAP_HEADER_FILE_NAMES ${HSISOMAP_HEADER_FILE_NAMES} subsetter/Subsetter.h subsetter/SubsetterEmbedding.h)
 set(HSISOMAP_HEADER_FILE_NAMES ${HSISOMAP_HEADER_FILE_NAMES} gsl_util/embedding.h gsl_util/gsl_util.h gsl_util/matrix_util.h)
 set(HSISOMAP_HEADER_FILE_NAMES ${HSISOMAP_HEADER_FILE_NAMES} backbone/Backbone.h)
-set(HSISOMAP_HEADER_FILE_NAMES ${HSISOMAP_HEADER_FILE_NAMES} util/VpTree.h util/io_util.h)
+set(HSISOMAP_HEADER_FILE_NAMES ${HSISOMAP_HEADER_FILE_NAMES} util/VpTree.h util/io_util.h util/UnionFind.h)
 set(HSISOMAP_HEADER_FILE_NAMES ${HSISOMAP_HEADER_FILE_NAMES} manifold_constructor/ManifoldConstructor.h)
 set(HSISOMAP_HEADER_FILE_NAMES ${HSISOMAP_HEADER_FILE_NAMES} graph/AdjacencyList.h graph/BoostAdjacencyList.h graph/UndirectedWeightedGraph.h)
 set(HSISOMAP_HEADER_FILE_NAMES ${HSISOMAP_HEADER_FILE_NAMES} graph/dijkstra/BoostDijkstra.h graph/dijkstra/DijkstraCL.h graph/dijkstra/Dijkstra.h)

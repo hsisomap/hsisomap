@@ -9,6 +9,8 @@
 
 HSISOMAP_NAMESPACE_BEGIN
 
+Key KNNGRAPH_FIXED_K = "KNNGRAPH_FIXED_K";
+Key KNNGRAPH_FIXED_K_WITH_MST_EDGE_POOL_DEPTH = "KNNGRAPH_FIXED_K_WITH_MST_EDGE_POOL_DEPTH";
 
 class KNNGraph_FixedK_MST: public KNNGraph {
  public:
@@ -19,6 +21,7 @@ class KNNGraph_FixedK_MST: public KNNGraph {
  private:
   std::shared_ptr<gsl::Matrix> data_;
   std::shared_ptr<GraphUtils::UndirectedWeightedGraph> knngraph_;
+  PropertyList property_list_;
 };
 
 HSISOMAP_NAMESPACE_END
