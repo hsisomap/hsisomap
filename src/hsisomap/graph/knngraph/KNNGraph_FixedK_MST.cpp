@@ -12,8 +12,8 @@
 HSISOMAP_NAMESPACE_BEGIN
 
 struct UndirectedEdge {
-  Index index_a;
   Index index_b;
+  Index index_a;
   Scalar weight;
   UndirectedEdge(Index index_a, Index index_b, Scalar weight) : index_a(index_a), index_b(index_b), weight(weight) { }
 };

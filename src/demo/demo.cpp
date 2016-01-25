@@ -5,11 +5,11 @@
 #include <hsisomap/hsisomap>
 #include <hsisomap/util/io_util.h>
 
-int main(int argc, char *argv[]) {
+using namespace std;
+using namespace hsisomap;
+using namespace gsl;
 
-  using namespace std;
-  using namespace hsisomap;
-  using namespace gsl;
+void BackboneDemo() {
 
 //  HsiData hsi_data((string(argv[1])));
 //  vector<Index> backbone_indices = Read1DVectorFromTextFile<Index>(string(argv[2]));
@@ -21,11 +21,10 @@ int main(int argc, char *argv[]) {
   vector<Index> backbone_indices =
       Read1DVectorFromTextFile<Index>("/Users/can/Results/PaviaU/optimcomp/cpptests/mcorrect/backbone_sampled_index.txt");
 
-//  for_each(backbone_indices.begin(), backbone_indices.end(), [] (Index &i) { i--; });
+//  for_each(backbone_indices.begin(), backbone_indices.end(), [] (Index &i) { i--; }); // If loading from Octave representation (1-based)
 
   Backbone backbone(hsi_data.data(), backbone_indices);
   auto bb_data = backbone.sampled_data();
-
 
   backbone.PrepareNNCache(10,
                           PropertyList({{BACKBONE_NNCACHE_PRIMARY_SEARCH_RANGE, 99},
@@ -53,6 +52,18 @@ int main(int argc, char *argv[]) {
                                             nncache_loaded*/);
   HsiData reconstructed_image(reconstructed, hsi_data.lines(), hsi_data.samples(), reconstructed->cols());
   reconstructed_image.WriteImageFile("/Users/can/Results/PaviaU/optimcomp/cpptests/mcorrect/recon_nn5_newnncache");
+
+}
+
+void LandmarkListDemo() {
+  HsiData hsi_data("/Users/can/Results/candidate_scenes/ENVI Image Files/PaviaU");
+
+}
+
+int main(int argc, char *argv[]) {
+
+//  BackboneDemo();
+  LandmarkListDemo();
 
   return 0;
 }

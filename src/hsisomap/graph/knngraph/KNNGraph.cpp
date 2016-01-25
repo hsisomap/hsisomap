@@ -17,7 +17,6 @@ std::shared_ptr<KNNGraph> KNNGraphWithImplementation(KNNGraphImplementation knng
     case KNNGRAPH_IMPLEMENTATION_FIXED_K_WITH_MST:
       return std::dynamic_pointer_cast<KNNGraph>(std::make_shared<KNNGraph_FixedK_MST>(data, property_list));
   }
-  return std::shared_ptr<KNNGraph>();
 }
 
 HSISOMAP_NAMESPACE_END

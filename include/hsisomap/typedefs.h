@@ -6,8 +6,9 @@
 #define HSISOMAP_TYPEDEFS_H
 
 #include <stddef.h>
+#include <string>
 #include <unordered_map>
-
+#include <vector>
 
 #define HSISOMAP_NAMESPACE_BEGIN namespace hsisomap {
 #define HSISOMAP_NAMESPACE_END }
