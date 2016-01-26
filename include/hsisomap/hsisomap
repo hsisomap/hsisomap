@@ -11,5 +11,15 @@
 #include "Logger.h"
 #include "backbone/Backbone.h"
 #include "subsetter/Subsetter.h"
+#include "landmark/Landmark.h"
+#include "graph/knngraph/KNNGraph_FixedK_MST.h"
+#include "graph/dijkstra/DijkstraCL.h"
+#include "graph/dijkstra/BoostDijkstra.h"
+#include "util/io_util.h"
+#include "graph/knngraph/KNNGraph.h"
+#include "gsl_util/embedding.h"
+#include "gsl_util/matrix_util.h"
+#include "manifold_constructor/ManifoldConstructor.h"
+
 
 #endif //HSISOMAP_HSISOMAP

@@ -53,6 +53,10 @@ class DijkstraCL : public Dijkstra {
   //! maximum FLOPS.
   int Run();
 
+  //! Set the source vertices list.
+  //! \param sourceVertices the vector of source indices.
+  void SetSourceVertices(std::vector<Index> sourceVertices);
+
   //! Get the result array pointer.
   //! The result is a row-major linear storage of the distance matrix.
   std::shared_ptr<std::vector<cl_Scalar>> GetResultsArray();

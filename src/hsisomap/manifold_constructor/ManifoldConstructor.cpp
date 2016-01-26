@@ -9,7 +9,10 @@
 HSISOMAP_NAMESPACE_BEGIN
 
 
-std::shared_ptr<gsl::Matrix> ConstructManifold(const gsl::Matrix &landmark_to_all_distances, gsl::Matrix &landmark_distances, gsl::Embedding &landmark_cmds_embedding, Index reduced_dimensions) {
+std::shared_ptr<gsl::Matrix> ConstructManifold(const gsl::Matrix &landmark_to_all_distances,
+                                               const gsl::Matrix &landmark_distances,
+                                               const gsl::Embedding &landmark_cmds_embedding,
+                                               Index reduced_dimensions) {
 
   Index L = landmark_to_all_distances.rows();
   Index N = landmark_to_all_distances.cols();
@@ -17,8 +20,9 @@ std::shared_ptr<gsl::Matrix> ConstructManifold(const gsl::Matrix &landmark_to_al
   gsl::Matrix mean_sqrdist_lm(L, 1);
   for (Index l = 0; l < L; ++l) {
     Scalar mean = 0;
-    for (Index l2 = 0; l2 < L; ++l2) mean += landmark_distances(l, l2) * landmark_distances(l, l2); // get squared distance
-    mean /= static_cast<Scalar>(L);
+    for (Index l2 = 0; l2 < L; ++l2)
+      mean += landmark_distances(l, l2) * landmark_distances(l, l2); // get squared distance
+    mean /= static_cast<Scalar>(L) ;
     mean_sqrdist_lm(l, 0) = mean;
 //    for (Index n = 0; n < N; ++n)
   }
@@ -31,6 +35,7 @@ std::shared_ptr<gsl::Matrix> ConstructManifold(const gsl::Matrix &landmark_to_al
   }
 
   gsl::Matrix Delta(landmark_to_all_distances);
+  gsl_matrix_mul_elements(Delta.m_, Delta.m_); // need to use squared distances
   for (Index l = 0; l < L; ++l) {
     for (Index n = 0; n < N; ++n) {
       Delta(l, n) = mean_sqrdist_lm(l, 0) - Delta(l, n);
@@ -45,7 +50,5 @@ std::shared_ptr<gsl::Matrix> ConstructManifold(const gsl::Matrix &landmark_to_al
   return manifold;
 
 }
-
-
 
 HSISOMAP_NAMESPACE_END

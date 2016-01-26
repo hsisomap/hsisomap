@@ -19,6 +19,11 @@ void SortMatrixRows(Matrix &matrix);
 // The different with the Matrix::GetRows is that this function uses shared_ptr.
 std::shared_ptr<gsl::Matrix> GetRows(const std::shared_ptr<const gsl::Matrix> matrix_ptr, std::vector<Index> rows);
 
+// GetCols generates a new matrix with the columns of the original matrix specified.
+// The different with the Matrix::GetCols is that this function uses shared_ptr.
+std::shared_ptr<gsl::Matrix> GetCols(const std::shared_ptr<const gsl::Matrix> matrix_ptr, std::vector<Index> cols);
+
+
 Scalar RowVectorDistance(const Matrix &matrix, Index a, Index b);
 Scalar RowVectorDistanceSquare(const Matrix &matrix, Index a, Index b);
 Scalar RowVectorDistanceToRowVector(const Matrix &matrix_a, const Matrix &matrix_b, Index a = 0, Index b = 0);

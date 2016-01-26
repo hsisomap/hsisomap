@@ -18,6 +18,11 @@ namespace Dijkstra {
 class BoostDijkstra : public Dijkstra {
  public:
   BoostDijkstra(std::shared_ptr<GraphUtils::BoostAdjacencyList> graph);
+
+  //! Set the source vertices list.
+  //! \param sourceVertices the vector of source indices.
+  void SetSourceVertices(std::vector<Index> sourceVertices);
+
   int Run();
   std::shared_ptr<gsl::Matrix> GetDistanceMatrix();
  private:

@@ -83,6 +83,11 @@ int DijkstraCL::Run() {
   return static_cast<int>(lastErr_);
 }
 
+void DijkstraCL::SetSourceVertices(std::vector<Index> sourceVertices) {
+  sourceVertices_.resize(sourceVertices.size());
+  std::copy(sourceVertices.begin(), sourceVertices.end(), sourceVertices_.begin());
+}
+
 cl_int DijkstraCL::InitializeDevices() {
   // Find the first OpenCL Plaform
   cl_uint numPlatforms;

@@ -54,7 +54,7 @@ Embedding PCA(const Matrix &data, Index reduced_dimensions) {
   return result;
 }
 
-Embedding CMDS(const Matrix &distances, Index reduced_dimensions, bool solve_eigen_only) {
+Embedding CMDS(const Matrix &distances, Index reduced_dimensions, bool solve_eigen_only, EMBEDDING_EIGENDECOMPOSITION_ALGORITHM eigen_algorithm) {
   if (reduced_dimensions == 0) reduced_dimensions = distances.cols();
   if (distances.cols() != distances.rows()) throw std::invalid_argument("The distances matrix should be a square matrix and symmetry.");
   if (reduced_dimensions > distances.cols()) throw std::invalid_argument("Reduced dimensions should be less than or equal to the total dimensions.");
@@ -75,18 +75,23 @@ Embedding CMDS(const Matrix &distances, Index reduced_dimensions, bool solve_eig
   gsl_blas_dgemm(CblasNoTrans, CblasNoTrans, 1.0, intermediate.m_, H.m_, 0.0, G.m_);
   gsl_matrix_scale(G.m_, - 0.5);
 
-  LOGI("Start solving eigendecomposition.")
 
-  gsl_eigen_symmv_workspace *esw = gsl_eigen_symmv_alloc(n);
   result.vectors = std::make_shared<gsl::Matrix>(n, n);
   result.values = std::make_shared<gsl::Matrix>(1, n);
   gsl_vector * temp_values = gsl_vector_alloc(n);
 
-  gsl_eigen_symmv(G.m_, temp_values, result.vectors->m_, esw);
+  if (eigen_algorithm == EMBEDDING_EIGENDECOMPOSITION_ALGORITHM_JACOBI) {
+    LOGI("Start solving eigendecomposition using Jacobi SVD.")
+    gsl_linalg_SV_decomp_jacobi(G.m_, result.vectors->m_, temp_values);
+  } else if (eigen_algorithm == EMBEDDING_EIGENDECOMPOSITION_ALGORITHM_QR) {
+    LOGI("Start solving eigendecomposition using QR.")
+    gsl_eigen_symmv_workspace *esw = gsl_eigen_symmv_alloc(n);
+    gsl_eigen_symmv(G.m_, temp_values, result.vectors->m_, esw);
+    gsl_eigen_symmv_free(esw);
+  }
 
   gsl_matrix_set_row(result.values->m_, 0, temp_values);
 
-  gsl_eigen_symmv_free(esw);
   gsl_vector_free(temp_values);
 
   LOGI("Eigendecomposition finished.")
@@ -94,6 +99,10 @@ Embedding CMDS(const Matrix &distances, Index reduced_dimensions, bool solve_eig
   if (!solve_eigen_only) throw std::invalid_argument("Solve all not supported yet.");
 
   return result;
+}
+
+Embedding ISOMAP(const Matrix &data, Index reduced_dimensions) {
+  throw std::invalid_argument("To be implemented.");
 }
 
 } // namespace gsl

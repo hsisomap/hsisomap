@@ -14,7 +14,7 @@ HSISOMAP_NAMESPACE_BEGIN
 
 
 template <typename T>
-std::vector<T> Read1DVectorFromTextFile(std::string file_name) {
+inline std::vector<T> Read1DVectorFromTextFile(std::string file_name) {
   std::ifstream ifs(file_name);
   if (!ifs.is_open()) throw std::invalid_argument(std::string("Text file \"").append(file_name).append("\" does not exist."));
 

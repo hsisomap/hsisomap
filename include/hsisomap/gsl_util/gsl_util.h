@@ -24,7 +24,7 @@ namespace gsl {
 // gsl_util_pinv
 // Pseudo-inversion using Jacobi SVD
 //
-void gsl_util_pinv(const gsl_matrix *A_c, gsl_matrix *pinv) {
+inline void gsl_util_pinv(const gsl_matrix *A_c, gsl_matrix *pinv) {
 
   gsl_matrix *A = gsl_matrix_calloc(A_c->size1, A_c->size2);
   gsl_matrix_memcpy(A, A_c);
@@ -54,7 +54,7 @@ void gsl_util_pinv(const gsl_matrix *A_c, gsl_matrix *pinv) {
 // The data must be represented by a vector. Data1 and 2 must have the same size.
 // If the unbiased == 1, the mean is the unbiased estimated sample mean (the denominator is the number of samples minus 1).
 //
-double mean_of(const gsl_vector *data1,
+inline double mean_of(const gsl_vector *data1,
                const gsl_vector *data2,
                std::function<double(double, double)> pre_operation,
                int unbiased = 0) {
@@ -80,7 +80,7 @@ double mean_of(const gsl_vector *data1,
 // length equal to the second dimension of the matrix to be calculated.
 // The unbiased is 1 by default to calculate the unbiased estimated sample covariances
 //
-void gsl_util_covariance_matrix_loop(const gsl_matrix *data, gsl_matrix *covariance, int unbiased = 1) {
+inline void gsl_util_covariance_matrix_loop(const gsl_matrix *data, gsl_matrix *covariance, int unbiased = 1) {
 
   size_t dims = data->size2;
   if (covariance->size1 != covariance->size2 || covariance->size2 != dims) {
@@ -120,7 +120,7 @@ void gsl_util_covariance_matrix_loop(const gsl_matrix *data, gsl_matrix *covaria
 // The input data will become the centered data (data matrix minus mean vector).
 // The unbiased is 1 by default to calculate the unbiased estimated sample covariances
 //
-void gsl_util_covariance_matrix_intrusive(gsl_matrix *data, gsl_matrix *covariance, int unbiased = 1) {
+inline void gsl_util_covariance_matrix_intrusive(gsl_matrix *data, gsl_matrix *covariance, int unbiased = 1) {
 
   size_t dims = data->size2;
   size_t obs = data->size1;
@@ -151,7 +151,7 @@ void gsl_util_covariance_matrix_intrusive(gsl_matrix *data, gsl_matrix *covarian
 //
 const int GSL_UTIL_COVARIANCE_MATRIX_BIASED = 0;
 const int GSL_UTIL_COVARIANCE_MATRIX_UNBIASED = 1;
-void gsl_util_covariance_matrix(const gsl_matrix *data, gsl_matrix *covariance, int unbiased = 1, gsl_matrix *centered_data_return = NULL, gsl_vector *means_return = NULL) {
+inline void gsl_util_covariance_matrix(const gsl_matrix *data, gsl_matrix *covariance, int unbiased = 1, gsl_matrix *centered_data_return = NULL, gsl_vector *means_return = NULL) {
 
   size_t dims = data->size2;
   size_t obs = data->size1;

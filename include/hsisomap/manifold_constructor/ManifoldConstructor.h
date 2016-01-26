@@ -11,7 +11,7 @@
 
 HSISOMAP_NAMESPACE_BEGIN
 
-std::shared_ptr<gsl::Matrix> ConstructManifold(const gsl::Matrix &landmark_to_all_distances, gsl::Matrix &landmark_distances, gsl::Embedding &landmark_cmds_embedding, Index reduced_dimensions);
+std::shared_ptr<gsl::Matrix> ConstructManifold(const gsl::Matrix &landmark_to_all_distances, const gsl::Matrix &landmark_distances, const gsl::Embedding &landmark_cmds_embedding, Index reduced_dimensions);
 
 HSISOMAP_NAMESPACE_END
 

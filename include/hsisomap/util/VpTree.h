@@ -221,7 +221,7 @@ struct PixelView {
   PixelView(Index bands, Scalar *data, Index index) : bands(bands), data(data), index(index) { }
 };
 
-Scalar SquaredDistance(const PixelView& p1, const PixelView& p2) {
+inline Scalar SquaredDistance(const PixelView& p1, const PixelView& p2) {
   Scalar val = 0;
   for (size_t i = 0; i < p1.bands; ++i) {
     val += (p1.data[i] - p2.data[i]) * (p1.data[i] - p2.data[i]);
@@ -229,7 +229,7 @@ Scalar SquaredDistance(const PixelView& p1, const PixelView& p2) {
   return val;
 }
 
-std::vector<PixelView> CreatePixelViewsFromMatrix(const gsl::Matrix &matrix) {
+inline std::vector<PixelView> CreatePixelViewsFromMatrix(const gsl::Matrix &matrix) {
   Index pixels = matrix.rows();
   Index bands = matrix.cols();
   std::vector<PixelView> result(pixels, PixelView(bands, NULL, 0));

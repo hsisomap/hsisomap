@@ -57,6 +57,17 @@ std::shared_ptr<gsl::Matrix> GetRows(const std::shared_ptr<const gsl::Matrix> ma
   return result;
 }
 
+std::shared_ptr<gsl::Matrix> GetCols(const std::shared_ptr<const gsl::Matrix> matrix_ptr, std::vector<Index> cols) {
+
+  auto result = std::make_shared<gsl::Matrix>(matrix_ptr->rows(), cols.size());
+  for (Index r = 0; r < matrix_ptr->rows(); ++r) {
+    for (Index c = 0; c < cols.size(); ++c) {
+      gsl_matrix_set(result->m_, r, c, gsl_matrix_get(matrix_ptr->m_, r, cols[c]));
+    }
+  }
+  return result;
+}
+
 Scalar RowVectorDistance(const Matrix &matrix, Index a, Index b) {
   gsl_vector *va = gsl_vector_alloc(matrix.cols());
   gsl_matrix_get_row(va, matrix.m_, a);

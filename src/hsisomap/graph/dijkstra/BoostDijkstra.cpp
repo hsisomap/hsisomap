@@ -20,6 +20,10 @@ BoostDijkstra::BoostDijkstra(std::shared_ptr<GraphUtils::BoostAdjacencyList> adj
   std::iota(sourceVertices_.begin(), sourceVertices_.end(), 0);
 }
 
+void BoostDijkstra::SetSourceVertices(std::vector<Index> sourceVertices) {
+  sourceVertices_ = sourceVertices;
+}
+
 int BoostDijkstra::Run() {
   boost::graph_traits<BoostGraphData>::vertex_iterator vi;
   for (Index i = 0; i < sourceVertices_.size(); ++i) {

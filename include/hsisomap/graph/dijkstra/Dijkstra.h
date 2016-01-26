@@ -20,7 +20,7 @@ enum DijkstraImplementations {
 
 class Dijkstra {
  public:
-//  virtual void SetSourceVertices(std::vector<Index> sourceVertices) = 0;
+  virtual void SetSourceVertices(std::vector<Index> sourceVertices) = 0;
   virtual int Run() = 0;
   virtual std::shared_ptr<gsl::Matrix> GetDistanceMatrix() = 0;
 };
