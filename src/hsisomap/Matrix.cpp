@@ -143,6 +143,18 @@ void Matrix::Redimension(Index rows, Index cols) {
   }
 }
 
+void Matrix::Transpose() {
+  if (!m_) return;
+  gsl_matrix * m = gsl_matrix_alloc(m_->size2, m_->size1);
+  for (Index r = 0; r < m_->size1; ++r) {
+    for (Index c = 0; c < m_->size2; ++c) {
+      gsl_matrix_set(m, c, r, gsl_matrix_get(m_, r, c));
+    }
+  }
+  gsl_matrix_free(m_);
+  m_ = m;
+}
+
 Scalar Matrix::Get(Index row, Index col) const {
   return gsl_matrix_get(m_, row, col);
 }

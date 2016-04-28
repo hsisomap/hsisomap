@@ -130,6 +130,10 @@ class Matrix {
   //! \param cols number of columns of the new matrix.
   void Redimension(Index rows, Index cols);
 
+  //! Transpose the matrix.
+  //! Transpose the matrix.
+  void Transpose();
+
   //! Equality operator.
   //! Check the equality of the matrix by checking all corresponding elements.
   //! equality_limit will be used as the precision of the equality.

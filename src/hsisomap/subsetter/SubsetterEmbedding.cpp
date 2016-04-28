@@ -49,6 +49,7 @@ SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<gsl::Matrix> data,
     Divider = [](std::vector<Index> group, gsl::Matrix score) {
       std::pair<std::vector<Index>, std::vector<Index>> result;
       gsl::Matrix group_matrix(std::vector<std::vector<Index>>(1, group));
+      group_matrix.Transpose();
       gsl::SortMatrixRows(score, group_matrix);
       Index i;
       for (i = 0; i < group_matrix.cols() / 2; ++i) {
