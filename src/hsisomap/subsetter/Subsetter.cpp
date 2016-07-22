@@ -4,6 +4,7 @@
 
 #include <hsisomap/subsetter/Subsetter.h>
 #include <hsisomap/subsetter/SubsetterEmbedding.h>
+#include <hsisomap/subsetter/SubsetterRandomSkel.h>
 
 HSISOMAP_NAMESPACE_BEGIN
 
@@ -14,7 +15,8 @@ std::shared_ptr<hsisomap::Subsetter> SubsetterWithImplementation(SubsetterImplem
 
   switch (subsetter_implementation) {
     case SUBSETTER_IMPLEMENTATION_RANDOMSKEL:
-      throw std::invalid_argument("Subsetter Implementation RandomSkel not supported yet.");
+//      throw std::invalid_argument("Subsetter Implementation RandomSkel not supported yet.");
+      return std::dynamic_pointer_cast<Subsetter>(std::make_shared<SubsetterRandomSkel>(data, property_list));
     case SUBSETTER_IMPLEMENTATION_EMBEDDING:
       return std::dynamic_pointer_cast<Subsetter>(std::make_shared<SubsetterEmbedding>(data, property_list, optional_embedding));
   }

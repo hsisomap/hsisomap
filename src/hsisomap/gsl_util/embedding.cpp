@@ -7,6 +7,7 @@
 #include <gsl/gsl_eigen.h>
 #include <hsisomap/gsl_util/matrix_util.h>
 #include <hsisomap/Logger.h>
+#include <gsl/gsl_matrix.h>
 
 namespace gsl {
 
@@ -104,5 +105,131 @@ Embedding CMDS(const Matrix &distances, Index reduced_dimensions, bool solve_eig
 Embedding ISOMAP(const Matrix &data, Index reduced_dimensions) {
   throw std::invalid_argument("To be implemented.");
 }
+
+Embedding MNF(const Matrix &data, const Matrix &noise_covariance, Index reduced_dimensions) {
+
+  if (noise_covariance.cols() != noise_covariance.rows() || noise_covariance.rows() != data.cols()) {
+    throw std::invalid_argument("The rows and columns of noise covariance should both equal to the columns of the data.");
+  }
+  if (reduced_dimensions == 0) reduced_dimensions = data.cols();
+  if (reduced_dimensions > data.cols()) throw std::invalid_argument("Reduced dimensions should be less than or equal to the total dimensions.");
+
+
+  Matrix U1(noise_covariance);
+  Matrix V1(data.cols(), data.cols());
+
+  gsl_vector *S1v = gsl_vector_alloc(data.cols());
+
+  gsl_linalg_SV_decomp_jacobi(U1.m_, V1.m_, S1v);
+
+  Matrix wX(data.rows(), data.cols());
+  Matrix wXintermediate(data.cols(), data.cols());
+  Matrix invsqrtS1(data.cols(), data.cols());
+  for (Index i = 0; i < data.cols(); ++i) {
+    invsqrtS1(i, i) = 1.0 / sqrt(gsl_vector_get(S1v, i));
+  }
+  gsl_blas_dgemm(CblasNoTrans, CblasNoTrans, 1.0, U1.m_, invsqrtS1.m_, 0.0, wXintermediate.m_);
+  gsl_blas_dgemm(CblasNoTrans, CblasNoTrans, 1.0, data.m_, wXintermediate.m_, 0.0, wX.m_);
+  gsl_blas_dgemm(CblasTrans, CblasNoTrans, 1.0, wX.m_, wX.m_, 0.0, wXintermediate.m_);
+
+
+  Matrix V2(data.cols(), data.cols());
+  gsl_vector *S2v = gsl_vector_alloc(data.cols());
+  gsl_linalg_SV_decomp_jacobi(wXintermediate.m_, V2.m_, S2v);
+
+
+  Embedding result;
+  result.space = std::make_shared<gsl::Matrix>(data.rows(), reduced_dimensions);
+  result.vectors = std::make_shared<gsl::Matrix>(data.cols(), data.cols());
+  result.values = std::make_shared<gsl::Matrix>(1, data.cols());
+
+  Matrix intermediate2(data.cols(), data.cols());
+  gsl_blas_dgemm(CblasNoTrans, CblasNoTrans, 1.0, invsqrtS1.m_, V2.m_, 0.0, intermediate2.m_);
+  gsl_blas_dgemm(CblasNoTrans, CblasNoTrans, 1.0, U1.m_, intermediate2.m_, 0.0, result.vectors->m_);
+
+  gsl_matrix_const_view reduced_vectors = gsl_matrix_const_submatrix(result.vectors->m_, 0, 0, result.vectors->rows(), reduced_dimensions);
+
+  gsl_blas_dgemm(CblasNoTrans, CblasNoTrans, 1.0, data.m_, &reduced_vectors.matrix, 0.0, result.space->m_);
+
+
+  // TODO: assign eigenvalues and eigenvectors
+
+  gsl_vector_free(S1v);
+  gsl_vector_free(S2v);
+
+  return result;
+}
+
+std::shared_ptr<Matrix> NearestNeighborNoiseEstimation(const Matrix &data) {
+
+  Index d = data.cols();
+  Index n = data.rows();
+
+  std::shared_ptr<Matrix> result = std::make_shared<Matrix>(d, d);
+
+  Matrix noise_values(n, d);
+
+  auto l2_dist = L2Distance(data, data, true);
+
+  // Find the second smallest distance (first is 0, and should be forced, so it is smallest non-zero), so no need to fully sort the matrix
+  for (Index i = 0; i < n; ++i) {
+    Index smallest_non_zero_index = 0;
+    Scalar smallest_non_zero_value = (*l2_dist)(i, 0);
+    if (i == 0) {
+      smallest_non_zero_value = std::numeric_limits<Scalar>::max();
+    }
+    for (Index j = 1; j < n; ++j) {
+      if (j == i) continue;
+      if ((*l2_dist)(i, j) < smallest_non_zero_value) {
+        smallest_non_zero_index = j;
+        smallest_non_zero_value = (*l2_dist)(i, j);
+      }
+    }
+
+    for (Index k = 0; k < d; ++k) {
+      noise_values(i, k) = data(i, k) - data(smallest_non_zero_index, k);
+    }
+  }
+
+  gsl_blas_dgemm(CblasTrans, CblasNoTrans, 1.0, noise_values.m_, noise_values.m_, 0.0, result->m_);
+
+  return result;
+}
+
+
+std::shared_ptr<Matrix> L2Distance(const Matrix &data1, const Matrix &data2, bool force_zero_diagonal) {
+
+  if (data1.cols() != data2.cols()) {
+    throw std::invalid_argument("Data 1 and Data 2 shoud have same dimensionality (data matrices with same number of columns).");
+  }
+
+  // TODO: Consider vectorization and one dimension case
+  Index d = data1.cols();
+  Index n1 = data1.rows();
+  Index n2 = data2.rows();
+
+
+  std::shared_ptr<Matrix> result = std::make_shared<Matrix>(n1, n2);
+  for (Index i = 0; i < n1; ++i) {
+    for (Index j = 0; j < n2; ++j) {
+      // Force zero diagonal
+      if (force_zero_diagonal && i == j) {
+        (*result)(i, j) = 0;
+        continue;
+      }
+
+      Scalar sum = 0;
+      for (Index k = 0; k < d; ++k) {
+        sum += (data1(i, k) - data2(j, k)) * (data1(i, k) - data2(j, k));
+      }
+      (*result)(i, j) = sqrt(sum);
+    }
+  }
+
+
+
+  return result;
+}
+
 
 } // namespace gsl

@@ -31,6 +31,11 @@ KNNGraph_AdaptiveK_HIDENN::KNNGraph_AdaptiveK_HIDENN(std::shared_ptr<gsl::Matrix
     : data_(data), property_list_(property_list) {
 
   LOGI("Subsetting.")
+//  std::shared_ptr<Subsetter> subsetter = SubsetterWithImplementation(SUBSETTER_IMPLEMENTATION_RANDOMSKEL,
+//                                                                     data_,
+//                                                                     {
+//                                                                      {SUBSETTER_SUBSETS, property_list_[KNNGRAPH_ADAPTIVE_K_HIDENN_SUBSET_NUMBER]}});
+
   std::shared_ptr<Subsetter> subsetter = SubsetterWithImplementation(SUBSETTER_IMPLEMENTATION_EMBEDDING,
                                                                      data_,
                                                                      {{SUBSETTER_DEFAULT_EMBEDDING,
@@ -41,6 +46,22 @@ KNNGraph_AdaptiveK_HIDENN::KNNGraph_AdaptiveK_HIDENN(std::shared_ptr<gsl::Matrix
 
 
   auto subset_indexes = subsetter->subsets();
+
+  Index K1, K2;
+  if (subset_indexes.size() > 199) {
+    K1 = 2;
+    K2 = 1;
+    LOGI("K1 = 2, K2 = 1");
+  } else if (subset_indexes.size() > 74) {
+    K1 = 3;
+    K2 = 1;
+    LOGI("K1 = 3, K2 = 1");
+  } else {
+    K1 = 4;
+    K2 = 2;
+    LOGI("K1 = 4, K2 = 2");
+  }
+
 
   gsl::Matrix mean_intrinsic_dimensionality_log(subset_indexes.size(), 1);
 
@@ -54,12 +75,12 @@ KNNGraph_AdaptiveK_HIDENN::KNNGraph_AdaptiveK_HIDENN(std::shared_ptr<gsl::Matrix
     vptree.create(pixel_views);
 
     Scalar mean_intrinsic_dimensionality = 0;
-    Scalar log_k_kp = log(3.0 / 1.0);
+    Scalar log_k_kp = log(static_cast<Scalar>(K1) / static_cast<Scalar>(K2));
     for (Index i = 0; i < indexes_in_subset.size(); ++i) {
       std::vector<PixelView> results;
       std::vector<Scalar> distance_squares;
-      vptree.search(pixel_views[i], 3 + 1, &results, &distance_squares);
-      mean_intrinsic_dimensionality += 2 * log_k_kp / log(distance_squares[3] / distance_squares[1]);
+      vptree.search(pixel_views[i], K1 + 1, &results, &distance_squares);
+      mean_intrinsic_dimensionality += 2 * log_k_kp / log(distance_squares[K1] / distance_squares[K2]);
     }
     mean_intrinsic_dimensionality /= indexes_in_subset.size();
 

@@ -111,7 +111,7 @@ inline void gsl_util_covariance_matrix_loop(const gsl_matrix *data, gsl_matrix *
     }
   }
 
-  delete means;
+  delete[] means;
 }
 
 //
