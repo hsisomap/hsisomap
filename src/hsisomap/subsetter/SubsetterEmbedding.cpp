@@ -76,6 +76,8 @@ SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<gsl::Matrix> data,
       auto current_indices = current_groups[group];
       auto current_image_data = data_->GetRows(current_indices);
 
+      // TODO: Should the potential error be fixed when too many subsets and too few pixels?
+
       // Calculate embeddings using the designated embedding function, except
       // for the initial embedding, which might be specified from outside.
       std::shared_ptr<gsl::Matrix> embedding(nullptr);

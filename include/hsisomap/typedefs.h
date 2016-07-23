@@ -36,6 +36,9 @@ typedef double Scalar;
 typedef const Scalar kScalar;
 typedef const std::string Key;
 
+kScalar OPTION_DISABLE = 0.0;
+kScalar OPTION_ENABLE = 1.0;
+
 typedef std::unordered_map<std::string, std::string> StringPropertyList;
 typedef std::unordered_map<std::string, Scalar> PropertyList;
 

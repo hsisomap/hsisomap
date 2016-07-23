@@ -228,10 +228,7 @@ void example2() {
   LOGTIMESTAMP("Landmark List Demo Finished.")
 }
 
-
-int main() {
-
-//  example2();
+void mnf_example() {
 
   Matrix x({{ 82, 64, 96}, { 91, 10, 97}, { 13, 28, 16}, { 92, 55, 98} });
   auto noise_estimation = NearestNeighborNoiseEstimation(x);
@@ -239,5 +236,68 @@ int main() {
 
   cout << *mnf_embedding.space;
 
+}
+
+
+void mnf_subsetlm_synthetic() {
+
+  HsiData hsi_data("/Users/can/Results/tests/syn1");
+  std::shared_ptr<Subsetter> subsetter = SubsetterWithImplementation(SUBSETTER_IMPLEMENTATION_EMBEDDING,
+                                                                     hsi_data.data(),
+                                                                     {{SUBSETTER_DEFAULT_EMBEDDING,
+                                                                       SUBSETTER_DEFAULT_EMBEDDING_PCA},
+                                                                      {SUBSETTER_EMBEDDING_SLICING_MODE,
+                                                                       SUBSETTER_EMBEDDING_SLICING_MODE_FIRST_MEAN},
+                                                                      {SUBSETTER_SUBSETS, 4}});
+
+//  Matrix subset_idx(subsetter->subsets());
+//  cout << subset_idx << endl;
+  Index max_length = 0;
+  for (auto s : subsetter->subsets()) {
+    if (s.size() > max_length) max_length = s.size();
+  }
+  for (auto s : subsetter->subsets()) {
+    for (Index i = 0; i < max_length; ++i) {
+      if (i >= s.size()) {
+        cout << -1 << " ";
+      } else {
+        cout << s[i] << " ";
+      }
+    }
+    cout << endl;
+  }
+  cout << endl;
+
+
+//  auto landmarker = LandmarkWithImplementation(LANDMARK_IMPLEMENTATION_SUBSETS, hsi_data.data(),
+//                                               {{LANDMARK_COUNT,
+//                                                 16},
+//                                                {LANDMARK_SUBSETS_NOISE_MODEL,
+//                                                LANDMARK_SUBSETS_NOISE_MODEL_MNF},
+//                                                {LANDMARK_SUBSETS_PRESELECTION_NOISE_EXCLUSION_PERCENTAGE,
+//                                                 0.0},
+//                                               });
+
+  auto landmarker = LandmarkWithImplementation(LANDMARK_IMPLEMENTATION_SUBSETS, hsi_data.data(),
+                                               {{LANDMARK_COUNT,
+                                                 16},
+                                                {LANDMARK_SUBSETS_NOISE_MODEL,
+                                                 LANDMARK_SUBSETS_NOISE_MODEL_MNF},
+                                                {LANDMARK_SUBSETS_PRESELECTION_NOISE_EXCLUSION_PERCENTAGE,
+                                                 0.5},
+                                                {LANDMARK_SUBSETS_PRESELECTION_NOISE_EXCLUSION_NOISE_DIMENSIONS,
+                                                 1}
+                                               });
+  auto lms = landmarker->landmarks();
+
+  std::copy(lms.begin(), lms.end(), std::ostream_iterator<int>(cout, "\n"));
+
+
+}
+
+int main() {
+
+//  example2();
+  
 }
 

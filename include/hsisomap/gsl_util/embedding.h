@@ -29,6 +29,8 @@ Embedding CMDS(const Matrix &distances, Index reduced_dimensions = 0, bool solve
 
 Embedding ISOMAP(const Matrix &data, Index reduced_dimensions = 0);
 
+Embedding MNFWithNearestNeighborNoiseEstimation(const Matrix &data, Index reduced_dimensions = 0);
+
 Embedding MNF(const Matrix &data, const Matrix &noise_covariance, Index reduced_dimensions = 0);
 
 std::shared_ptr<Matrix> NearestNeighborNoiseEstimation(const Matrix &data);

@@ -106,6 +106,11 @@ Embedding ISOMAP(const Matrix &data, Index reduced_dimensions) {
   throw std::invalid_argument("To be implemented.");
 }
 
+Embedding MNFWithNearestNeighborNoiseEstimation(const Matrix &data, Index reduced_dimensions) {
+  auto noise_estimation = NearestNeighborNoiseEstimation(data);
+  return MNF(data, *noise_estimation, reduced_dimensions);
+}
+
 Embedding MNF(const Matrix &data, const Matrix &noise_covariance, Index reduced_dimensions) {
 
   if (noise_covariance.cols() != noise_covariance.rows() || noise_covariance.rows() != data.cols()) {
@@ -161,6 +166,8 @@ Embedding MNF(const Matrix &data, const Matrix &noise_covariance, Index reduced_
 }
 
 std::shared_ptr<Matrix> NearestNeighborNoiseEstimation(const Matrix &data) {
+
+  // TODO: Outlier exclusion
 
   Index d = data.cols();
   Index n = data.rows();

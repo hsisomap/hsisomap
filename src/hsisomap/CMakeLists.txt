@@ -7,7 +7,7 @@ set(HSISOMAP_HEADER_FILE_NAMES ${HSISOMAP_HEADER_FILE_NAMES} manifold_constructo
 set(HSISOMAP_HEADER_FILE_NAMES ${HSISOMAP_HEADER_FILE_NAMES} graph/AdjacencyList.h graph/BoostAdjacencyList.h graph/UndirectedWeightedGraph.h)
 set(HSISOMAP_HEADER_FILE_NAMES ${HSISOMAP_HEADER_FILE_NAMES} graph/dijkstra/BoostDijkstra.h graph/dijkstra/DijkstraCL.h graph/dijkstra/Dijkstra.h)
 set(HSISOMAP_HEADER_FILE_NAMES ${HSISOMAP_HEADER_FILE_NAMES} graph/knngraph/KNNGraph.h graph/knngraph/KNNGraph_FixedK_MST.h graph/knngraph/KNNGraph_AdaptiveK_HIDENN.h)
-set(HSISOMAP_HEADER_FILE_NAMES ${HSISOMAP_HEADER_FILE_NAMES} landmark/Landmark.h landmark/LandmarkList.h)
+set(HSISOMAP_HEADER_FILE_NAMES ${HSISOMAP_HEADER_FILE_NAMES} landmark/Landmark.h landmark/LandmarkList.h landmark/LandmarkSubsets.h)
 
 foreach (FILE ${HSISOMAP_HEADER_FILE_NAMES})
     list(APPEND HSISOMAP_HEADER_FILES "${HSISOMAP_INCLUDE_DIR}/hsisomap/${FILE}")
@@ -21,7 +21,7 @@ set(HSISOMAP_SOURCE_FILES ${HSISOMAP_SOURCE_FILES} manifold_constructor/Manifold
 set(HSISOMAP_SOURCE_FILES ${HSISOMAP_SOURCE_FILES} graph/AdjacencyList.cpp graph/BoostAdjacencyList.cpp)
 set(HSISOMAP_SOURCE_FILES ${HSISOMAP_SOURCE_FILES} graph/dijkstra/BoostDijkstra.cpp graph/dijkstra/DijkstraCL.cpp graph/dijkstra/Dijkstra.cpp)
 set(HSISOMAP_SOURCE_FILES ${HSISOMAP_SOURCE_FILES} graph/knngraph/KNNGraph.cpp graph/knngraph/KNNGraph_FixedK_MST.cpp graph/knngraph/KNNGraph_AdaptiveK_HIDENN.cpp)
-set(HSISOMAP_SOURCE_FILES ${HSISOMAP_SOURCE_FILES} landmark/Landmark.cpp)
+set(HSISOMAP_SOURCE_FILES ${HSISOMAP_SOURCE_FILES} landmark/Landmark.cpp landmark/LandmarkSubsets.cpp)
 
 
 find_package(OpenCL REQUIRED)
