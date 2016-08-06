@@ -15,6 +15,17 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/Release/bin)
 
 include_directories(${HSISOMAP_INCLUDE_DIR})
 
+
+# TEMPORARILY MOVE HERE
+find_package(OpenCL REQUIRED)
+include_directories(${OpenCL_INCLUDE_DIR})
+find_package(GSL REQUIRED)
+include_directories(${GSL_INCLUDE_DIR})
+find_package(Boost REQUIRED)
+include_directories(${Boost_INCLUDE_DIR})
+# TEMPORARILY MOVE HERE
+
+
 add_subdirectory(src/hsisomap)
 add_subdirectory(src/cli)
 add_subdirectory(src/demo)
