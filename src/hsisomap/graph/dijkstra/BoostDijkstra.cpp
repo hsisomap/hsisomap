@@ -15,16 +15,18 @@ typedef GraphUtils::BoostAdjacencyList::Vertex Vertex;
 BoostDijkstra::BoostDijkstra(std::shared_ptr<GraphUtils::BoostAdjacencyList> adjList)
     : graph_(adjList->GetBoostGraph()),
       numVertices_(graph_->numVertices),
-      sourceVertices_(graph_->numVertices, 0),
-      distanceMatrix_(new gsl::Matrix(graph_->numVertices, graph_->numVertices)) {
+      sourceVertices_(graph_->numVertices, 0) {
   std::iota(sourceVertices_.begin(), sourceVertices_.end(), 0);
 }
 
 void BoostDijkstra::SetSourceVertices(std::vector<Index> sourceVertices) {
-  sourceVertices_ = sourceVertices;
+  sourceVertices_.resize(sourceVertices.size());
+  std::copy(sourceVertices.begin(), sourceVertices.end(), sourceVertices_.begin());
 }
 
 int BoostDijkstra::Run() {
+  distanceMatrix_ = std::make_shared<gsl::Matrix>(sourceVertices_.size(), graph_->numVertices);
+
   boost::graph_traits<BoostGraphData>::vertex_iterator vi;
   for (Index i = 0; i < sourceVertices_.size(); ++i) {
     Vertex source = boost::vertex(sourceVertices_[i], graph_->graph);

@@ -168,13 +168,13 @@ KNNGraph_AdaptiveK_HIDENN::KNNGraph_AdaptiveK_HIDENN(std::shared_ptr<gsl::Matrix
     ofs << optim_ks_mat;
   }
 
-//  if (property_list_[KNNGRAPH_GRAPH_BACKEND] == KNNGRAPH_GRAPH_BACKEND_ADJACENCYLIST) {
+  if (property_list_[KNNGRAPH_GRAPH_BACKEND] == KNNGRAPH_GRAPH_BACKEND_ADJACENCYLIST) {
     knngraph_ = std::make_shared<GraphUtils::AdjacencyList>(data_->rows());
-//  } else if (property_list_[KNNGRAPH_GRAPH_BACKEND] == KNNGRAPH_GRAPH_BACKEND_BOOST) {
-//    knngraph_ = std::make_shared<GraphUtils::BoostAdjacencyList>(data_->rows());
-//  } else {
-//    throw std::invalid_argument("Invalid KNNGRAPH_GRAPH_BACKEND value.");
-//  }
+  } else if (property_list_[KNNGRAPH_GRAPH_BACKEND] == KNNGRAPH_GRAPH_BACKEND_BOOST) {
+    knngraph_ = std::make_shared<GraphUtils::BoostAdjacencyList>(data_->rows());
+  } else {
+    throw std::invalid_argument("Invalid KNNGRAPH_GRAPH_BACKEND value.");
+  }
 
   kIndex MST_EDGE_POOL_DEPTH = 120;
 
