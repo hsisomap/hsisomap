@@ -331,7 +331,7 @@ void paviau_mnf_landmark_tests() {
 //  }
 
   vector<Index> backbone_indices =
-      Read1DVectorFromTextFile<Index>("/private/var/tmp/Volatile/Archive/Results/PaviaU/full_cpp/backbone_sampled_index.txt");
+      Read1DVectorFromTextFile<Index>("/private/var/tmp/Volatile/Archive/remote/backbone_sampled_index.txt");
 
   LOGI("Backbone sampling.")
 
@@ -359,7 +359,7 @@ void paviau_mnf_landmark_tests() {
 //                                             PropertyList(),
 //                                             std::make_shared<std::vector<Index>>(
 //                                                 Read1DVectorFromTextFile<Index>(
-//                                                     "/private/var/tmp/Volatile/Archive/Results/Botswana/images/selected_landmarks_subsetmaxvar.txt")));
+//                                                     "/private/var/tmp/Volatile/Archive/Results/PaviaU/optimcomp/pcasubsetting_on_original/selected_landmarks.txt")));
 
   LOGI("Landmark Subset-MNF MAXVAR");
   auto landmark = LandmarkWithImplementation(LANDMARK_IMPLEMENTATION_SUBSETS, bb_data,
@@ -372,33 +372,37 @@ void paviau_mnf_landmark_tests() {
                                               {LANDMARK_SUBSETS_PRESELECTION_NOISE_EXCLUSION_NOISE_DIMENSIONS,
                                                1}
                                              });
-
-
-  auto landmark_data = landmark->landmark_data();
-
+//
+//
+//  auto landmark_data = landmark->landmark_data();
+//
   LOGI("Save landmark list to file.");
 
   {
-    std::ofstream ofs("/private/var/tmp/Volatile/Archive/Results/PaviaU/full_cpp/subsetmnf_maxvar_landmarks.txt");
-    std::copy(landmark->landmarks().begin(), landmark->landmarks().end(), std::ostream_iterator<int>(ofs, "\n"));
+    std::ofstream ofs("/private/var/tmp/Volatile/Archive/remote/local_subsetmnf_maxvar_landmarks_ak.txt");
+    std::copy(landmark->landmarks().begin(), landmark->landmarks().end(), std::ostream_iterator<int>(ofs, "\n")); // May result junk in gcc 5.3
+    std::cout << landmark->landmarks().size() << endl;
   }
 
-//  LOGI("Create kNN Graph.")
-//  auto knngraph = KNNGraphWithImplementation(KNNGRAPH_IMPLEMENTATION_ADAPTIVE_K_HIDENN,
-//                                             bb_data,
-//                                             PropertyList({{KNNGRAPH_ADAPTIVE_K_HIDENN_SUBSET_NUMBER, 100}}));
 
-  LOGI("Create kNN Graph. -- fixed k")
-  auto knngraph = KNNGraphWithImplementation(KNNGRAPH_IMPLEMENTATION_FIXED_K_WITH_MST,
+  LOGI("Create kNN Graph.")
+  auto knngraph = KNNGraphWithImplementation(KNNGRAPH_IMPLEMENTATION_ADAPTIVE_K_HIDENN,
                                              bb_data,
-                                             PropertyList({{KNNGRAPH_FIXED_K_NUMBER, 10}}));
+                                             PropertyList({{KNNGRAPH_ADAPTIVE_K_HIDENN_SUBSET_NUMBER, 100}, {KNNGRAPH_GRAPH_BACKEND, KNNGRAPH_GRAPH_BACKEND_BOOST}}));
+
+//  LOGI("Create kNN Graph. -- fixed k")
+//  auto knngraph = KNNGraphWithImplementation(KNNGRAPH_IMPLEMENTATION_FIXED_K_WITH_MST,
+//                                             bb_data,
+//                                             PropertyList({{KNNGRAPH_FIXED_K_NUMBER, 10},
+//                                                           {KNNGRAPH_GRAPH_BACKEND, KNNGRAPH_GRAPH_BACKEND_BOOST}}));
 
 
   auto graph = knngraph->knngraph();
 
   LOGI("Perform DijkstraCL from " << landmark->landmarks().size() << " landmarks to all the " << bb_data->rows()
                                   << " pixels.")
-  auto dijkstra = DijkstraWithImplementation(DIJKSTRA_IMPLEMENTATION_CL, graph);
+  auto dijkstra = DijkstraWithImplementation(DIJKSTRA_IMPLEMENTATION_BOOST, graph);
+//  auto dijkstra = DijkstraWithImplementation(DIJKSTRA_IMPLEMENTATION_CL, graph);
   dijkstra->SetSourceVertices(landmark->landmarks());
 
   dijkstra->Run();
@@ -419,7 +423,7 @@ void paviau_mnf_landmark_tests() {
                                     bb_data->cols());
 
   auto nncache_loaded = std::make_shared<gsl::Matrix>(hsi_data.data()->rows() - backbone.sampling_indices().size(), 11);
-  std::ifstream ifs("/private/var/tmp/Volatile/Archive/Results/PaviaU/full_cpp/backbone_nncache.txt");
+  std::ifstream ifs("/private/var/tmp/Volatile/Archive/remote/backbone_nncache.txt");
   ifs >> *nncache_loaded;
 
   auto reconstructed = backbone.Reconstruct(*manifold,
@@ -428,10 +432,10 @@ void paviau_mnf_landmark_tests() {
                                                           {BACKBONE_RECONSTRUCTION_NEIGHBORHOOD_FIXED_NUMBER, 5}}),
                                             nncache_loaded);
   HsiData reconstructed_image(reconstructed, hsi_data.lines(), hsi_data.samples(), reconstructed->cols());
-  reconstructed_image.WriteImageFile("/private/var/tmp/Volatile/Archive/Results/PaviaU/full_cpp/subsetmnf_maxvar/manifold_recon5");
+  reconstructed_image.WriteImageFile("/private/var/tmp/Volatile/Archive/remote/comp_boost_mselected_manifold_recon5_ak");
 
 
-  LOGTIMESTAMP("Landmark List Demo Finished.")
+  LOGTIMESTAMP("Landmark List Demo Finished.");
 
 }
 
