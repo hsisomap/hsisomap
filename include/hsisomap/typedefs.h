@@ -10,6 +10,12 @@
 #include <unordered_map>
 #include <vector>
 
+// Start G++ Compatible Lines
+#include <memory>
+#include <algorithm>
+// End G++ Compatible Lines
+ 
+ 
 #define HSISOMAP_NAMESPACE_BEGIN namespace hsisomap {
 #define HSISOMAP_NAMESPACE_END }
 

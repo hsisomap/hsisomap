@@ -41,7 +41,7 @@ template Matrix::Matrix(std::vector<std::vector<Index>>);
 template Matrix::Matrix(std::vector<std::vector<float>>);
 template Matrix::Matrix(std::vector<std::vector<long>>);
 template Matrix::Matrix(std::vector<std::vector<short>>);
-template Matrix::Matrix(std::vector<std::vector<unsigned long>>);
+// template Matrix::Matrix(std::vector<std::vector<unsigned long>>); // G++ Compatible Comment-out
 template Matrix::Matrix(std::vector<std::vector<unsigned short>>);
 template Matrix::Matrix(std::vector<std::vector<long long>>);
 template Matrix::Matrix(std::vector<std::vector<unsigned long long>>);

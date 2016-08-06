@@ -8,6 +8,11 @@
 #include <sstream>
 #include <fstream>
 
+// Start G++ Compatible Lines
+#include <memory>
+// End G++ Compatible Lines
+ 
+
 namespace hsisomap_logger {
 
 #define LOGFILE(file_path)                              \
