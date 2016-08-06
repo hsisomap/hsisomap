@@ -8,6 +8,7 @@
 #include <hsisomap/gsl_util/matrix_util.h>
 #include <hsisomap/Logger.h>
 #include <gsl/gsl_matrix.h>
+#include <gsl/gsl_vector.h>
 
 namespace gsl {
 
@@ -217,21 +218,72 @@ std::shared_ptr<Matrix> L2Distance(const Matrix &data1, const Matrix &data2, boo
 
 
   std::shared_ptr<Matrix> result = std::make_shared<Matrix>(n1, n2);
-  for (Index i = 0; i < n1; ++i) {
-    for (Index j = 0; j < n2; ++j) {
-      // Force zero diagonal
-      if (force_zero_diagonal && i == j) {
-        (*result)(i, j) = 0;
-        continue;
-      }
+//  for (Index i = 0; i < n1; ++i) {
+//    for (Index j = 0; j < n2; ++j) {
+//      // Force zero diagonal
+//      if (force_zero_diagonal && i == j) {
+//        (*result)(i, j) = 0;
+//        continue;
+//      }
+//
+//      Scalar sum = 0;
+//      for (Index k = 0; k < d; ++k) {
+//        sum += (data1(i, k) - data2(j, k)) * (data1(i, k) - data2(j, k));
+//      }
+//      (*result)(i, j) = sqrt(sum);
+//    }
+//  }
 
-      Scalar sum = 0;
-      for (Index k = 0; k < d; ++k) {
-        sum += (data1(i, k) - data2(j, k)) * (data1(i, k) - data2(j, k));
-      }
-      (*result)(i, j) = sqrt(sum);
+
+//  if (size(a,1) == 1)
+//    a = [a; zeros(1,size(a,2))];
+//  b = [b; zeros(1,size(b,2))];
+//  end
+
+//  gsl::Matrix aSquare(data1.rows(), data1.rows());
+//  gsl_blas_dgemm(CblasNoTrans, CblasTrans, 1.0, data1.m_, data1.m_, 0.0, aSquare.m_);
+//
+//  gsl::Matrix bSquare(data2.rows(), data2.rows());
+//  gsl_blas_dgemm(CblasNoTrans, CblasTrans, 1.0, data2.m_, data2.m_, 0.0, bSquare.m_);
+
+  gsl_vector *aSum = gsl_vector_alloc(data1.rows());
+  for (Index i = 0; i < data1.rows(); ++i) {
+    gsl_vector_view v = gsl_matrix_row(data1.m_, i);
+    double x = 0;
+    gsl_blas_ddot(&v.vector, &v.vector, &x);
+    gsl_vector_set(aSum, i, x);
+  }
+
+  gsl_vector *bSum = gsl_vector_alloc(data2.rows());
+  for (Index i = 0; i < data2.rows(); ++i) {
+    gsl_vector_view v = gsl_matrix_row(data2.m_, i);
+    double x = 0;
+    gsl_blas_ddot(&v.vector, &v.vector, &x);
+    gsl_vector_set(bSum, i, x);
+  }
+
+
+  gsl_blas_dgemm(CblasNoTrans, CblasTrans, -2.0, data1.m_, data2.m_, 0.0, result->m_);
+  for (Index i = 0; i < n1; ++i) {
+//    gsl_matrix_get(data1.m_, )
+    for (Index j = 0; j < n2; ++j) {
+      gsl_matrix_set(result->m_, i, j, sqrt(gsl_vector_get(aSum, i) + gsl_vector_get(bSum, j) + gsl_matrix_get(result->m_, i, j)));
     }
   }
+
+  gsl_vector_free(aSum);
+  gsl_vector_free(bSum);
+
+//      aa=sum(a.*a); bb=sum(b.*b); ab=a'*b;
+//  d = sqrt(repmat(aa',[1 size(bb,2)]) + repmat(bb,[size(aa,2) 1]) - 2*ab);
+//
+//      % make sure result is all real
+//  d = real(d);
+//
+//  % force 0 on the diagonal?
+//  if (df==1)
+//    d = d.*(1-eye(size(d)));
+//  end
 
 
 
