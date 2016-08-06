@@ -32,7 +32,7 @@ find_package(Boost REQUIRED)
 include_directories(${Boost_INCLUDE_DIR})
 
 add_library(hsisomap ${HSISOMAP_SOURCE_FILES})
-target_link_libraries(hsisomap ${OpenCL_LIBRARY} ${GSL_LIBRARY})
+target_link_libraries(hsisomap ${OpenCL_LIBRARY} ${GSL_LIBRARY} ${GSL_CBLAS_LIBRARY})
 target_compile_definitions(hsisomap PRIVATE $<$<CONFIG:Debug>:NLOGTERMCOLOR>) # no terminal color when log in debug mode
 target_compile_definitions(hsisomap PRIVATE TYPEDEFS_CL_INDEX=int TYPEDEFS_CL_SCALAR=float)
 
