@@ -30,6 +30,7 @@ const std::string MNF = "mnf";
 const std::string PRESELECTION_NOISE_EXCLUSION_PERCENTAGE = "preselection noise exclusion percentage";
 const std::string PRESELECTION_NOISE_EXCLUSION_NOISE_DIMENSION = "preselection noise exclusion noise dimension";
 const std::string LANDMARK_INDEX_OUTPUT_FILE = "landmark index output file";
+const std::string LANDMARK_SUBSET_INDEXES_OUTPUT_FILE = "landmark subset indexes output file";
 const std::string KNNGRAPH = "knngraph";
 const std::string ADAPTIVE_K_HIDENN = "adaptive k hidenn";
 const std::string SUBSET_COUNT = "subset count";

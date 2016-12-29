@@ -36,17 +36,17 @@ LandmarkSubsets::LandmarkSubsets(std::shared_ptr<gsl::Matrix> data, PropertyList
                                                                      {{SUBSETTER_DEFAULT_EMBEDDING,
                                                                        SUBSETTER_DEFAULT_EMBEDDING_PCA},
                                                                       {SUBSETTER_EMBEDDING_SLICING_MODE,
-                                                                       SUBSETTER_EMBEDDING_SLICING_MODE_FIRST_MEAN},
+                                                                       SUBSETTER_EMBEDDING_SLICING_MODE_FIRST_MEDIAN},
                                                                       {SUBSETTER_SUBSETS, subset_count}});
 
-  auto subset_indexes = subsetter->subsets();
+  subset_indexes_ = subsetter->subsets();
 
 
-  for (Index subset_number = 0; subset_number < subset_indexes.size(); ++subset_number) {
+  for (Index subset_number = 0; subset_number < subset_indexes_.size(); ++subset_number) {
 
-    auto indexes_in_subset = subset_indexes[subset_number];
+    auto indexes_in_subset = subset_indexes_[subset_number];
 //    LOGDEBUG("Subset " << subset_number);
-    LOGI("Subset " << subset_number << " / " << subset_indexes.size());
+    LOGI("Subset " << subset_number << " / " << subset_indexes_.size());
 
     auto subset_data = gsl::GetRows(data_, indexes_in_subset);
     auto subset_embedding = gsl::MNFWithNearestNeighborNoiseEstimation(*subset_data);
@@ -197,7 +197,7 @@ LandmarkSubsets::LandmarkSubsets(std::shared_ptr<gsl::Matrix> data, PropertyList
   }
 
   LOGDEBUG("Optionally sort the landmark list for output purposes.");
-  std::sort(landmarks_.begin(), landmarks_.end());
+//  std::sort(landmarks_.begin(), landmarks_.end());
 
 
 }

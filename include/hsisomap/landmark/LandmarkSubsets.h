@@ -15,10 +15,12 @@ class LandmarkSubsets: public Landmark {
   LandmarkSubsets(std::shared_ptr<gsl::Matrix> data, PropertyList property_list);
   const std::vector<Index> &landmarks() { return landmarks_; }
   std::shared_ptr<gsl::Matrix> landmark_data() { return gsl::GetRows(data_, landmarks_); }
+  const std::vector<std::vector<Index>> subset_indexes() { return subset_indexes_; };
  private:
   std::shared_ptr<gsl::Matrix> data_;
   std::vector<Index> landmarks_;
   PropertyList property_list_;
+  std::vector<std::vector<Index>> subset_indexes_;
 };
 
 HSISOMAP_NAMESPACE_END

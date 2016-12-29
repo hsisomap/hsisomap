@@ -7,6 +7,8 @@
 #include <cli/configuration_defs.h>
 #include <boost/filesystem.hpp>
 
+// Internal accesses for debug information output purposes
+#include <hsisomap/landmark/LandmarkSubsets.h>
 
 void tasking(const picojson::value &task_value) {
 
@@ -126,6 +128,20 @@ void tasking(const picojson::value &task_value) {
                                            {LANDMARK_SUBSETS_PRESELECTION_NOISE_EXCLUSION_NOISE_DIMENSIONS,
                                             landmark_subsets_preselection_noise_exclusion_noise_dimensions}
                                           });
+
+    // Save subset info if needed
+    if (landmark_config[CONFIG::LANDMARK_SUBSET_INDEXES_OUTPUT_FILE].to_str() != "") {
+      auto landmark_subset_indexes_output_file_path =
+          output_root_path / boost::filesystem::path(landmark_config[CONFIG::LANDMARK_SUBSET_INDEXES_OUTPUT_FILE].to_str());
+      LOGI("Save landmark subset indexes to file " << landmark_subset_indexes_output_file_path.string() << ".");
+      auto landmark_subset_ptr = std::dynamic_pointer_cast<LandmarkSubsets>(landmark);
+
+      {
+        std::ofstream ofs(landmark_subset_indexes_output_file_path.string());
+        auto landmark_subset_mat = gsl::Matrix(landmark_subset_ptr->subset_indexes());
+        ofs << landmark_subset_mat;
+      }
+    }
 
   }
 
@@ -270,20 +286,23 @@ void tasking(const picojson::value &task_value) {
   if (backbone_reconstruction_config[CONFIG::NEIGHBORHOOD_STRATEGY].to_str() == CONFIG::FIXED) {
     // Default, do nothing
   } else {
-    std::cerr << "Unexpected backbone reconstruction neighborhood strategy: " << backbone_reconstruction_config[CONFIG::NEIGHBORHOOD_STRATEGY] << "."
+    std::cerr << "Unexpected backbone reconstruction neighborhood strategy: "
+              << backbone_reconstruction_config[CONFIG::NEIGHBORHOOD_STRATEGY] << "."
               << std::endl;
     exit(3);
   }
 
   Scalar backbone_reconstruction_neighborhood_fixed_number = 0;
   if (backbone_reconstruction_config[CONFIG::NEIGHBORHOOD_SIZE].is<double>()) {
-    backbone_reconstruction_neighborhood_fixed_number = backbone_reconstruction_config[CONFIG::NEIGHBORHOOD_SIZE].get<double>();
+    backbone_reconstruction_neighborhood_fixed_number =
+        backbone_reconstruction_config[CONFIG::NEIGHBORHOOD_SIZE].get<double>();
   }
 
   auto reconstructed = backbone.Reconstruct(*manifold,
                                             PropertyList({{BACKBONE_RECONSTRUCTION_NEIGHBORHOOD_STRATEGY,
                                                            backbone_reconstruction_neighborhood_strategy},
-                                                          {BACKBONE_RECONSTRUCTION_NEIGHBORHOOD_FIXED_NUMBER, backbone_reconstruction_neighborhood_fixed_number}}),
+                                                          {BACKBONE_RECONSTRUCTION_NEIGHBORHOOD_FIXED_NUMBER,
+                                                           backbone_reconstruction_neighborhood_fixed_number}}),
                                             nncache_loaded);
 
   LOGI("Save image...");
