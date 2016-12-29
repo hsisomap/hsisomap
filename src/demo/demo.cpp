@@ -378,7 +378,7 @@ void paviau_mnf_landmark_tests() {
   LOGI("Save landmark list to file.");
 
   {
-    std::ofstream ofs("/private/var/tmp/Volatile/Archive/remote/local_subsetmnf_maxvar_landmarks_ak.txt");
+    std::ofstream ofs("/Volatile/playground/PaviaU/local_subsetmnf_maxvar_landmarks_ak.txt");
     std::copy(landmark->landmarks().begin(), landmark->landmarks().end(), std::ostream_iterator<Index>(ofs, "\n"));
     std::cout << landmark->landmarks().size() << endl;
   }

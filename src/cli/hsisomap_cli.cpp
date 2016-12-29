@@ -148,13 +148,13 @@ void tasking(const picojson::value &task_value) {
                 std::ostream_iterator<Index>(ofs, "\n"));
     }
   }
-exit(0);
+
   // kNN Graph Processing
   if (!task[CONFIG::KNNGRAPH].is<picojson::object>()) {
     std::cerr << "Unexpected configuration structure error." << std::endl;
     exit(2);
   }
-  auto knngraph_config = task[CONFIG::LANDMARK].get<picojson::object>();
+  auto knngraph_config = task[CONFIG::KNNGRAPH].get<picojson::object>();
 
   std::shared_ptr<KNNGraph> knngraph;
 
