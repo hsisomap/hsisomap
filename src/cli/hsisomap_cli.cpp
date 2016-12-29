@@ -137,9 +137,16 @@ void tasking(const picojson::value &task_value) {
       auto landmark_subset_ptr = std::dynamic_pointer_cast<LandmarkSubsets>(landmark);
 
       {
+        // Note that the subset_indexes is an array of non-equal length arrays. Therefore do not display through a gsl::Matrix.
         std::ofstream ofs(landmark_subset_indexes_output_file_path.string());
-        auto landmark_subset_mat = gsl::Matrix(landmark_subset_ptr->subset_indexes());
-        ofs << landmark_subset_mat;
+        auto subset_indexes = landmark_subset_ptr->subset_indexes();
+        for (auto group : subset_indexes) {
+          for (auto index : group) {
+            ofs << index << " ";
+          }
+          ofs << std::endl;
+        }
+
       }
     }
 

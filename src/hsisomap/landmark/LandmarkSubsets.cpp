@@ -36,7 +36,7 @@ LandmarkSubsets::LandmarkSubsets(std::shared_ptr<gsl::Matrix> data, PropertyList
                                                                      {{SUBSETTER_DEFAULT_EMBEDDING,
                                                                        SUBSETTER_DEFAULT_EMBEDDING_PCA},
                                                                       {SUBSETTER_EMBEDDING_SLICING_MODE,
-                                                                       SUBSETTER_EMBEDDING_SLICING_MODE_FIRST_MEDIAN},
+                                                                       SUBSETTER_EMBEDDING_SLICING_MODE_FIRST_MEAN},
                                                                       {SUBSETTER_SUBSETS, subset_count}});
 
   subset_indexes_ = subsetter->subsets();
