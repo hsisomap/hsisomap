@@ -143,7 +143,6 @@ LandmarkSubsets::LandmarkSubsets(std::shared_ptr<gsl::Matrix> data, PropertyList
           --pi;
         } while (subset_landmarks.find(selected_global_index_max) != subset_landmarks.end());
 
-        if (selected_global_index_max > 300000) gsl_matrix_get(0,0,0);
         subset_landmarks.insert(selected_global_index_max);
 
 
@@ -159,7 +158,6 @@ LandmarkSubsets::LandmarkSubsets(std::shared_ptr<gsl::Matrix> data, PropertyList
 
     // Add to global landmark set
     for (const auto s : subset_landmarks) {
-      if (s > 300000) gsl_matrix_get(0,0,0);
       landmarks_.push_back(s);
     }
 
@@ -192,7 +190,6 @@ LandmarkSubsets::LandmarkSubsets(std::shared_ptr<gsl::Matrix> data, PropertyList
     std::shuffle(left_indexes_vector.begin(), left_indexes_vector.end(), g);
 
     for (Index i = 0; i < property_list_[LANDMARK_COUNT] - landmarks_.size(); ++i) {
-      if (left_indexes_vector[i] > 200000) gsl_matrix_get(0,0,0);
       landmarks_.push_back(left_indexes_vector[i]);
     }
     LOGDEBUG("Added random landmarks to meet the requirement.");
