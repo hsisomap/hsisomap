@@ -46,6 +46,23 @@ void SortMatrixRows(Matrix &matrix) {
   SortMatrixRows(matrix, pseudo, true);
 }
 
+void SortMatrixCols(Matrix &matrix, Matrix &also_arrange, bool do_not_also_arrange) {
+  for (Index c = 0; c < matrix.cols(); ++c) {
+    gsl_vector_view col_view = gsl_matrix_column(matrix.m_, c);
+    if (do_not_also_arrange) {
+      gsl_sort_vector(&col_view.vector);
+    } else {
+      gsl_vector_view col_view_also_arrange = gsl_matrix_column(also_arrange.m_, c);
+      gsl_sort_vector2(&col_view.vector, &col_view_also_arrange.vector);
+    }
+  }
+}
+
+void SortMatrixCols(Matrix &matrix) {
+  Matrix pseudo(1, 1);
+  SortMatrixCols(matrix, pseudo, true);
+}
+
 std::shared_ptr<gsl::Matrix> GetRows(const std::shared_ptr<const gsl::Matrix> matrix_ptr, std::vector<Index> rows) {
 
   auto result = std::make_shared<gsl::Matrix>(rows.size(), matrix_ptr->cols());

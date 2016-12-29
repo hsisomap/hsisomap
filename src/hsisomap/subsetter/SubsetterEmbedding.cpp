@@ -50,13 +50,13 @@ SubsetterEmbedding::SubsetterEmbedding(std::shared_ptr<gsl::Matrix> data,
       std::pair<std::vector<Index>, std::vector<Index>> result;
       gsl::Matrix group_matrix(std::vector<std::vector<Index>>(1, group));
       group_matrix.Transpose();
-      gsl::SortMatrixRows(score, group_matrix);
+      gsl::SortMatrixCols(score, group_matrix);
       Index i;
-      for (i = 0; i < group_matrix.cols() / 2; ++i) {
-        result.first.push_back(group[i]);
+      for (i = 0; i < group_matrix.rows() / 2; ++i) {
+        result.first.push_back(static_cast<Index>(group_matrix(i, 0)));
       }
-      for (; i < group_matrix.cols(); ++i) {
-        result.second.push_back(group[i]);
+      for (; i < group_matrix.rows(); ++i) {
+        result.second.push_back(static_cast<Index>(group_matrix(i, 0)));
       }
       return result;
     };
