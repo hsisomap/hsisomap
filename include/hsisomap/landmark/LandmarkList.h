@@ -14,7 +14,7 @@ class LandmarkList: public Landmark {
  public:
   LandmarkList(std::shared_ptr<gsl::Matrix> data, PropertyList property_list, std::vector<Index> landmark_list)
       : data_(data), property_list_(property_list), landmarks_(landmark_list) { }
-  std::vector<Index> landmarks() { return landmarks_; }
+  const std::vector<Index> &landmarks() { return landmarks_; }
   std::shared_ptr<gsl::Matrix> landmark_data() { return gsl::GetRows(data_, landmarks_); }
  private:
   std::shared_ptr<gsl::Matrix> data_;

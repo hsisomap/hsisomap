@@ -30,7 +30,7 @@ Key LANDMARK_SUBSETS_PRESELECTION_SUBSET_RANDOM_SKELETONIZATION_LIMIT_K = "LANDM
 
 class Landmark {
  public:
-  virtual std::vector<Index> landmarks() = 0;
+  virtual const std::vector<Index> &landmarks() = 0;
   virtual std::shared_ptr<gsl::Matrix> landmark_data() = 0;
 };
 
