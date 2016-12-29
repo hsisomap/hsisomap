@@ -305,7 +305,7 @@ void paviau_mnf_landmark_tests() {
 
   LOGI("Load image.")
 
-  HsiData hsi_data("/private/var/tmp/Volatile/Archive/Results/candidate_scenes/ENVI Image Files/PaviaU");
+  HsiData hsi_data("/Volatile/hsi/PaviaU");
 
   LOGI(hsi_data.lines());
   LOGI(hsi_data.samples());
@@ -313,45 +313,44 @@ void paviau_mnf_landmark_tests() {
 
   Index pixel_count = hsi_data.lines() * hsi_data.samples();
 
-//  // Run once to generate backbones
-//  // A random list of samples
-//  std::vector<Index> backbone_indices(pixel_count);
-//  std::iota(backbone_indices.begin(), backbone_indices.end(), 0); // Backbone indices start from 0
-//
-//  std::random_device rd;
-//  std::mt19937 g(rd());
-//
-//  std::shuffle(backbone_indices.begin(), backbone_indices.end(), g);
-//
-//  backbone_indices.resize(100000);
-//  std::sort(backbone_indices.begin(), backbone_indices.end());
-//  {
-//    ofstream ofs("/private/var/tmp/Volatile/Archive/Results/PaviaU/full_cpp/backbone_sampled_index.txt");
-//    std::copy(backbone_indices.begin(), backbone_indices.end(), std::ostream_iterator<int>(ofs, "\n"));
-//  }
+  // Run once to generate backbones
+  // A random list of samples
+  std::vector<Index> backbone_indices(pixel_count);
+  std::iota(backbone_indices.begin(), backbone_indices.end(), 0); // Backbone indices start from 0
 
-  vector<Index> backbone_indices =
-      Read1DVectorFromTextFile<Index>("/private/var/tmp/Volatile/Archive/remote/backbone_sampled_index.txt");
+  std::random_device rd;
+  std::mt19937 g(rd());
+
+  std::shuffle(backbone_indices.begin(), backbone_indices.end(), g);
+
+  backbone_indices.resize(100000);
+  std::sort(backbone_indices.begin(), backbone_indices.end());
+  {
+    ofstream ofs("/Volatile/playground/PaviaU/backbone_sampled_index.txt");
+    std::copy(backbone_indices.begin(), backbone_indices.end(), std::ostream_iterator<int>(ofs, "\n"));
+  }
+
+//  vector<Index> backbone_indices =
+//      Read1DVectorFromTextFile<Index>("/Volatile/playground/PaviaU/backbone_sampled_index.txt");
 
   LOGI("Backbone sampling.")
 
   Backbone backbone(hsi_data.data(), backbone_indices);
   auto bb_data = backbone.sampled_data();
 
-  // Save to backbone image for other use
-//  HsiData bb_image(bb_data, 1, bb_data->rows(), bb_data->cols());
-//  bb_image.WriteImageFile("Botswana_backbone");
+//   Save to backbone image for other use
+  HsiData bb_image(bb_data, 1, bb_data->rows(), bb_data->cols());
+  bb_image.WriteImageFile("Botswana_backbone");
 
 // Run once to save nn-cache
-//  backbone.PrepareNNCache(10,
-//                          PropertyList({{BACKBONE_NNCACHE_PRIMARY_SEARCH_RANGE, 100},
-//                                        {BACKBONE_NNCACHE_SECONDARY_SEARCH_RANGE, 200}}));
-//
-//  {
-//    std::ofstream ofs("/private/var/tmp/Volatile/Archive/Results/PaviaU/full_cpp/backbone_nncache.txt");
-//    ofs << *backbone.nn_cache();
-//  }
+  backbone.PrepareNNCache(10,
+                          PropertyList({{BACKBONE_NNCACHE_PRIMARY_SEARCH_RANGE, 100},
+                                        {BACKBONE_NNCACHE_SECONDARY_SEARCH_RANGE, 200}}));
 
+  {
+    std::ofstream ofs("/Volatile/playground/PaviaU/backbone_nncache.txt");
+    ofs << *backbone.nn_cache();
+  }
 
 //  LOGI("Load Landmarks from file.")
 //  auto landmark = LandmarkWithImplementation(LANDMARK_IMPLEMENTATION_LIST,
@@ -380,7 +379,7 @@ void paviau_mnf_landmark_tests() {
 
   {
     std::ofstream ofs("/private/var/tmp/Volatile/Archive/remote/local_subsetmnf_maxvar_landmarks_ak.txt");
-    std::copy(landmark->landmarks().begin(), landmark->landmarks().end(), std::ostream_iterator<int>(ofs, "\n")); // May result junk in gcc 5.3
+    std::copy(landmark->landmarks().begin(), landmark->landmarks().end(), std::ostream_iterator<Index>(ofs, "\n"));
     std::cout << landmark->landmarks().size() << endl;
   }
 
@@ -388,7 +387,7 @@ void paviau_mnf_landmark_tests() {
   LOGI("Create kNN Graph.")
   auto knngraph = KNNGraphWithImplementation(KNNGRAPH_IMPLEMENTATION_ADAPTIVE_K_HIDENN,
                                              bb_data,
-                                             PropertyList({{KNNGRAPH_ADAPTIVE_K_HIDENN_SUBSET_NUMBER, 100}, {KNNGRAPH_GRAPH_BACKEND, KNNGRAPH_GRAPH_BACKEND_BOOST}}));
+                                             PropertyList({{KNNGRAPH_ADAPTIVE_K_HIDENN_SUBSET_NUMBER, 100}, {KNNGRAPH_GRAPH_BACKEND, KNNGRAPH_GRAPH_BACKEND_ADJACENCYLIST}}));
 
 //  LOGI("Create kNN Graph. -- fixed k")
 //  auto knngraph = KNNGraphWithImplementation(KNNGRAPH_IMPLEMENTATION_FIXED_K_WITH_MST,
@@ -401,8 +400,8 @@ void paviau_mnf_landmark_tests() {
 
   LOGI("Perform DijkstraCL from " << landmark->landmarks().size() << " landmarks to all the " << bb_data->rows()
                                   << " pixels.")
-  auto dijkstra = DijkstraWithImplementation(DIJKSTRA_IMPLEMENTATION_BOOST, graph);
-//  auto dijkstra = DijkstraWithImplementation(DIJKSTRA_IMPLEMENTATION_CL, graph);
+//  auto dijkstra = DijkstraWithImplementation(DIJKSTRA_IMPLEMENTATION_BOOST, graph);
+  auto dijkstra = DijkstraWithImplementation(DIJKSTRA_IMPLEMENTATION_CL, graph);
   dijkstra->SetSourceVertices(landmark->landmarks());
 
   dijkstra->Run();
@@ -423,7 +422,7 @@ void paviau_mnf_landmark_tests() {
                                     bb_data->cols());
 
   auto nncache_loaded = std::make_shared<gsl::Matrix>(hsi_data.data()->rows() - backbone.sampling_indices().size(), 11);
-  std::ifstream ifs("/private/var/tmp/Volatile/Archive/remote/backbone_nncache.txt");
+  std::ifstream ifs("/Volatile/playground/PaviaU/backbone_nncache.txt");
   ifs >> *nncache_loaded;
 
   auto reconstructed = backbone.Reconstruct(*manifold,
@@ -432,7 +431,7 @@ void paviau_mnf_landmark_tests() {
                                                           {BACKBONE_RECONSTRUCTION_NEIGHBORHOOD_FIXED_NUMBER, 5}}),
                                             nncache_loaded);
   HsiData reconstructed_image(reconstructed, hsi_data.lines(), hsi_data.samples(), reconstructed->cols());
-  reconstructed_image.WriteImageFile("/private/var/tmp/Volatile/Archive/remote/comp_boost_mselected_manifold_recon5_ak");
+  reconstructed_image.WriteImageFile("/Volatile/playground/PaviaU/manifold_recon5_ak");
 
 
   LOGTIMESTAMP("Landmark List Demo Finished.");

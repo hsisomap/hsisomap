@@ -33,7 +33,8 @@ hsisomap_logger::Logger::LogSimple(static_cast<std::ostringstream&>(     \
 );
 
 #define LOGTIMESTAMP(message)                           \
-hsisomap_logger::Logger::Log(message,                                    \
+hsisomap_logger::Logger::Log(static_cast<std::ostringstream&>(           \
+  std::ostringstream().flush() << message).str(),                                    \
   true, true, "[%Y-%m-%d %X %Z]",                       \
   false, true, "", "", "", "", 0                       \
 );
