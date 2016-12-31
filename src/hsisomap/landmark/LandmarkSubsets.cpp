@@ -127,7 +127,8 @@ LandmarkSubsets::LandmarkSubsets(std::shared_ptr<gsl::Matrix> data, PropertyList
           if (pi == p->size) {
             throw std::invalid_argument("The subset has not enough major variation. Try adjusting parameters.");
           }
-          selected_global_index_min = p->data[pi];
+          Index min_row_new = p->data[pi];
+          selected_global_index_min = indexes_in_subset[indexes[min_row_new]];
           ++pi;
         } while (subset_landmarks.find(selected_global_index_min) != subset_landmarks.end());
 
@@ -139,7 +140,8 @@ LandmarkSubsets::LandmarkSubsets(std::shared_ptr<gsl::Matrix> data, PropertyList
           if (pi == -1) {
             throw std::invalid_argument("The subset has not enough major variation. Try adjusting parameters.");
           }
-          selected_global_index_max = p->data[pi];
+          Index max_row_new = p->data[pi];
+          selected_global_index_max = indexes_in_subset[indexes[max_row_new]];
           --pi;
         } while (subset_landmarks.find(selected_global_index_max) != subset_landmarks.end());
 
