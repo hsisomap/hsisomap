@@ -139,7 +139,7 @@ doxygen
 
 The generated HTML and LaTeX documentation are in `doc/html` and `doc/latex` respectively. For HTML documentation, locate `index.html` for the home page. 
 
-#### Build Using IDE
+#### Build Using IDEs
 
 The easiest way to build / debug / develop using the project is to use an IDE (Integrated Development Environment). The recommended IDE is [CLion](https://www.jetbrains.com/clion/). It can open the project directly and compile without configuration. Just open the project by importing the project root folder. 
 
