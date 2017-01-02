@@ -156,7 +156,7 @@ This section specifies the usage of the commandline tool. For GUI tool, navigate
 The commandline tool only requires one arguments: the configuration file path. 
 
 ```bash
-$ hsisomap /path/to/configuration/file.json
+$ ./hsisomap_cli /path/to/configuration/file.json
 ```
 
 The configuration file is standard JSON file that is a nested key-values and arrays. We don't use commandline arguments to set parameters directly since there are so many combinations and permutations of parameters and a configuration is the best way to set them. The key-values are human-readable so it is very easy to read, create, or edit. We do recommend use the GUI tool to facilitate this process and prevent misspelling. Note that the extension can be any name but we recommend the use of `.txt` or `.json` so that you can quickly open it using your default editors. 
