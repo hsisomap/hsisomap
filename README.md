@@ -65,7 +65,7 @@ The dependencies to compile `libhsisomap`, `hsisomap_cli` and `demo` includes (t
 - Boost `1.57.0`
 - OpenCL `2.0`
 
-The dependency to compile `hsisomap_cli` is:
+The dependency to compile `hsisomap_gui` is:
 
 - Qt 5 `5.7.1`
 
@@ -90,9 +90,9 @@ The compiler and `OpenCL.framework` are automatically installed by Xcode, which 
 
 The easiest way to install dependencies on macOS is [homebrew](http://brew.sh). The link contains the instruction to install homebrew. After install homebrew, type the following commands in Terminal: 
 
-```bash
-brew install gsl boost cmake qt5 doxygen
-```
+    ```bash
+    brew install gsl boost cmake qt5 doxygen
+    ```
 
 `qt5` or `doxygen` parameter can be removed from the command if you do not need to compile GUI tool or generate HTML documentation locally. 
 
