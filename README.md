@@ -6,24 +6,23 @@
 
 **Table of Contents**
 
-- [hsisomap](#hsisomap)
-  - [Introduction](#introduction)
-  - [Architecture](#architecture)
-    - [Components](#components)
-    - [Modules](#modules)
-  - [Installation](#installation)
-    - [Compiler and Dependencies](#compiler-and-dependencies)
-      - [macOS](#macos)
-      - [Linux](#linux)
-      - [Windows](#windows)
-    - [Build](#build)
-      - [Build All Targets](#build-all-targets)
-      - [Generate Documentation (Optional)](#generate-documentation-optional)
-      - [Build Using IDE](#build-using-ide)
-  - [Usage](#usage)
-  - [Examples](#examples)
-  - [Documentation](#documentation)
-  - [License and Citation](#license-and-citation)
+- [Introduction](#introduction)
+- [Architecture](#architecture)
+  - [Components](#components)
+  - [Modules](#modules)
+- [Installation](#installation)
+  - [Compiler and Dependencies](#compiler-and-dependencies)
+    - [macOS](#macos)
+    - [Linux](#linux)
+    - [Windows](#windows)
+  - [Build](#build)
+    - [Build All Targets](#build-all-targets)
+    - [Generate Documentation (Optional)](#generate-documentation-optional)
+    - [Build Using IDE](#build-using-ide)
+- [Usage](#usage)
+- [Examples](#examples)
+- [Documentation](#documentation)
+- [License and Citation](#license-and-citation)
 
 ## Introduction
 
@@ -34,6 +33,8 @@ At the same time, the project can be used as a general-purpose dimensionality re
 These general-purpose modules can be called as static library or used as source code. The commandline and GUI tool can also be used for general-purpose dimensionality reduction for data not limiting to hyperspectral imagery. The commandline tool implements a JSON based human-readable configuration. The GUI tool can be used to facilitate the configuration file generation and task execution. 
 
 ## Architecture
+
+This section contains a brief description of the components of the project, and the modules of the hsisomap library, as well as some design goals. 
 
 ### Components
 
@@ -153,10 +154,10 @@ Other IDEs that supports CMake should also work well but not tested.
 
 This section specifies the usage of the commandline tool. For GUI tool, navigate to the GUI tool README. This is for people who want to use the program as a tool in their high-dimensional data analysis workflow. 
 
-The commandline tool only requires one arguments: the configuration file path. 
+The commandline tool only requires one arguments: the configuration file path. In Terminal: 
 
 ```bash
-$ ./hsisomap_cli /path/to/configuration/file.json
+./hsisomap_cli /path/to/configuration/file.json
 ```
 
 The configuration file is standard JSON file that is a nested key-values and arrays. We don't use commandline arguments to set parameters directly since there are so many combinations and permutations of parameters and a configuration is the best way to set them. The key-values are human-readable so it is very easy to read, create, or edit. We do recommend use the GUI tool to facilitate this process and prevent misspelling. Note that the extension can be any name but we recommend the use of `.txt` or `.json` so that you can quickly open it using your default editors. 
