@@ -90,9 +90,9 @@ The compiler and `OpenCL.framework` are automatically installed by Xcode, which 
 
 The easiest way to install dependencies on macOS is [homebrew](http://brew.sh). The link contains the instruction to install homebrew. After install homebrew, type the following commands in Terminal: 
 
-    ```bash
-    brew install gsl boost cmake qt5 doxygen
-    ```
+```bash
+brew install gsl boost cmake qt5 doxygen
+```
 
 `qt5` or `doxygen` parameter can be removed from the command if you do not need to compile GUI tool or generate HTML documentation locally. 
 
@@ -114,15 +114,15 @@ After all dependencies are installed, download and build the project as follows:
 2. In Terminal, navigate to the source code root path, the top folder containing `README.md`. 
 3. Execute the following commands to build all targets (excluding unit tests for Release build type) in `build` subfolder:
 
-```bash
-mkdir build
-cd build
-cmake ../ -DCMAKE_BUILD_TYPE=Release
-```
+    ```bash
+    mkdir build
+    cd build
+    cmake ../ -DCMAKE_BUILD_TYPE=Release
+    ```
 
 ​	Replace `-DCMAKE_BUILD_TYPE=Release` with `-DCMAKE_BUILD_TYPE=Debug` to build with debug configuration. Note that debug configuration will have significant performance impact on certain steps of the workflow and should only be used in development. If the build type is not specified, the behavior is undefined. 
 
-​	CMake will automatically configure and compile the project, and the outcome is in `build/` folder, either in `Release/` or `Debug/` subfolder depending on the build type. The executives (`hsisomap_cli`, `demo`, GUI tool (TBD)) and example files are in `bin/` subfolder, and the static library `libhsisomap.a` is in `lib` subfolder. 
+​CMake will automatically configure and compile the project, and the outcome is in `build/` folder, either in `Release/` or `Debug/` subfolder depending on the build type. The executives (`hsisomap_cli`, `demo`, GUI tool (TBD)) and example files are in `bin/` subfolder, and the static library `libhsisomap.a` is in `lib` subfolder. 
 
 There is currently no installation configuration. You will need to manually copy these outcomes (and header files from `include/` folder of the source repository if you need to use the library in your code) into the path you want. 
 
@@ -133,10 +133,10 @@ The official website contains full documentation of the source code. If you need
 1. In Terminal, navigate to the root path of the project.
 2. Execute the following commands:
 
-```bash
-cd doc
-doxygen
-```
+    ```bash
+    cd doc
+    doxygen
+    ```
 
 The generated HTML and LaTeX documentation are in `doc/html` and `doc/latex` respectively. For HTML documentation, locate `index.html` for the home page. 
 
