@@ -1,5 +1,10 @@
 set(HSISOMAP_TESTS_SOURCE_FILES basic_check.cpp HsiData_check.cpp gsl_util_check.cpp Subsetter_check.cpp)
 
+find_package(GSL REQUIRED)
+include_directories(${GSL_INCLUDE_DIR})
+find_package(Boost REQUIRED)
+include_directories(${Boost_INCLUDE_DIR})
+
 include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 add_executable(run_hsisomap_tests ${HSISOMAP_TESTS_SOURCE_FILES})
