@@ -94,9 +94,17 @@ The easiest way to install dependencies on macOS is [homebrew](http://brew.sh). 
 brew install gsl boost cmake qt5 doxygen
 ```
 
-`qt5` or `doxygen` parameter can be removed from the command if you do not need to compile GUI tool or generate HTML documentation locally. 
+`qt5` or `doxygen` parameter can be removed from the command if you do not need to compile GUI tool or generate HTML documentation locally. It is possible to not install a separate CMake if you decide to use a CMake that comes with some of the IDEs. 
+
+Other methods to install and manage these packages include [macports](http://macports.org), which is fairly similar to the steps for homebrew, or install or compile them manually. Even they could be installing packages in different paths, CMake should be able to locate them automatically. 
 
 #### Linux
+
+##### Using a Package Management System
+
+TBD
+
+##### Tips of Installation for a Local User (without root Priviledges)
 
 TBD
 
@@ -114,13 +122,13 @@ After all dependencies are installed, download and build the project as follows:
 2. In Terminal, navigate to the source code root path, the top folder containing `README.md`. 
 3. Execute the following commands to build all targets (excluding unit tests for Release build type) in `build` subfolder:
 
-    ```bash
+   ```bash
     mkdir build
     cd build
     cmake ../ -DCMAKE_BUILD_TYPE=Release
-    ```
+   ```
 
-​	Replace `-DCMAKE_BUILD_TYPE=Release` with `-DCMAKE_BUILD_TYPE=Debug` to build with debug configuration. Note that debug configuration will have significant performance impact on certain steps of the workflow and should only be used in development. If the build type is not specified, the behavior is undefined. 
+   ​Replace `-DCMAKE_BUILD_TYPE=Release` with `-DCMAKE_BUILD_TYPE=Debug` to build with debug configuration. Note that debug configuration will have significant performance impact on certain steps of the workflow and should only be used in development. If the build type is not specified, the behavior is undefined. 
 
 ​CMake will automatically configure and compile the project, and the outcome is in `build/` folder, either in `Release/` or `Debug/` subfolder depending on the build type. The executives (`hsisomap_cli`, `demo`, GUI tool (TBD)) and example files are in `bin/` subfolder, and the static library `libhsisomap.a` is in `lib` subfolder. 
 
@@ -133,10 +141,10 @@ The official website contains full documentation of the source code. If you need
 1. In Terminal, navigate to the root path of the project.
 2. Execute the following commands:
 
-    ```bash
+   ```bash
     cd doc
     doxygen
-    ```
+   ```
 
 The generated HTML and LaTeX documentation are in `doc/html` and `doc/latex` respectively. For HTML documentation, locate `index.html` for the home page. 
 
