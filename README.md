@@ -4,6 +4,27 @@
 
 > hsisomap is now pre-released. 
 
+**Table of Contents**
+
+- [hsisomap](#hsisomap)
+  - [Introduction](#introduction)
+  - [Architecture](#architecture)
+    - [Components](#components)
+    - [Modules](#modules)
+  - [Installation](#installation)
+    - [Compiler and Dependencies](#compiler-and-dependencies)
+      - [macOS](#macos)
+      - [Linux](#linux)
+      - [Windows](#windows)
+    - [Build](#build)
+      - [Build All Targets](#build-all-targets)
+      - [Generate Documentation (Optional)](#generate-documentation-optional)
+      - [Build Using IDE](#build-using-ide)
+  - [Usage](#usage)
+  - [Examples](#examples)
+  - [Documentation](#documentation)
+  - [License and Citation](#license-and-citation)
+
 ## Introduction
 
 The initial goal of the project is to demonstrate a novel noise-aware ISOMAP algorithm and workflow for hyperspectral imagery (See references). The core algorithms consisting the workflow have been implemented as a C++ library, and the workflow has been implemented in a commandline tool, as well as a GUI tool to facilitate the use of the workflow in real-world hyperspectral imagery analysis. 
