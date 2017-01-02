@@ -1,0 +1,168 @@
+/* Customized CSS for doxygen 1.8.13 Created by C. Jin */
+
+/* Menu bar */
+
+.sm-dox {
+    background-image: none;
+    background-color: #323e4d;
+}
+
+.sm-dox a,
+.sm-dox a:focus,
+.sm-dox a:hover,
+.sm-dox a:active {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    text-shadow: none;
+    color: white;
+}
+
+.sm-dox a:hover {
+    background-image: none;
+    background-color: #52687e;
+    text-shadow: 0 1px 1px black
+}
+
+.sm-dox ul a,
+.sm-dox ul a:focus,
+.sm-dox ul a:hover,
+.sm-dox ul a:active {
+    color: #51637b
+}
+
+.sm-dox ul a:hover {
+    background-image: none;
+    background-color: #51637b;
+    color: white;
+    text-shadow: 0 1px 1px black
+}
+
+@media(min-width:768px) {
+    .sm-dox a,
+    .sm-dox a:focus,
+    .sm-dox a:active,
+    .sm-dox a:hover,
+    .sm-dox a.highlighted {
+        background-image: none;
+        -moz-border-radius: 0!important;
+        -webkit-border-radius: 0;
+        border-radius: 0!important
+    }
+}
+
+
+/* Navigation bar */
+
+.navpath ul {
+    padding-left: 10px;
+    background-image: none;
+    background-color: #888888;
+    color: white
+}
+
+.navpath li {
+    background-image: none;
+    color: white
+}
+
+.navpath li:after {
+    content: " ▸";
+}
+
+.navpath li.navelem a {
+    color: white;
+    text-shadow: none;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.navpath li.navelem a:after {
+    content: " ▸";
+}
+
+.navpath li.navelem a:hover {
+    color: #d0deef;
+}
+
+/* All fonts */
+body, table, div, p, dl {
+    font: 400 14px/22px 'Noto Sans', 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+/* Code fonts */
+
+a.el {
+    font-family: 'SF Mono', Menlo, Courier, Consolas, monospace;
+}
+
+pre.fragment {
+    font-family: 'SF Mono', Menlo, Courier, Consolas, monospace;
+}
+
+div.line {
+    font-family: 'SF Mono', Menlo, Courier, Consolas, monospace;
+}
+
+
+.memItemLeft,
+.memItemRight,
+.memItemLeft,
+.memItemRight,
+.memTemplItemLeft,
+.memTemplItemRight,
+.memTemplParams {
+    font-family: 'SF Mono', Menlo, Courier, Consolas, monospace;
+}
+
+.memtemplate {
+    font-family: 'SF Mono', Menlo, Courier, Consolas, monospace;
+}
+
+.memname {
+    font-family: 'SF Mono', Menlo, Courier, Consolas, monospace;
+}
+
+.memproto,
+dl.reflist dt {
+    font-family: 'SF Mono', Menlo, Courier, Consolas, monospace;
+}
+
+.params .paramname,
+.retval .paramname {
+    font-family: 'SF Mono', Menlo, Courier, Consolas, monospace;
+}
+
+.params .paramdir {
+    font-family: 'SF Mono', Menlo, Courier, Consolas, monospace;
+}
+
+.entry {
+    font-family: 'SF Mono', Menlo, Courier, Consolas, monospace;
+}
+
+code {
+    font-family: 'SF Mono', Menlo, Courier, Consolas, monospace;
+}
+
+a.el {
+    font-family: 'SF Mono', Menlo, Courier, Consolas, monospace;
+}
+
+
+/* Member title */
+
+.memtitle {
+    background-image: none;
+    background-color: #e9f8ff;
+}
+.memproto {
+    background-color: #e9f8ff;    
+}
+
+/* Footer */
+
+img.footer {
+    border: 0px;
+    vertical-align: middle;
+    margin-bottom: 2px;
+    max-height: 16px
+}
+
