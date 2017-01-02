@@ -55,4 +55,5 @@ crashlytics.properties
 crashlytics-build.properties
 
 # Doxygen generated documentation
-docs/
+doc/html/
+doc/latex/
