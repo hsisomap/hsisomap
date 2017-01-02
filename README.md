@@ -1,6 +1,6 @@
 # hsisomap
 
-> An **NAENH-ISOMAP** (*Noise-Aware ENHanced Isometric-Mapping*, a nonlinear dimensionality reduction (manifold learning) algorithm for *highly-noisy, large-scale, high-dimensional* data) implementation for hyperspectral imagery, and general-purpose dimensionality reduction library. 
+> An **NAENH-ISOMAP** (*Noise-Aware ENHanced Isometric-Mapping*, a **high-performance** nonlinear dimensionality reduction (manifold learning) algorithm for **highly-noisy, large-scale, high-dimensional** data) implementation for hyperspectral imagery, and general-purpose dimensionality reduction library / toolset. 
 
 > hsisomap is now pre-released. 
 
@@ -147,11 +147,51 @@ The only caveat is that you will need to manually create the scheme to build the
 
 In some versions of CLion, "Release" mode may not be presented in the dialog. This means you need to manually specify that you need this mode before editing the configuration. Go to "Preferences -> Build, Execution, Deployment -> CMake", click the "+" button below the "Generation" listbox. Then the "Release" item should be automatically added into the listbox. 
 
+Other IDEs that supports CMake should also work well but not tested. 
+
 ## Usage
 
 This section specifies the usage of the commandline tool. For GUI tool, navigate to the GUI tool README. This is for people who want to use the program as a tool in their high-dimensional data analysis workflow. 
 
-TBD
+The commandline tool only requires one arguments: the configuration file path. 
+
+```bash
+$ hsisomap /path/to/configuration/file.json
+```
+
+The configuration file is standard JSON file that is a nested key-values and arrays. We don't use commandline arguments to set parameters directly since there are so many combinations and permutations of parameters and a configuration is the best way to set them. The key-values are human-readable so it is very easy to read, create, or edit. We do recommend use the GUI tool to facilitate this process and prevent misspelling. Note that the extension can be any name but we recommend the use of `.txt` or `.json` so that you can quickly open it using your default editors. 
+
+The full documentation of the configuration file is in the configuration file README (TBD). A minimal example of configuration file is as follows: 
+
+```json
+{
+    "type": "hsisomap_task_configuration",
+    "version": 0,
+    "tasks": [
+        {
+            "task index": 1,
+            "task description": "Tests",
+            "input": "/IMAGE/FILE",
+            "output root path": "/OUTPUT/ROOT/",
+            "landmark": {
+                "implementation": "subsets",
+                "count": 2000,
+                "noise model": "mnf",
+            },
+            "knngraph": {
+                "implementation": "fixed",
+                "k": 20,
+                "backend": "adjacency list"
+            },
+            "dijkstra": {
+                "implementation": "opencl"
+            },
+            "retained bands": -1,
+            "output file": "manifold"
+        }
+    ]
+}
+```
 
 ## Examples
 
