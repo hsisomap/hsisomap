@@ -46,18 +46,13 @@ cd code_docs
 # Get the current gh-pages branch
 git clone -b gh-pages https://git@$GH_REPO_REF
 cd $GH_REPO_NAME
-echo '-'
 
 ##### Configure git.
 # Set the push default to simple i.e. push only the current branch.
-ls -a
 git config push.default simple
-echo '0'
 # Pretend to be an user called Travis CI.
 git config user.name "Travis CI"
-echo '1'
 git config user.email "travis@travis-ci.org"
-echo '2'
 
 # Remove everything currently in the gh-pages branch.
 # GitHub is smart enough to know which files have changed and which files have
@@ -78,7 +73,7 @@ echo 'Generating Doxygen code documentation...'
 # Redirect both stderr and stdout to the log file AND the console.
 cd ../../doc
 doxygen $DOXYFILE 2>&1 | tee doxygen.log
-cp -r html ../code_docs/$GH_REPO_NAME/
+cp -r html/ ../code_docs/$GH_REPO_NAME/
 cd ../code_docs/$GH_REPO_NAME/
 
 ################################################################################
@@ -86,7 +81,7 @@ cd ../code_docs/$GH_REPO_NAME/
 # Only upload if Doxygen successfully created the documentation.
 # Check this by verifying that the html directory and the file html/index.html
 # both exist. This is a good indication that Doxygen did it's work.
-if [ -d "html" ] && [ -f "html/index.html" ]; then
+if [ -f "index.html" ]; then
 
     echo 'Uploading documentation to the gh-pages branch...'
     # Add everything in this directory (the Doxygen code documentation) to the
