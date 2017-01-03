@@ -17,7 +17,7 @@ env:
 addons:
   apt:
     sources:
-      - kalakris/cmake
+      - sourceline: 'ppa:kalakris/cmake'
     packages:
       - doxygen
       - doxygen-doc
