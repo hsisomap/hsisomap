@@ -380,7 +380,7 @@ void paviau_mnf_landmark_tests() {
   {
     std::ofstream ofs("/Volatile/playground/PaviaU/local_subsetmnf_maxvar_landmarks_ak.txt");
     std::copy(landmark->landmarks().begin(), landmark->landmarks().end(), std::ostream_iterator<Index>(ofs, "\n"));
-    std::cout << landmark->landmarks().size() << endl;
+//    std::cout << landmark->landmarks().size() << endl;
   }
 
 

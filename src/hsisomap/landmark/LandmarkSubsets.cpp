@@ -166,9 +166,9 @@ LandmarkSubsets::LandmarkSubsets(std::shared_ptr<gsl::Matrix> data, PropertyList
 
   }
 
-  LOGDEBUG(landmarks_.size() << " landmarks selected from subsets.");
+  LOGI(landmarks_.size() << " landmarks selected from subsets.");
   if (landmarks_.size() < property_list_[LANDMARK_COUNT]) {
-    LOGDEBUG("Need " << (property_list_[LANDMARK_COUNT] - landmarks_.size()) << " more random landmarks.");
+    LOGI("Need " << (property_list_[LANDMARK_COUNT] - landmarks_.size()) << " more random landmarks.");
 
 
 //  std::vector<Index> left_indexes(data_->rows(), 0);
@@ -194,11 +194,11 @@ LandmarkSubsets::LandmarkSubsets(std::shared_ptr<gsl::Matrix> data, PropertyList
     for (Index i = 0; i < property_list_[LANDMARK_COUNT] - landmarks_.size(); ++i) {
       landmarks_.push_back(left_indexes_vector[i]);
     }
-    LOGDEBUG("Added random landmarks to meet the requirement.");
+    LOGI("Added random landmarks to meet the requirement.");
 
   }
 
-  LOGDEBUG("Optionally sort the landmark list for output purposes.");
+//  LOGDEBUG("Optionally sort the landmark list for output purposes.");
 //  std::sort(landmarks_.begin(), landmarks_.end());
 
 
