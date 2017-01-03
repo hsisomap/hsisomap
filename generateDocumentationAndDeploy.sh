@@ -50,7 +50,7 @@ echo '-'
 
 ##### Configure git.
 # Set the push default to simple i.e. push only the current branch.
-git config --global push.default simple
+git config push.default simple
 echo '0'
 # Pretend to be an user called Travis CI.
 git config user.name "Travis CI"
