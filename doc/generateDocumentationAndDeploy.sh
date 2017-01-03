@@ -79,6 +79,7 @@ echo 'Generating Doxygen code documentation...'
 cd ../../doc
 doxygen $DOXYFILE 2>&1 | tee doxygen.log
 cp -r html ../code_docs/$GH_REPO_NAME/
+cd ../code_docs/$GH_REPO_NAME/
 
 ################################################################################
 ##### Upload the documentation to the gh-pages branch of the repository.   #####
