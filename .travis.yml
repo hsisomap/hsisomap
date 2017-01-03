@@ -25,6 +25,7 @@ addons:
       - libgsl0-dev
       - libboost-dev
       - opencl-headers
+      - cmake
 
 # Build your code e.g. by calling make
 script:
