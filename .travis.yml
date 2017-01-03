@@ -16,8 +16,6 @@ env:
 # Install dependencies
 addons:
   apt:
-    sources:
-      - sourceline: 'ppa:kalakris/cmake'
     packages:
       - doxygen
       - doxygen-doc
@@ -27,7 +25,6 @@ addons:
       - libgsl0-dev
       - libboost-dev
       - opencl-headers
-      - cmake
 
 # Build your code e.g. by calling make
 script:
