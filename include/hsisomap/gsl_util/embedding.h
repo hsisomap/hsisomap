@@ -37,8 +37,8 @@ const bool EMBEDDING_CMDS_SOLVE_EIGEN_ONLY = true;
 
 //! Enum type to help set the gsl::CMDS parameters. See gsl::CMDS for details.
 enum EMBEDDING_EIGENDECOMPOSITION_ALGORITHM {
-  EMBEDDING_EIGENDECOMPOSITION_ALGORITHM_JACOBI = 0,
-  EMBEDDING_EIGENDECOMPOSITION_ALGORITHM_QR = 1
+  EMBEDDING_EIGENDECOMPOSITION_ALGORITHM_JACOBI = 0, //!< Eigendecomposition using Jacobi algorithm.
+  EMBEDDING_EIGENDECOMPOSITION_ALGORITHM_QR = 1 //!< Eigendecomposition using QR decomposition algorithm.
 };
 
 //! Classical Multi-Dimensional Scaling (CMDS) embedding.
@@ -77,7 +77,7 @@ std::shared_ptr<Matrix> NearestNeighborNoiseEstimation(const Matrix &data);
 //! The function calculates the L2 distance pairwisely between all vectors from each of the two input data matrices. The dimensions (number of columns) of the two input data matrices must be the same. The output matrix has the number of the rows and columns equal to the number of rows of data1 and data2 matrices respectively.
 //! \param data1 first input data matrix as gsl::Matrix. The rows are the samples. The columns are the dimensions.
 //! \param data2 second input data matrix as gsl::Matrix. The rows are the samples. The columns are the dimensions.
-//! \param force_zero_diagonal [TO BE SUPPORTED] (Optional) the option to set whether to force set the diagonal of the output matrix to zero. By default it is not to force set to zero. It could and only could be useful when data1 and data2 are the same matrix (in which case the pairwise distance of all same group of vectors are calculated), and the output matrix should be symmetrical and with its diagonal elements equal to zeros. Use this option to optionally force set the diagonal to zero to prevent the possible non-zero small number resulted at the diagonal elements due to imprecision of the floating number calculation.
+//! \param force_zero_diagonal [TO BE SUPPORTED] (Optional) the option to set whether to force set the diagonal of the output matrix to zero. By default it is not to force set to zero. It could and only could be useful when data1 and data2 are the same matrix (in which case the pairwise distance of all same group of vectors are calculated), and the output matrix should be symmetric and with its diagonal elements equal to zeros. Use this option to optionally force set the diagonal to zero to prevent the possible non-zero small number resulted at the diagonal elements due to imprecision of the floating number calculation.
 std::shared_ptr<Matrix> L2Distance(const Matrix &data1, const Matrix &data2, bool force_zero_diagonal = false);
 
 } // namespace gsl

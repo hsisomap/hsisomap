@@ -18,6 +18,17 @@
 #include <vector>
 #include "typedefs.h"
 
+//! \brief A collection of matrix and vector related computation functions based on GSL (GNU Scientific Library).
+//!
+//! This is a collection of matrix and vector related computation interfaces based on GSL.
+//!
+//!   - The foundation of the collection is gsl::Matrix (Matrix.h), a wrapper class to facilitate matrix operations and resource management for the matrix data type of GSL. Note that in the commonly usages in the library, the vectors are not represented as a separate wrapper class, but a special case of gsl::Matrix.
+//!
+//!   - A collection of helper functions for simple matrix manipulations are in matrix_util.h file.
+//!
+//!   - A collection of simple inline computation functions (for GSL's gsl_matrix, not gsl::Matrix, resource not managed) including some frequently used linear algebra computations is in gsl_util.h file.
+//!
+//!   - A collection of advanced embedding space computation functions, and a struct to represent information of a data embedding, is in embedding.h file.
 namespace gsl {
 
 //! A simple wrapper class for common matrix operations and resource management for GNU Scientific Library
@@ -161,8 +172,14 @@ class Matrix {
 
 };
 
+//! Output stream operator.
+//! The output stream operator will output the matrix values in normal matrix representation, with spaces to separate elements, and new line to separate rows.
+//!
+//! If the value is overflowed (or to be exactly, the maximum possible value of the representation), it will be printed as '-' (dash).
 std::ostream& operator<<(std::ostream& os, const Matrix& matrix);
 
+//! Input streaming operator.
+//! It supports standard istream separators, and the value is inputed in a row-major order.
 std::istream& operator>>(std::istream& is, Matrix& matrix);
 
 } // namespace gsl

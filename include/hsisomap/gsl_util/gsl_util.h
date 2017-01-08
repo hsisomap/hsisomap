@@ -1,8 +1,15 @@
+//***************************************************************************************
 //
-// gsl_util.h
-// Customized GSL utilities
-// Created by Can on 7/27/15.
+//! \file gsl_util.h
+//!  A collection of simple inline computation functions including some frequently used linear algebra computations.
+//!  Header-only inline implementation and the resources are not managed. Note that the non-managed functions are all lower-case named and start with 'gsl_util_' if gsl_matrix is used.
+//!
+//! \author    Can
+//! \version   1.0
+//! \date      2015-07-27
+//! \copyright GNU Public License V3.0
 //
+//***************************************************************************************
 
 #ifndef GSL_UTIL_H
 #define GSL_UTIL_H
@@ -20,10 +27,10 @@
 
 namespace gsl {
 
-//
-// gsl_util_pinv
-// Pseudo-inversion using Jacobi SVD
-//
+//! Pseudo-inversion using Jacobi SVD.
+//! Calculates the pseudo-inversion of the input matrix using Jacobi SVD algorithm. The output matrix needs to be allocated outside of the function.
+//! \param A_c pointer to input matrix.
+//! \param pinv pointer to output matrix.
 inline void gsl_util_pinv(const gsl_matrix *A_c, gsl_matrix *pinv) {
 
   gsl_matrix *A = gsl_matrix_calloc(A_c->size1, A_c->size2);
@@ -48,12 +55,16 @@ inline void gsl_util_pinv(const gsl_matrix *A_c, gsl_matrix *pinv) {
 }
 
 
-//
-// mean_of
-// Calculate mean value after applying a lambda function. Useful for mean and variance.
-// The data must be represented by a vector. Data1 and 2 must have the same size.
-// If the unbiased == 1, the mean is the unbiased estimated sample mean (the denominator is the number of samples minus 1).
-//
+//! Calculate mean value of a vector after applying a lambda function. Useful for mean and variance.
+//! The data must be represented by a vector. Data1 and 2 must have the same size.
+//!
+//! There are two input vectors, and the actual value used for each element is determined by pre_operation function. For example, one could be actual data, and another is a reference to determine the modification of the data before it accumulates.
+//!
+//! If the unbiased == 1, the mean is the unbiased estimated sample mean (the denominator is the number of samples minus 1).
+//! \param data1 first input vector
+//! \param data2 second input vector
+//! \param pre_operation lambda function that takes two value and return one value, to be applied on each elements of the two input vectors. The result will be accumulated before dividing the sample number to get the mean.
+//! \param unbiased (Optional) it can only be 0 or 1 to be meaningful, as it will be subtracted from the number of elements of the input vectors. When it is 1, the function is calculating the unbiased mean. When it is 0, it is biased. By default it is 0 (biased).
 inline double mean_of(const gsl_vector *data1,
                const gsl_vector *data2,
                std::function<double(double, double)> pre_operation,
@@ -72,14 +83,15 @@ inline double mean_of(const gsl_vector *data1,
 }
 
 
-//
-// gsl_util_covariance_matrix_loop
-// Calculate covariance matrix using loops by definition of covariances.
-// CAUTION: It is much slower than the matrix multiplication version (without '_loop' in the function name).
-// The covariance matrix must be a square matrix with the
-// length equal to the second dimension of the matrix to be calculated.
-// The unbiased is 1 by default to calculate the unbiased estimated sample covariances
-//
+//! Calculate covariance matrix using loops by definition of covariance matrix.
+//! Calculate covariance matrix using loops by definition of covariance matrix.
+//! CAUTION: It is much slower than the matrix multiplication version (without '_loop' in the function name).
+//!
+//! The covariance matrix must be a square matrix with the length equal to the second dimension of the matrix to be calculated.
+//! The unbiased is 1 by default to calculate the unbiased estimated sample covariances.
+//! \param data input data matrix. The rows represent the samples while the columns represent the dimensions.
+//! \param covariance output covariance matrix. It is a symmetric matrix with the size equal to the number of columns of the input matrix. The output matrix needs to be allocated outside of the function.
+//! \param unbiased (Optional) it can only be 0 or 1 to be meaningful, as it will be subtracted from the number of samples. When it is 1, the function is calculating the unbiased mean. When it is 0, it is biased. By default it is 1 (unbiased).
 inline void gsl_util_covariance_matrix_loop(const gsl_matrix *data, gsl_matrix *covariance, int unbiased = 1) {
 
   size_t dims = data->size2;
@@ -114,12 +126,17 @@ inline void gsl_util_covariance_matrix_loop(const gsl_matrix *data, gsl_matrix *
   delete[] means;
 }
 
-//
-// gsl_util_covariance_matrix_intrusive
-// Calculate covariance matrix using matrix multiplication and intrusively changes input data to save space and time.
-// The input data will become the centered data (data matrix minus mean vector).
-// The unbiased is 1 by default to calculate the unbiased estimated sample covariances
-//
+//! Calculate covariance matrix using matrix multiplication and intrusively changes input data to save space and time.
+//! Calculate covariance matrix using matrix multiplication, which is much faster than using the definition. It also intrusively changes input data to save space and time.
+//!
+//! It is useful when you don't need the input data matrix anymore, or you already have a copy, and / or you need the centered data. It is also faster than non-intrusive version.
+//! The input data will become the centered data (data matrix minus mean vector).
+//!
+//! The covariance matrix must be a square matrix with the length equal to the second dimension of the matrix to be calculated.
+//! The unbiased is 1 by default to calculate the unbiased estimated sample covariances.
+//! \param data input data matrix. The rows represent the samples while the columns represent the dimensions.
+//! \param covariance output covariance matrix. It is a symmetric matrix with the size equal to the number of columns of the input matrix. The output matrix needs to be allocated outside of the function.
+//! \param unbiased (Optional) it can only be 0 or 1 to be meaningful, as it will be subtracted from the number of samples. When it is 1, the function is calculating the unbiased mean. When it is 0, it is biased. By default it is 1 (unbiased).
 inline void gsl_util_covariance_matrix_intrusive(gsl_matrix *data, gsl_matrix *covariance, int unbiased = 1) {
 
   size_t dims = data->size2;
@@ -144,13 +161,14 @@ inline void gsl_util_covariance_matrix_intrusive(gsl_matrix *data, gsl_matrix *c
   gsl_vector_free(means);
 }
 
-//
-// gsl_util_covariance_matrix
-// Calculate covariance matrix using matrix multiplication.
-// The unbiased is 1 by default to calculate the unbiased estimated sample covariances
-//
-const int GSL_UTIL_COVARIANCE_MATRIX_BIASED = 0;
-const int GSL_UTIL_COVARIANCE_MATRIX_UNBIASED = 1;
+//! Calculate covariance matrix using matrix multiplication non-intrusively (the original data is not modified).
+//! Calculate covariance matrix using matrix multiplication, which is much faster than using the definition. It will not modify the original data matrix so that you can use const for input data.
+//!
+//! The covariance matrix must be a square matrix with the length equal to the second dimension of the matrix to be calculated.
+//! The unbiased is 1 by default to calculate the unbiased estimated sample covariances.
+//! \param data input data matrix. The rows represent the samples while the columns represent the dimensions.
+//! \param covariance output covariance matrix. It is a symmetric matrix with the size equal to the number of columns of the input matrix. The output matrix needs to be allocated outside of the function.
+//! \param unbiased (Optional) it can only be 0 or 1 to be meaningful, as it will be subtracted from the number of samples. When it is 1, the function is calculating the unbiased mean. When it is 0, it is biased. By default it is 1 (unbiased).
 inline void gsl_util_covariance_matrix(const gsl_matrix *data, gsl_matrix *covariance, int unbiased = 1, gsl_matrix *centered_data_return = NULL, gsl_vector *means_return = NULL) {
 
   size_t dims = data->size2;
@@ -195,6 +213,10 @@ inline void gsl_util_covariance_matrix(const gsl_matrix *data, gsl_matrix *covar
   }
 
 }
+
+
+const int GSL_UTIL_COVARIANCE_MATRIX_BIASED = 0; //!< Calculate biased mean / covariance when asked for unbiased option in gsl::mean_of, gsl::gsl_util_covariance_matrix_loop, gsl::gsl_util_covariance_matrix_intrusive, gsl::gsl_util_covariance_matrix.
+const int GSL_UTIL_COVARIANCE_MATRIX_UNBIASED = 1; //!< Calculate unbiased mean / covariance when asked for unbiased option  in gsl::mean_of, gsl::gsl_util_covariance_matrix_loop, gsl::gsl_util_covariance_matrix_intrusive, gsl::gsl_util_covariance_matrix.
 
 } // namespace gsl
 
