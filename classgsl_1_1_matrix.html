@@ -109,10 +109,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad92a4b03c7d5b2e348ee72b54737165c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgsl_1_1_matrix.html#ad92a4b03c7d5b2e348ee72b54737165c">SetIdentity</a> ()</td></tr>
 <tr class="separator:ad92a4b03c7d5b2e348ee72b54737165c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0da778ed0521db179dc881d65c493c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgsl_1_1_matrix.html#aa0da778ed0521db179dc881d65c493c2">rows</a> () const</td></tr>
-<tr class="memdesc:aa0da778ed0521db179dc881d65c493c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of rows of the matrix.  <a href="#aa0da778ed0521db179dc881d65c493c2">More...</a><br /></td></tr>
 <tr class="separator:aa0da778ed0521db179dc881d65c493c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a892a3dcc006fa95720c2620fb01ed467"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgsl_1_1_matrix.html#a892a3dcc006fa95720c2620fb01ed467">cols</a> () const</td></tr>
-<tr class="memdesc:a892a3dcc006fa95720c2620fb01ed467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of columns of the matrix.  <a href="#a892a3dcc006fa95720c2620fb01ed467">More...</a><br /></td></tr>
 <tr class="separator:a892a3dcc006fa95720c2620fb01ed467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb9e90c5ed48a636505fb316f80edcea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgsl_1_1_matrix.html#adb9e90c5ed48a636505fb316f80edcea">Copy</a> (const <a class="el" href="classgsl_1_1_matrix.html">Matrix</a> &amp;other)</td></tr>
 <tr class="separator:adb9e90c5ed48a636505fb316f80edcea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -317,7 +315,12 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Copy Constructor. Construct a matrix with an existing matrix. The old matrix will be copied. </p>
+<p>Copy Constructor. Construct a matrix with an existing matrix. The old matrix will be copied. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>matrix to be copied. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -354,8 +357,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Get the number of columns of the matrix. </p>
+<p>Get the number of columns of the matrix. </p><dl class="section return"><dt>Returns</dt><dd>the number of columns of the matrix. </dd></dl>
 
 </div>
 </div>
@@ -415,6 +417,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>a copy of the specified element. </dd></dl>
 
 </div>
 </div>
@@ -439,6 +442,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>a new one-column matrix consisting the specified row. </dd></dl>
 
 </div>
 </div>
@@ -463,6 +467,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>a new matrix consisting the specified columns. </dd></dl>
 
 </div>
 </div>
@@ -487,6 +492,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>a new one-row matrix consisting the specified row. </dd></dl>
 
 </div>
 </div>
@@ -511,6 +517,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>a new matrix consisting the specified rows. </dd></dl>
 
 </div>
 </div>
@@ -546,6 +553,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>const reference to the specified element. </dd></dl>
 
 </div>
 </div>
@@ -581,6 +589,7 @@ template&lt;typename T &gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>reference to the specified element. </dd></dl>
 
 </div>
 </div>
@@ -599,7 +608,13 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Assignment operator. Copy the other matrix to this matrix. </p>
+<p>Assignment operator. Copy the other matrix to this matrix. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the new matrix to be assigned. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>const reference of the new matrix to be chained in an expression. </dd></dl>
 
 </div>
 </div>
@@ -618,7 +633,13 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Equality operator. Check the equality of the matrix by checking all corresponding elements. equality_limit will be used as the precision of the equality. </p>
+<p>Equality operator. Check the equality of the matrix by checking all corresponding elements. equality_limit will be used as the precision of the equality. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>matrix to be compared. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>whether they are equal. </dd></dl>
 
 </div>
 </div>
@@ -719,8 +740,7 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Get the number of rows of the matrix. </p>
+<p>Get the number of rows of the matrix. </p><dl class="section return"><dt>Returns</dt><dd>the number of rows of the matrix. </dd></dl>
 
 </div>
 </div>

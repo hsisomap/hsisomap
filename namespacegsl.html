@@ -236,6 +236,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>CMDS embedding of the input data. </dd></dl>
 
 </div>
 </div>
@@ -271,6 +272,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>smart pointer to the resulting matrix. </dd></dl>
 
 </div>
 </div>
@@ -306,6 +308,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>smart pointer to the resulting matrix. </dd></dl>
 
 </div>
 </div>
@@ -361,11 +364,14 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Calculate covariance matrix using matrix multiplication non-intrusively (the original data is not modified). Calculate covariance matrix using matrix multiplication, which is much faster than using the definition. It will not modify the original data matrix so that you can use const for input data.</p>
-<p>The covariance matrix must be a square matrix with the length equal to the second dimension of the matrix to be calculated. The unbiased is 1 by default to calculate the unbiased estimated sample covariances. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>The covariance matrix must be a square matrix with the length equal to the second dimension of the matrix to be calculated. The unbiased is 1 by default to calculate the unbiased estimated sample covariances.</p>
+<p>The function optionally takes a pre-allocated matrix and a pre-allocated vector to be used and return the centered data matrix and the mean vector of all row vectors. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>input data matrix. The rows represent the samples while the columns represent the dimensions. </td></tr>
     <tr><td class="paramname">covariance</td><td>output covariance matrix. It is a symmetric matrix with the size equal to the number of columns of the input matrix. The output matrix needs to be allocated outside of the function. </td></tr>
     <tr><td class="paramname">unbiased</td><td>(Optional) it can only be 0 or 1 to be meaningful, as it will be subtracted from the number of samples. When it is 1, the function is calculating the unbiased mean. When it is 0, it is biased. By default it is 1 (unbiased). </td></tr>
+    <tr><td class="paramname">centered_data_return</td><td>(Optional) return the centered data matrix. It needs to be pre-allocated before calling the function and the memory will be used in the calculation. If not needed, set it to NULL. By default it is NULL. </td></tr>
+    <tr><td class="paramname">means_return</td><td>(Optional) return the means vector. It needs to be pre-allocated before calling the function and the memory will be used in the calculation. If not needed, set it to NULL. By default it is NULL. </td></tr>
   </table>
   </dd>
 </dl>
@@ -550,6 +556,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>ISOMAP embedding of the input data. </dd></dl>
 
 </div>
 </div>
@@ -592,6 +599,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>smart pointer to the L2 distance matrix of the input data. </dd></dl>
 
 </div>
 </div>
@@ -687,6 +695,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>the processed "mean" value. </dd></dl>
 
 </div>
 </div>
@@ -729,6 +738,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>MNF embedding of the input data using specified noise covariance matrix. </dd></dl>
 
 </div>
 </div>
@@ -764,6 +774,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>MNF embedding of the input data using nearest neighbor noise estimation. </dd></dl>
 
 </div>
 </div>
@@ -788,6 +799,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>smart pointer to the noise covariance matrix of the input data using nearest neighbor method. </dd></dl>
 
 </div>
 </div>
@@ -817,7 +829,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Output stream operator. The output stream operator will output the matrix values in normal matrix representation, with spaces to separate elements, and new line to separate rows.</p>
-<p>If the value is overflowed (or to be exactly, the maximum possible value of the representation), it will be printed as '-' (dash). </p>
+<p>If the value is overflowed (or to be exactly, the maximum possible value of the representation), it will be printed as '-' (dash). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">os</td><td>ostream object. </td></tr>
+    <tr><td class="paramname">matrix</td><td>matrix to be streamed out. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>same ostream object to be chained in an expression. </dd></dl>
 
 </div>
 </div>
@@ -846,7 +865,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Input streaming operator. It supports standard istream separators, and the value is inputed in a row-major order. </p>
+<p>Input streaming operator. It supports standard istream separators, and the value is inputed in a row-major order. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">is</td><td>istream object. </td></tr>
+    <tr><td class="paramname">matrix</td><td>matrix to be streamed in. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>same istream object to be chained in an expression. </dd></dl>
 
 </div>
 </div>
@@ -882,6 +908,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>PCA embedding of the input data. </dd></dl>
 
 </div>
 </div>
@@ -924,6 +951,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>distance of the two specified row vectors in the matrix. </dd></dl>
 
 </div>
 </div>
@@ -967,6 +995,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>square distance of the two specified row vectors in the matrix. </dd></dl>
 
 </div>
 </div>
@@ -1017,6 +1046,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>square distance of the two specified row vectors from each of the matrices. </dd></dl>
 
 </div>
 </div>
@@ -1066,6 +1096,7 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>distance of the two specified row vectors from each of the matrices. </dd></dl>
 
 </div>
 </div>
