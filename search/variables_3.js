@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['values',['values',['../structgsl_1_1_embedding.html#aaa0d357f7065efb10740758b5610b4ac',1,'gsl::Embedding']]],
-  ['vectors',['vectors',['../structgsl_1_1_embedding.html#a6c68523a58e541dd536ce2d9c4c09e04',1,'gsl::Embedding']]]
+  ['data',['data',['../structhsisomap_1_1_pixel_view.html#afd6929fabc1fabc22a8c6dbdbaedaac8',1,'hsisomap::PixelView']]],
+  ['dijkstra',['DIJKSTRA',['../namespacehsisomap_1_1_c_o_n_f_i_g.html#a3e792b7a5672dc0793e64fece878b3dc',1,'hsisomap::CONFIG']]]
 ];

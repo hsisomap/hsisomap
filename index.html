@@ -99,7 +99,7 @@ $(function() {
 </ul>
 <h2>Introduction</h2>
 <p>The initial goal of the project is to demonstrate a novel noise-aware ISOMAP algorithm and workflow for hyperspectral imagery (See references). The core algorithms consisting the workflow have been implemented as a C++ library, and the workflow has been implemented in a commandline tool, as well as a GUI tool to facilitate the use of the workflow in real-world hyperspectral imagery analysis.</p>
-<p>At the same time, the project can be used as a general-purpose dimensionality reduction library, as many of the consisting components include commonly used functionality in image analysis and machine learning, such as MNF (Minimum Noise Fraction), PCA (Principal Component Analysis), <a class="el" href="class_landmark.html">Landmark</a> ISOMAP, and modules that can be useful such as kNN graph generation, OpenCL based Dijkstra algorithm etc.</p>
+<p>At the same time, the project can be used as a general-purpose dimensionality reduction library, as many of the consisting components include commonly used functionality in image analysis and machine learning, such as MNF (Minimum Noise Fraction), PCA (Principal Component Analysis), Landmark ISOMAP, and modules that can be useful such as kNN graph generation, OpenCL based <a class="el" href="namespace_dijkstra.html">Dijkstra</a> algorithm etc.</p>
 <p>These general-purpose modules can be called as static library or used as source code. The commandline and GUI tool can also be used for general-purpose dimensionality reduction for data not limiting to hyperspectral imagery. The commandline tool implements a JSON based human-readable configuration. The GUI tool can be used to facilitate the configuration file generation and task execution.</p>
 <h2>Architecture</h2>
 <p>This section contains a brief description of the components of the project, and the modules of the hsisomap library, as well as some design goals.</p>
@@ -160,7 +160,7 @@ $(function() {
 <p>After all dependencies are installed, download and build the project as follows:</p>
 <ol type="1">
 <li>Download the source code repository by <code>git clone</code> or downloading and extracting the <code>.zip</code> archive.</li>
-<li>In Terminal, navigate to the source code root path, the top folder containing <code>README.md</code>.</li>
+<li>In Terminal, navigate to the source code root path, the top folder containing <code><a class="el" href="_r_e_a_d_m_e_8md.html">README.md</a></code>.</li>
 <li>Execute the following commands to build all targets (excluding unit tests for Release build type) in <code>build</code> subfolder:</li>
 </ol>
 <div class="fragment"><div class="line">mkdir build</div><div class="line">cd build</div><div class="line">cmake ../ -DCMAKE_BUILD_TYPE=Release</div></div><!-- fragment --><p>​Replace <code>-DCMAKE_BUILD_TYPE=Release</code> with <code>-DCMAKE_BUILD_TYPE=Debug</code> to build with debug configuration. Note that debug configuration will have significant performance impact on certain steps of the workflow and should only be used in development. If the build type is not specified, the behavior is undefined.</p>

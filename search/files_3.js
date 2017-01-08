@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['matrix_2eh',['Matrix.h',['../_matrix_8h.html',1,'']]]
+  ['dijkstra_2eh',['Dijkstra.h',['../_dijkstra_8h.html',1,'']]],
+  ['dijkstracl_2eh',['DijkstraCL.h',['../_dijkstra_c_l_8h.html',1,'']]]
 ];

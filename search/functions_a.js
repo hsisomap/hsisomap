@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['set',['Set',['../classgsl_1_1_matrix.html#acf6d1790e1400d0550a29edcae9b06a7',1,'gsl::Matrix']]],
-  ['setall',['SetAll',['../classgsl_1_1_matrix.html#ab74d4d03d784fc835ff31be3a90f6b75',1,'gsl::Matrix']]],
-  ['setidentity',['SetIdentity',['../classgsl_1_1_matrix.html#ad92a4b03c7d5b2e348ee72b54737165c',1,'gsl::Matrix']]],
-  ['setsourcevertices',['SetSourceVertices',['../class_dijkstra_1_1_boost_dijkstra.html#ac21ac3988611fcd4dcb653ea2be20551',1,'Dijkstra::BoostDijkstra::SetSourceVertices()'],['../class_dijkstra_1_1_dijkstra_c_l.html#ac48589eed87aa80a8bb37b5f6534f99b',1,'Dijkstra::DijkstraCL::SetSourceVertices()']]],
-  ['setzero',['SetZero',['../classgsl_1_1_matrix.html#aa8736a0de07b25698e8c1d501cbce00a',1,'gsl::Matrix']]]
+  ['makebasessamedirectionas',['MakeBasesSameDirectionAs',['../namespacegsl.html#ac595b2b657bf536732882266d389106b',1,'gsl']]],
+  ['matrix',['Matrix',['../classgsl_1_1_matrix.html#a356b049336e124fa680bec4d6f413b0a',1,'gsl::Matrix::Matrix()'],['../classgsl_1_1_matrix.html#a9b4fca307f0738b821a75a36ad88fd1b',1,'gsl::Matrix::Matrix(Index rows, Index cols)'],['../classgsl_1_1_matrix.html#a32251de3e652c6099966d588175018c8',1,'gsl::Matrix::Matrix(Index rows, Index cols, Scalar initialValue)'],['../classgsl_1_1_matrix.html#a675af5333664c606a16cec70533d64bb',1,'gsl::Matrix::Matrix(std::initializer_list&lt; std::initializer_list&lt; Scalar &gt;&gt; initializerList)'],['../classgsl_1_1_matrix.html#a3f94e6e4916907bd1ada857fe06c3eff',1,'gsl::Matrix::Matrix(const std::vector&lt; std::vector&lt; T &gt;&gt; vector_of_vectors)'],['../classgsl_1_1_matrix.html#aa0d577050c24af22cabee26a13d16e8c',1,'gsl::Matrix::Matrix(const Matrix &amp;other)']]],
+  ['mean_5fof',['mean_of',['../namespacegsl.html#a3ba8927f7fec48b18e92c3a3d5166b26',1,'gsl']]],
+  ['mnf',['MNF',['../namespacegsl.html#a7e0a4113209277b8fff3d163f54d9641',1,'gsl']]],
+  ['mnfwithnearestneighbornoiseestimation',['MNFWithNearestNeighborNoiseEstimation',['../namespacegsl.html#ae63ddc4de113d5367d35dfd8377a2c3b',1,'gsl']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['embedding_5feigendecomposition_5falgorithm',['EMBEDDING_EIGENDECOMPOSITION_ALGORITHM',['../embedding_8h.html#afc3397e9bd1b863d4415fd3410b13612',1,'gsl']]]
+  ['dijkstraimplementations',['DijkstraImplementations',['../namespace_dijkstra.html#a50057c9499cc78fd219457a27f678471',1,'Dijkstra']]]
 ];

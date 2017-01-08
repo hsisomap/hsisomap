@@ -1,4 +1,30 @@
 var searchData=
 [
-  ['isomap',['ISOMAP',['../embedding_8h.html#a4bb5f6ece1223496f9be9aacf199c1a7',1,'gsl']]]
+  ['config',['CONFIG',['../namespacehsisomap_1_1_c_o_n_f_i_g.html',1,'hsisomap']]],
+  ['hsidata',['HsiData',['../classhsisomap_1_1_hsi_data.html',1,'hsisomap::HsiData'],['../classhsisomap_1_1_hsi_data.html#a75ee6d10a7c0c63b79749fe30a73521a',1,'hsisomap::HsiData::HsiData(std::shared_ptr&lt; gsl::Matrix &gt; data_block, HsiDataMask data_mask, StringPropertyList property_list=StringPropertyList())'],['../classhsisomap_1_1_hsi_data.html#ab43aeab69196286988a87d212ed683b7',1,'hsisomap::HsiData::HsiData(std::shared_ptr&lt; gsl::Matrix &gt; data_block, Index lines, Index samples, Index bands, StringPropertyList property_list=StringPropertyList())'],['../classhsisomap_1_1_hsi_data.html#a8e2711ea43853943d8f9d1a3885e2354',1,'hsisomap::HsiData::HsiData(std::string image_file, std::string header_file=&quot;&quot;)']]],
+  ['hsidata_2eh',['HsiData.h',['../_hsi_data_8h.html',1,'']]],
+  ['hsidata_5fproperty_5fbands',['HSIDATA_PROPERTY_BANDS',['../namespacehsisomap.html#a109b7ed09dc91a9f0368cb89be51c754',1,'hsisomap']]],
+  ['hsidata_5fproperty_5fbyte_5forder',['HSIDATA_PROPERTY_BYTE_ORDER',['../namespacehsisomap.html#a3b520db182b45060c463a354aa2bc81f',1,'hsisomap']]],
+  ['hsidata_5fproperty_5fdata_5ftype',['HSIDATA_PROPERTY_DATA_TYPE',['../namespacehsisomap.html#aeab0bd1ad018c418edae3b223804c10a',1,'hsisomap']]],
+  ['hsidata_5fproperty_5fdata_5ftype_5ffloat',['HSIDATA_PROPERTY_DATA_TYPE_FLOAT',['../namespacehsisomap.html#a043e750a4eeac0817f953ba767a80d00',1,'hsisomap']]],
+  ['hsidata_5fproperty_5ffile_5ftype',['HSIDATA_PROPERTY_FILE_TYPE',['../namespacehsisomap.html#a2c5b13c06f2f641916679f371e441a0e',1,'hsisomap']]],
+  ['hsidata_5fproperty_5ffile_5ftype_5fstandard',['HSIDATA_PROPERTY_FILE_TYPE_STANDARD',['../namespacehsisomap.html#ad7a71a116410ae79ef2dc34fc0d05ace',1,'hsisomap']]],
+  ['hsidata_5fproperty_5fheader_5foffset',['HSIDATA_PROPERTY_HEADER_OFFSET',['../namespacehsisomap.html#a53177b60d3d07018e94f149b88a50e42',1,'hsisomap']]],
+  ['hsidata_5fproperty_5fheader_5foffset_5fzero',['HSIDATA_PROPERTY_HEADER_OFFSET_ZERO',['../namespacehsisomap.html#a4a61054da9168a6ce34d8815e909f79a',1,'hsisomap']]],
+  ['hsidata_5fproperty_5finterleave',['HSIDATA_PROPERTY_INTERLEAVE',['../namespacehsisomap.html#a800660d3df8140db43a06538870305a9',1,'hsisomap']]],
+  ['hsidata_5fproperty_5finterleave_5fbil',['HSIDATA_PROPERTY_INTERLEAVE_BIL',['../namespacehsisomap.html#a00598122ac47b74072df47ae76e92f4a',1,'hsisomap']]],
+  ['hsidata_5fproperty_5finterleave_5fbip',['HSIDATA_PROPERTY_INTERLEAVE_BIP',['../namespacehsisomap.html#a8950e578a3dbbcdadf4df7648d9a5a70',1,'hsisomap']]],
+  ['hsidata_5fproperty_5finterleave_5fbsq',['HSIDATA_PROPERTY_INTERLEAVE_BSQ',['../namespacehsisomap.html#a4009422936d135140df73c6b9af7ee64',1,'hsisomap']]],
+  ['hsidata_5fproperty_5flines',['HSIDATA_PROPERTY_LINES',['../namespacehsisomap.html#a9f4084a18caa6d5b049abd671cc67619',1,'hsisomap']]],
+  ['hsidata_5fproperty_5fsamples',['HSIDATA_PROPERTY_SAMPLES',['../namespacehsisomap.html#a36c7dd43ff3d30c3619a68069ed53497',1,'hsisomap']]],
+  ['hsidatamask',['HsiDataMask',['../structhsisomap_1_1_hsi_data_mask.html',1,'hsisomap::HsiDataMask'],['../structhsisomap_1_1_hsi_data_mask.html#abc304fb3cb182fb3c351a64fffbccd1b',1,'hsisomap::HsiDataMask::HsiDataMask()']]],
+  ['hsidatamask_2eh',['HsiDataMask.h',['../_hsi_data_mask_8h.html',1,'']]],
+  ['hsidatamask_5fno_5fmask',['HSIDATAMASK_NO_MASK',['../namespacehsisomap.html#acdad7388f6b22005108aed85d05b446d',1,'hsisomap']]],
+  ['hsidatamask_5fuse_5fmask',['HSIDATAMASK_USE_MASK',['../namespacehsisomap.html#afc6cfbdb2d4126510e7254d9f82f4d46',1,'hsisomap']]],
+  ['hsisomap',['hsisomap',['../namespacehsisomap.html',1,'']]],
+  ['hsisomap_5flogger',['hsisomap_logger',['../namespacehsisomap__logger.html',1,'']]],
+  ['hsisomap_5fnamespace_5fbegin',['HSISOMAP_NAMESPACE_BEGIN',['../typedefs_8h.html#a8a273ad474c8317752f0bee3b8b849f6',1,'typedefs.h']]],
+  ['hsisomap_5fnamespace_5fend',['HSISOMAP_NAMESPACE_END',['../typedefs_8h.html#ade73cbd8d5a2781edfa5ec263f35c28f',1,'typedefs.h']]],
+  ['hsisomap_5ftask_5fconfiguration',['HSISOMAP_TASK_CONFIGURATION',['../namespacehsisomap_1_1_c_o_n_f_i_g.html#af41ddd3b73878ede5330c4754e1e8ab2',1,'hsisomap::CONFIG']]],
+  ['hsisomap',['hsisomap',['../index.html',1,'']]]
 ];

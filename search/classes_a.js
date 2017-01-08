@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['roi',['Roi',['../class_roi.html',1,'']]]
+  ['roi',['Roi',['../classhsisomap_1_1_roi.html',1,'hsisomap']]]
 ];

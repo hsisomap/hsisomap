@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['space',['space',['../structgsl_1_1_embedding.html#a9b3cf88524120af2c35a99ac8da25983',1,'gsl::Embedding']]]
+  ['count',['COUNT',['../namespacehsisomap_1_1_c_o_n_f_i_g.html#a78cfedaa3e04931327639996f7d277a6',1,'hsisomap::CONFIG']]]
 ];

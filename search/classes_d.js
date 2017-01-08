@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vptree',['VpTree',['../class_vp_tree.html',1,'']]]
+  ['vptree',['VpTree',['../classhsisomap_1_1_vp_tree.html',1,'hsisomap']]]
 ];

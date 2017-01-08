@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['subsetter',['Subsetter',['../class_subsetter.html',1,'']]],
-  ['subsetterembedding',['SubsetterEmbedding',['../class_subsetter_embedding.html',1,'']]],
-  ['subsetterrandomskel',['SubsetterRandomSkel',['../class_subsetter_random_skel.html',1,'']]]
+  ['subsetter',['Subsetter',['../classhsisomap_1_1_subsetter.html',1,'hsisomap']]],
+  ['subsetterembedding',['SubsetterEmbedding',['../classhsisomap_1_1_subsetter_embedding.html',1,'hsisomap']]],
+  ['subsetterrandomskel',['SubsetterRandomSkel',['../classhsisomap_1_1_subsetter_random_skel.html',1,'hsisomap']]]
 ];

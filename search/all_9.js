@@ -1,8 +1,24 @@
 var searchData=
 [
-  ['l2distance',['L2Distance',['../embedding_8h.html#ada4136a470dfeef654c9a7d5903d416d',1,'gsl']]],
-  ['landmark',['Landmark',['../class_landmark.html',1,'']]],
-  ['landmarklist',['LandmarkList',['../class_landmark_list.html',1,'']]],
-  ['landmarksubsets',['LandmarkSubsets',['../class_landmark_subsets.html',1,'']]],
-  ['logger',['Logger',['../classhsisomap__logger_1_1_logger.html',1,'hsisomap_logger']]]
+  ['key',['Key',['../typedefs_8h.html#acc5f64be367360e4dec372939393e334',1,'typedefs.h']]],
+  ['kindex',['kIndex',['../typedefs_8h.html#a79394618e6aa549aaadc314232d9b3a2',1,'typedefs.h']]],
+  ['knngraph',['KNNGraph',['../classhsisomap_1_1_k_n_n_graph.html',1,'hsisomap::KNNGraph'],['../classhsisomap_1_1_k_n_n_graph.html#adc7ec0d31f3579e217495413ca8746be',1,'hsisomap::KNNGraph::knngraph()'],['../classhsisomap_1_1_k_n_n_graph___adaptive_k___h_i_d_e_n_n.html#a38f127d735d9faed0a3d6a90799b39d9',1,'hsisomap::KNNGraph_AdaptiveK_HIDENN::knngraph()'],['../classhsisomap_1_1_k_n_n_graph___fixed_k___m_s_t.html#abbc34b22fc87e569da6fa3f68819b19d',1,'hsisomap::KNNGraph_FixedK_MST::knngraph()'],['../namespacehsisomap_1_1_c_o_n_f_i_g.html#a286e42f902ce12249904c5b864f196a8',1,'hsisomap::CONFIG::KNNGRAPH()']]],
+  ['knngraph_2eh',['KNNGraph.h',['../_k_n_n_graph_8h.html',1,'']]],
+  ['knngraph_5fadaptive_5fk_5fhidenn_5fsubset_5fnumber',['KNNGRAPH_ADAPTIVE_K_HIDENN_SUBSET_NUMBER',['../namespacehsisomap.html#a3ff81ccf66da097723f770bbf90db7da',1,'hsisomap']]],
+  ['knngraph_5fadaptive_5fk_5fwith_5fmst_5fedge_5fpool_5fdepth',['KNNGRAPH_ADAPTIVE_K_WITH_MST_EDGE_POOL_DEPTH',['../namespacehsisomap.html#a228f2bda5f71e2de85b0513d0d537134',1,'hsisomap']]],
+  ['knngraph_5fadaptivek_5fhidenn',['KNNGraph_AdaptiveK_HIDENN',['../classhsisomap_1_1_k_n_n_graph___adaptive_k___h_i_d_e_n_n.html',1,'hsisomap::KNNGraph_AdaptiveK_HIDENN'],['../classhsisomap_1_1_k_n_n_graph___adaptive_k___h_i_d_e_n_n.html#acfe28847abb91657bc37f053200a1d90',1,'hsisomap::KNNGraph_AdaptiveK_HIDENN::KNNGraph_AdaptiveK_HIDENN()']]],
+  ['knngraph_5fadaptivek_5fhidenn_2eh',['KNNGraph_AdaptiveK_HIDENN.h',['../_k_n_n_graph___adaptive_k___h_i_d_e_n_n_8h.html',1,'']]],
+  ['knngraph_5ffixed_5fk_5fnumber',['KNNGRAPH_FIXED_K_NUMBER',['../namespacehsisomap.html#ab253bbae9fbee4744929857ee46bbbc5',1,'hsisomap']]],
+  ['knngraph_5ffixed_5fk_5fwith_5fmst_5fedge_5fpool_5fdepth',['KNNGRAPH_FIXED_K_WITH_MST_EDGE_POOL_DEPTH',['../namespacehsisomap.html#af033801c612867ca3f8e3d130217fa8d',1,'hsisomap']]],
+  ['knngraph_5ffixedk_5fmst',['KNNGraph_FixedK_MST',['../classhsisomap_1_1_k_n_n_graph___fixed_k___m_s_t.html',1,'hsisomap::KNNGraph_FixedK_MST'],['../classhsisomap_1_1_k_n_n_graph___fixed_k___m_s_t.html#abf74ab5a63543a775696cc55f67249ae',1,'hsisomap::KNNGraph_FixedK_MST::KNNGraph_FixedK_MST()']]],
+  ['knngraph_5ffixedk_5fmst_2eh',['KNNGraph_FixedK_MST.h',['../_k_n_n_graph___fixed_k___m_s_t_8h.html',1,'']]],
+  ['knngraph_5fgraph_5fbackend',['KNNGRAPH_GRAPH_BACKEND',['../namespacehsisomap.html#aae63b1d3c350a607f838a09e09cdf0ae',1,'hsisomap']]],
+  ['knngraph_5fgraph_5fbackend_5fadjacencylist',['KNNGRAPH_GRAPH_BACKEND_ADJACENCYLIST',['../namespacehsisomap.html#a5da25cb2cf7e56f95496ae2eec65b748',1,'hsisomap']]],
+  ['knngraph_5fgraph_5fbackend_5fboost',['KNNGRAPH_GRAPH_BACKEND_BOOST',['../namespacehsisomap.html#abcd7a4ca8ac29884f6d2427620705cbe',1,'hsisomap']]],
+  ['knngraph_5fimplementation_5fadaptive_5fk_5fhidenn',['KNNGRAPH_IMPLEMENTATION_ADAPTIVE_K_HIDENN',['../namespacehsisomap.html#a190054bd912c3221bd416ba760736991a90d92d5412c4c5b6d2399799dc4ffcab',1,'hsisomap']]],
+  ['knngraph_5fimplementation_5ffixed_5fk',['KNNGRAPH_IMPLEMENTATION_FIXED_K',['../namespacehsisomap.html#a190054bd912c3221bd416ba760736991adb8f9cf342829ec77bea8aa9c6582dc6',1,'hsisomap']]],
+  ['knngraph_5fimplementation_5ffixed_5fk_5fwith_5fmst',['KNNGRAPH_IMPLEMENTATION_FIXED_K_WITH_MST',['../namespacehsisomap.html#a190054bd912c3221bd416ba760736991ad295b391e558ab26c1070c64c0e5823a',1,'hsisomap']]],
+  ['knngraphimplementation',['KNNGraphImplementation',['../namespacehsisomap.html#a190054bd912c3221bd416ba760736991',1,'hsisomap']]],
+  ['knngraphwithimplementation',['KNNGraphWithImplementation',['../namespacehsisomap.html#ae031547ad7405334dcabeec7ff03d81f',1,'hsisomap']]],
+  ['kscalar',['kScalar',['../typedefs_8h.html#ac3bfd38eb72e83e455430c49657a17d7',1,'typedefs.h']]]
 ];

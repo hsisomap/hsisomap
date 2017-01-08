@@ -1,11 +1,5 @@
 var searchData=
 [
-  ['get',['Get',['../classgsl_1_1_matrix.html#a27af800840c6aec02c12ca8b4b9312cd',1,'gsl::Matrix']]],
-  ['getcol',['GetCol',['../classgsl_1_1_matrix.html#a43876901b5f6110e2991bbac48e5c449',1,'gsl::Matrix']]],
-  ['getcols',['GetCols',['../classgsl_1_1_matrix.html#addad2fde74d414b05c193277efd8a846',1,'gsl::Matrix']]],
-  ['getdistancematrix',['GetDistanceMatrix',['../class_dijkstra_1_1_dijkstra_c_l.html#a617f8a4176df02eb4ab5e1b994e5413a',1,'Dijkstra::DijkstraCL']]],
-  ['getresultsarray',['GetResultsArray',['../class_dijkstra_1_1_dijkstra_c_l.html#a57a1d9f7ccc2a79654a96dc4c2fbd64f',1,'Dijkstra::DijkstraCL']]],
-  ['getrow',['GetRow',['../classgsl_1_1_matrix.html#a8eea3330368329268f85237eaf03f6e9',1,'gsl::Matrix']]],
-  ['getrows',['GetRows',['../classgsl_1_1_matrix.html#af71911b8de1a1a0115669c5b34627612',1,'gsl::Matrix']]],
-  ['grapharray',['GraphArray',['../struct_graph_utils_1_1_graph_array.html',1,'GraphUtils']]]
+  ['find',['Find',['../classhsisomap_1_1_union_find.html#ab9e874af07e8af67bebe9a88f94f29aa',1,'hsisomap::UnionFind']]],
+  ['fixed',['FIXED',['../namespacehsisomap_1_1_c_o_n_f_i_g.html#a7617aa8b7a50219f4b678c62b615435a',1,'hsisomap::CONFIG']]]
 ];

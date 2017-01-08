@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['embedding_5fcmds_5fdefault_5fsolve_5fall',['EMBEDDING_CMDS_DEFAULT_SOLVE_ALL',['../embedding_8h.html#ad5a8b83564e8cd18613c9153b39ca194',1,'gsl']]],
-  ['embedding_5fcmds_5fsolve_5feigen_5fonly',['EMBEDDING_CMDS_SOLVE_EIGEN_ONLY',['../embedding_8h.html#a107a9d401512b29e094a7d70889ca1a9',1,'gsl']]],
-  ['equality_5flimit_5f',['equality_limit_',['../classgsl_1_1_matrix.html#af396387bb6247e141133479ac9808630',1,'gsl::Matrix']]]
+  ['adaptive_5fk_5fhidenn',['ADAPTIVE_K_HIDENN',['../namespacehsisomap_1_1_c_o_n_f_i_g.html#a274a94cf327a5024ebe6ee2aca14d502',1,'hsisomap::CONFIG']]],
+  ['adjacency_5flist',['ADJACENCY_LIST',['../namespacehsisomap_1_1_c_o_n_f_i_g.html#a944fe03be558f6c9b0e8afe404525940',1,'hsisomap::CONFIG']]]
 ];

@@ -59,7 +59,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>Dijkstra</b></li><li class="navelem"><a class="el" href="class_dijkstra_1_1_dijkstra.html">Dijkstra</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespace_dijkstra.html">Dijkstra</a></li><li class="navelem"><a class="el" href="class_dijkstra_1_1_dijkstra.html">Dijkstra</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -70,6 +70,8 @@ $(function() {
 <div class="title">Dijkstra::Dijkstra Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_dijkstra_8h_source.html">Dijkstra.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Dijkstra::Dijkstra:</div>
 <div class="dyncontent">
@@ -83,16 +85,96 @@ Inheritance diagram for Dijkstra::Dijkstra:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a60627917f9decabeec72cea340febeec"><td class="memItemLeft" align="right" valign="top"><a id="a60627917f9decabeec72cea340febeec"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>SetSourceVertices</b> (std::vector&lt; Index &gt; sourceVertices)=0</td></tr>
+<tr class="memitem:a60627917f9decabeec72cea340febeec"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dijkstra_1_1_dijkstra.html#a60627917f9decabeec72cea340febeec">SetSourceVertices</a> (std::vector&lt; <a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a> &gt; sourceVertices)=0</td></tr>
 <tr class="separator:a60627917f9decabeec72cea340febeec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70f62c14c18936c7d76af69f86e83a35"><td class="memItemLeft" align="right" valign="top"><a id="a70f62c14c18936c7d76af69f86e83a35"></a>
-virtual int&#160;</td><td class="memItemRight" valign="bottom"><b>Run</b> ()=0</td></tr>
+<tr class="memitem:a70f62c14c18936c7d76af69f86e83a35"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dijkstra_1_1_dijkstra.html#a70f62c14c18936c7d76af69f86e83a35">Run</a> ()=0</td></tr>
 <tr class="separator:a70f62c14c18936c7d76af69f86e83a35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b19acedd0f4884ba81b21c93502f967"><td class="memItemLeft" align="right" valign="top"><a id="a1b19acedd0f4884ba81b21c93502f967"></a>
-virtual std::shared_ptr&lt; <a class="el" href="classgsl_1_1_matrix.html">gsl::Matrix</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetDistanceMatrix</b> ()=0</td></tr>
+<tr class="memitem:a1b19acedd0f4884ba81b21c93502f967"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="classgsl_1_1_matrix.html">gsl::Matrix</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dijkstra_1_1_dijkstra.html#a1b19acedd0f4884ba81b21c93502f967">GetDistanceMatrix</a> ()=0</td></tr>
 <tr class="separator:a1b19acedd0f4884ba81b21c93502f967"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1b19acedd0f4884ba81b21c93502f967"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b19acedd0f4884ba81b21c93502f967">&#9670;&nbsp;</a></span>GetDistanceMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::shared_ptr&lt;<a class="el" href="classgsl_1_1_matrix.html">gsl::Matrix</a>&gt; Dijkstra::Dijkstra::GetDistanceMatrix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_dijkstra_1_1_dijkstra_c_l.html#a617f8a4176df02eb4ab5e1b994e5413a">Dijkstra::DijkstraCL</a>, and <a class="el" href="class_dijkstra_1_1_boost_dijkstra.html#a027a1cca740b30ba7c3b71f98f4bda51">Dijkstra::BoostDijkstra</a>.</p>
+
+</div>
+</div>
+<a id="a70f62c14c18936c7d76af69f86e83a35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70f62c14c18936c7d76af69f86e83a35">&#9670;&nbsp;</a></span>Run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int Dijkstra::Dijkstra::Run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_dijkstra_1_1_dijkstra_c_l.html#a0343850e0dbdf06f43305d3509242c64">Dijkstra::DijkstraCL</a>, and <a class="el" href="class_dijkstra_1_1_boost_dijkstra.html#a73c2969230c354bbc6f50f681bf4bb7b">Dijkstra::BoostDijkstra</a>.</p>
+
+</div>
+</div>
+<a id="a60627917f9decabeec72cea340febeec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60627917f9decabeec72cea340febeec">&#9670;&nbsp;</a></span>SetSourceVertices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Dijkstra::Dijkstra::SetSourceVertices </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a> &gt;&#160;</td>
+          <td class="paramname"><em>sourceVertices</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_dijkstra_1_1_dijkstra_c_l.html#ac48589eed87aa80a8bb37b5f6534f99b">Dijkstra::DijkstraCL</a>, and <a class="el" href="class_dijkstra_1_1_boost_dijkstra.html#ac21ac3988611fcd4dcb653ea2be20551">Dijkstra::BoostDijkstra</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/travis/build/hsisomap/hsisomap/include/hsisomap/graph/dijkstra/<a class="el" href="_dijkstra_8h_source.html">Dijkstra.h</a></li>
 </ul>

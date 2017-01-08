@@ -59,7 +59,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>GraphUtils</b></li><li class="navelem"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html">BoostAdjacencyList</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespace_graph_utils.html">GraphUtils</a></li><li class="navelem"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html">BoostAdjacencyList</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -72,6 +72,8 @@ $(function() {
 <div class="title">GraphUtils::BoostAdjacencyList Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="_boost_adjacency_list_8h_source.html">BoostAdjacencyList.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GraphUtils::BoostAdjacencyList:</div>
 <div class="dyncontent">
@@ -89,37 +91,220 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a5a2c196bf948856a8d7b7d34ac4d763d"><td class="memItemLeft" align="right" valign="top"><a id="a5a2c196bf948856a8d7b7d34ac4d763d"></a>
-typedef boost::adjacency_list&lt; boost::listS, boost::vecS, boost::undirectedS, boost::no_property, boost::property&lt; boost::edge_weight_t, Scalar &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>BoostGraphData</b></td></tr>
+<tr class="memitem:a5a2c196bf948856a8d7b7d34ac4d763d"><td class="memItemLeft" align="right" valign="top">typedef boost::adjacency_list&lt; boost::listS, boost::vecS, boost::undirectedS, boost::no_property, boost::property&lt; boost::edge_weight_t, <a class="el" href="typedefs_8h.html#a508fc58b5dc3c81865305f6498457063">Scalar</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a5a2c196bf948856a8d7b7d34ac4d763d">BoostGraphData</a></td></tr>
 <tr class="separator:a5a2c196bf948856a8d7b7d34ac4d763d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c218ddfa6c66ac97e85880415bf0ccc"><td class="memItemLeft" align="right" valign="top"><a id="a5c218ddfa6c66ac97e85880415bf0ccc"></a>
-typedef boost::graph_traits&lt; BoostGraphData &gt;::vertex_descriptor&#160;</td><td class="memItemRight" valign="bottom"><b>Vertex</b></td></tr>
+<tr class="memitem:a5c218ddfa6c66ac97e85880415bf0ccc"><td class="memItemLeft" align="right" valign="top">typedef boost::graph_traits&lt; <a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a5a2c196bf948856a8d7b7d34ac4d763d">BoostGraphData</a> &gt;::vertex_descriptor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a5c218ddfa6c66ac97e85880415bf0ccc">Vertex</a></td></tr>
 <tr class="separator:a5c218ddfa6c66ac97e85880415bf0ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d0383241f0aea8deaf8efb320d27b48"><td class="memItemLeft" align="right" valign="top"><a id="a7d0383241f0aea8deaf8efb320d27b48"></a>
-typedef std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>Edge</b></td></tr>
+<tr class="memitem:a7d0383241f0aea8deaf8efb320d27b48"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a7d0383241f0aea8deaf8efb320d27b48">Edge</a></td></tr>
 <tr class="separator:a7d0383241f0aea8deaf8efb320d27b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71c49d3ad08a917d189c602b91546c05"><td class="memItemLeft" align="right" valign="top"><a id="a71c49d3ad08a917d189c602b91546c05"></a>
-typedef boost::property_map&lt; BoostGraphData, boost::vertex_index_t &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><b>IndexMap</b></td></tr>
+<tr class="memitem:a71c49d3ad08a917d189c602b91546c05"><td class="memItemLeft" align="right" valign="top">typedef boost::property_map&lt; <a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a5a2c196bf948856a8d7b7d34ac4d763d">BoostGraphData</a>, boost::vertex_index_t &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a71c49d3ad08a917d189c602b91546c05">IndexMap</a></td></tr>
 <tr class="separator:a71c49d3ad08a917d189c602b91546c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aa075725d33db0cb26c5c64a2b103e329"><td class="memItemLeft" align="right" valign="top"><a id="aa075725d33db0cb26c5c64a2b103e329"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>BoostAdjacencyList</b> (Index numVertices)</td></tr>
+<tr class="memitem:aa075725d33db0cb26c5c64a2b103e329"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#aa075725d33db0cb26c5c64a2b103e329">BoostAdjacencyList</a> (<a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a> numVertices)</td></tr>
 <tr class="separator:aa075725d33db0cb26c5c64a2b103e329"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95c6cdae40788de4d16e4bc04d31cb25"><td class="memItemLeft" align="right" valign="top"><a id="a95c6cdae40788de4d16e4bc04d31cb25"></a>
-std::shared_ptr&lt; <a class="el" href="struct_graph_utils_1_1_boost_adjacency_list_1_1_boost_graph.html">BoostGraph</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>GetBoostGraph</b> ()</td></tr>
+<tr class="memitem:a95c6cdae40788de4d16e4bc04d31cb25"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="struct_graph_utils_1_1_boost_adjacency_list_1_1_boost_graph.html">BoostGraph</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a95c6cdae40788de4d16e4bc04d31cb25">GetBoostGraph</a> ()</td></tr>
 <tr class="separator:a95c6cdae40788de4d16e4bc04d31cb25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7b67f13c67e8f7ef8b73432ba26264b"><td class="memItemLeft" align="right" valign="top"><a id="ab7b67f13c67e8f7ef8b73432ba26264b"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Connect</b> (Index a, Index b, Scalar weight)</td></tr>
+<tr class="memitem:ab7b67f13c67e8f7ef8b73432ba26264b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#ab7b67f13c67e8f7ef8b73432ba26264b">Connect</a> (<a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a> a, <a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a> b, <a class="el" href="typedefs_8h.html#a508fc58b5dc3c81865305f6498457063">Scalar</a> weight)</td></tr>
 <tr class="separator:ab7b67f13c67e8f7ef8b73432ba26264b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83d1163e952313ca8a929b20f7e3159c"><td class="memItemLeft" align="right" valign="top"><a id="a83d1163e952313ca8a929b20f7e3159c"></a>
-Index&#160;</td><td class="memItemRight" valign="bottom"><b>NumVertices</b> () const</td></tr>
+<tr class="memitem:a83d1163e952313ca8a929b20f7e3159c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a83d1163e952313ca8a929b20f7e3159c">NumVertices</a> () const</td></tr>
 <tr class="separator:a83d1163e952313ca8a929b20f7e3159c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6b6d79349a1fd89086661e2953c715e"><td class="memItemLeft" align="right" valign="top"><a id="ad6b6d79349a1fd89086661e2953c715e"></a>
-Index&#160;</td><td class="memItemRight" valign="bottom"><b>NumEdges</b> () const</td></tr>
+<tr class="memitem:ad6b6d79349a1fd89086661e2953c715e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#ad6b6d79349a1fd89086661e2953c715e">NumEdges</a> () const</td></tr>
 <tr class="separator:ad6b6d79349a1fd89086661e2953c715e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a5a2c196bf948856a8d7b7d34ac4d763d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a2c196bf948856a8d7b7d34ac4d763d">&#9670;&nbsp;</a></span>BoostGraphData</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef boost::adjacency_list&lt;boost::listS, boost::vecS, boost::undirectedS, boost::no_property, boost::property&lt;boost::edge_weight_t, <a class="el" href="typedefs_8h.html#a508fc58b5dc3c81865305f6498457063">Scalar</a>&gt; &gt; <a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a5a2c196bf948856a8d7b7d34ac4d763d">GraphUtils::BoostAdjacencyList::BoostGraphData</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7d0383241f0aea8deaf8efb320d27b48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d0383241f0aea8deaf8efb320d27b48">&#9670;&nbsp;</a></span>Edge</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef std::pair&lt;int, int&gt; <a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a7d0383241f0aea8deaf8efb320d27b48">GraphUtils::BoostAdjacencyList::Edge</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a71c49d3ad08a917d189c602b91546c05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71c49d3ad08a917d189c602b91546c05">&#9670;&nbsp;</a></span>IndexMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef boost::property_map&lt;<a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a5a2c196bf948856a8d7b7d34ac4d763d">BoostGraphData</a>, boost::vertex_index_t&gt;::type <a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a71c49d3ad08a917d189c602b91546c05">GraphUtils::BoostAdjacencyList::IndexMap</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c218ddfa6c66ac97e85880415bf0ccc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c218ddfa6c66ac97e85880415bf0ccc">&#9670;&nbsp;</a></span>Vertex</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef boost::graph_traits&lt;<a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a5a2c196bf948856a8d7b7d34ac4d763d">BoostGraphData</a>&gt;::vertex_descriptor <a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a5c218ddfa6c66ac97e85880415bf0ccc">GraphUtils::BoostAdjacencyList::Vertex</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa075725d33db0cb26c5c64a2b103e329"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa075725d33db0cb26c5c64a2b103e329">&#9670;&nbsp;</a></span>BoostAdjacencyList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GraphUtils::BoostAdjacencyList::BoostAdjacencyList </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a>&#160;</td>
+          <td class="paramname"><em>numVertices</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab7b67f13c67e8f7ef8b73432ba26264b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7b67f13c67e8f7ef8b73432ba26264b">&#9670;&nbsp;</a></span>Connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GraphUtils::BoostAdjacencyList::Connect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a>&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a>&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="typedefs_8h.html#a508fc58b5dc3c81865305f6498457063">Scalar</a>&#160;</td>
+          <td class="paramname"><em>weight</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_graph_utils_1_1_undirected_weighted_graph.html#aeee7aa9fb80e3d691f73cc7316dc6b22">GraphUtils::UndirectedWeightedGraph</a>.</p>
+
+</div>
+</div>
+<a id="a95c6cdae40788de4d16e4bc04d31cb25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95c6cdae40788de4d16e4bc04d31cb25">&#9670;&nbsp;</a></span>GetBoostGraph()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="struct_graph_utils_1_1_boost_adjacency_list_1_1_boost_graph.html">BoostGraph</a>&gt; GraphUtils::BoostAdjacencyList::GetBoostGraph </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad6b6d79349a1fd89086661e2953c715e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6b6d79349a1fd89086661e2953c715e">&#9670;&nbsp;</a></span>NumEdges()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a> GraphUtils::BoostAdjacencyList::NumEdges </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_graph_utils_1_1_undirected_weighted_graph.html#acc19ba954a62e87a086786d114f416a7">GraphUtils::UndirectedWeightedGraph</a>.</p>
+
+</div>
+</div>
+<a id="a83d1163e952313ca8a929b20f7e3159c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83d1163e952313ca8a929b20f7e3159c">&#9670;&nbsp;</a></span>NumVertices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a> GraphUtils::BoostAdjacencyList::NumVertices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="class_graph_utils_1_1_undirected_weighted_graph.html#aaecbff6256c24dcf46d32f7c7509821a">GraphUtils::UndirectedWeightedGraph</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>/home/travis/build/hsisomap/hsisomap/include/hsisomap/graph/<a class="el" href="_boost_adjacency_list_8h_source.html">BoostAdjacencyList.h</a></li>
 </ul>

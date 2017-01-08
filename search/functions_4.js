@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['l2distance',['L2Distance',['../embedding_8h.html#ada4136a470dfeef654c9a7d5903d416d',1,'gsl']]]
+  ['find',['Find',['../classhsisomap_1_1_union_find.html#ab9e874af07e8af67bebe9a88f94f29aa',1,'hsisomap::UnionFind']]]
 ];
