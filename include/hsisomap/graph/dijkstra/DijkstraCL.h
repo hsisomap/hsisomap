@@ -36,7 +36,7 @@
 namespace Dijkstra {
 
 
-//!  A simple wrapper class for the OpenCL implementation of the Parallel Dijkstra Algorithm
+//! The OpenCL implementation of the Parallel Dijkstra Algorithm
 //! for all-pair or selected-pair shortest distances calculation.
 class DijkstraCL : public Dijkstra {
  public:
@@ -46,11 +46,13 @@ class DijkstraCL : public Dijkstra {
   //! Constructor.
   //! Create the shortest path problem from a predefined AdjacencyList shared pointer.
   //! The size type and value type of the GraphArray from the AdjacencyList must be compatible with cl_Index and cl_Scalar.
+  //! \param adjList the graph to be calculated represented by GraphUtils::AdjacencyList.
   DijkstraCL(std::shared_ptr<GraphUtils::AdjacencyList> adjList);
 
   //! Run the parallel shortest distance calculation with default or predefined parameters.
   //! The default behavior is to calculate all-pair shortest distance matrix using one GPU with the
   //! maximum FLOPS.
+  //! \return error code. 0 if succeeded.
   int Run();
 
   //! Set the source vertices list.
@@ -58,10 +60,11 @@ class DijkstraCL : public Dijkstra {
   void SetSourceVertices(std::vector<Index> sourceVertices);
 
   //! Get the result array pointer.
-  //! The result is a row-major linear storage of the distance matrix.
+  //! \return a row-major linear storage of the distance matrix.
   std::shared_ptr<std::vector<cl_Scalar>> GetResultsArray();
 
-  //! Get the result as a gsl::Matrix
+  //! Get the distance matrix from the Dijkstra algorithm.
+  //! \return the calculated distance matrix as gsl::Matrix. The rows represent the source vertices, and the columns represent destination vertices.
   std::shared_ptr<gsl::Matrix> GetDistanceMatrix();
  private:
   std::shared_ptr<GraphUtils::GraphArray<cl_Index, cl_Scalar>> graph_; //!< Predefined GraphArray shared pointer.
@@ -84,12 +87,14 @@ class DijkstraCL : public Dijkstra {
   //! \param groupSize the number of computing elements of one workgroup.
   //! This is obtained by clGetDeviceInfo and depending on the hardware.
   //! \param globalSize the number of global computing elements.
+  //! \return rounded-up work size.
   size_t RoundUpWorkSize(size_t groupSize, size_t globalSize);
 
   //! Simple helper function to check if all the elements of the mask array are zero (empty) using a loop.
   //! This function works on host memory.
   //! \param mask mask array pointer in host memory.
   //! \param maskSize the size of the mask array.
+  //! \return whether the mask is empty.
   bool isMaskEmpty(cl_Index * mask, cl_Index maskSize);
 
   //! Prepare the device memory.
@@ -118,11 +123,13 @@ class DijkstraCL : public Dijkstra {
 
   //! Build the OpenCL kernel program on the specified context.
   //! \param context the OpenCL context on which the program is built.
+  //! \return OpenCL program index as cl_program.
   cl_program buildProgram(cl_context context);
 
   //! Run the OpenCL kernel program on specified context and device.
   //! \param context the OpenCL context on which the program runs.
   //! \param device the OpenCL device on which the program runs.
+  //! \return error code. 0 if succeed.
   cl_int RunOnDevice(cl_context context, cl_device_id device);
 };
 
