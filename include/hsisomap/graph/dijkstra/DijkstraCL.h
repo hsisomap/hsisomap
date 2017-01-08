@@ -1,7 +1,7 @@
 //***************************************************************************************
 //
 //! \file DijkstraCL.h
-//!  A simple wrapper class for the OpenCL implementation of the Parallel Dijkstra Algorithm
+//!  A simple wrapper class for the OpenCL implementation of the Parallel Dijkstra Algorithm.
 //! for all-pair or selected-pair shortest distances calculation.
 //!
 //! This code is adapted from the example code (by Dan Ginsburg) for the book

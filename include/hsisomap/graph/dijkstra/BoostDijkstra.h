@@ -1,6 +1,14 @@
+//***************************************************************************************
 //
-// Created by Can on 9/18/15.
+//! \file BoostDijkstra.h
+//! Boost Graph Library implementation of Dijkstra algorithm.
+//!
+//! \author    Can
+//! \version   1.0
+//! \date      2015-09-18
+//! \copyright GNU Public License V3.0
 //
+//***************************************************************************************//
 
 #ifndef DIJKSTRACL_BOOSTDIJKSTRA_H
 #define DIJKSTRACL_BOOSTDIJKSTRA_H

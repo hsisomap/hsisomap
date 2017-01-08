@@ -1,6 +1,14 @@
+//***************************************************************************************
 //
-// Created by Can on 9/18/15.
+//! \file Dijkstra.h
+//!  A collections of implementations of Dijkstra multi-source all-path shortest path on graph algorithm.
+//!
+//! \author    Can
+//! \version   1.0
+//! \date      2015-09-18
+//! \copyright GNU Public License V3.0
 //
+//***************************************************************************************
 
 #ifndef DIJKSTRACL_DIJKSTRA_H
 #define DIJKSTRACL_DIJKSTRA_H
