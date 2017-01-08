@@ -71,6 +71,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Abstract class for various implementations of <a class="el" href="class_dijkstra_1_1_dijkstra.html" title="Abstract class for various implementations of Dijkstra algorithm. ">Dijkstra</a> algorithm.  
+ <a href="class_dijkstra_1_1_dijkstra.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_dijkstra_8h_source.html">Dijkstra.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Dijkstra::Dijkstra:</div>
@@ -92,7 +95,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a1b19acedd0f4884ba81b21c93502f967"><td class="memItemLeft" align="right" valign="top">virtual std::shared_ptr&lt; <a class="el" href="classgsl_1_1_matrix.html">gsl::Matrix</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dijkstra_1_1_dijkstra.html#a1b19acedd0f4884ba81b21c93502f967">GetDistanceMatrix</a> ()=0</td></tr>
 <tr class="separator:a1b19acedd0f4884ba81b21c93502f967"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract class for various implementations of <a class="el" href="class_dijkstra_1_1_dijkstra.html" title="Abstract class for various implementations of Dijkstra algorithm. ">Dijkstra</a> algorithm. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1b19acedd0f4884ba81b21c93502f967"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1b19acedd0f4884ba81b21c93502f967">&#9670;&nbsp;</a></span>GetDistanceMatrix()</h2>
 
@@ -115,6 +120,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Get the distance matrix from the <a class="el" href="class_dijkstra_1_1_dijkstra.html" title="Abstract class for various implementations of Dijkstra algorithm. ">Dijkstra</a> algorithm. </p><dl class="section return"><dt>Returns</dt><dd>the calculated distance matrix as <a class="el" href="classgsl_1_1_matrix.html" title="A simple wrapper class for common matrix operations and resource management for GNU Scientific Librar...">gsl::Matrix</a>. The rows represent the source vertices, and the columns represent destination vertices. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_dijkstra_1_1_dijkstra_c_l.html#a617f8a4176df02eb4ab5e1b994e5413a">Dijkstra::DijkstraCL</a>, and <a class="el" href="class_dijkstra_1_1_boost_dijkstra.html#a027a1cca740b30ba7c3b71f98f4bda51">Dijkstra::BoostDijkstra</a>.</p>
 
@@ -142,6 +148,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Run the <a class="el" href="class_dijkstra_1_1_dijkstra.html" title="Abstract class for various implementations of Dijkstra algorithm. ">Dijkstra</a> algorithm. </p><dl class="section return"><dt>Returns</dt><dd>error code. 0 if succeeded. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_dijkstra_1_1_dijkstra_c_l.html#a0343850e0dbdf06f43305d3509242c64">Dijkstra::DijkstraCL</a>, and <a class="el" href="class_dijkstra_1_1_boost_dijkstra.html#a73c2969230c354bbc6f50f681bf4bb7b">Dijkstra::BoostDijkstra</a>.</p>
 
@@ -170,6 +177,12 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Set the indices of the source vertices. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sourceVertices</td><td>the vector of the indices of the source vertices. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="class_dijkstra_1_1_dijkstra_c_l.html#ac48589eed87aa80a8bb37b5f6534f99b">Dijkstra::DijkstraCL</a>, and <a class="el" href="class_dijkstra_1_1_boost_dijkstra.html#ac21ac3988611fcd4dcb653ea2be20551">Dijkstra::BoostDijkstra</a>.</p>
 

@@ -78,7 +78,7 @@ Inheritance diagram for Dijkstra::BoostDijkstra:</div>
  <div class="center">
   <img src="class_dijkstra_1_1_boost_dijkstra.png" usemap="#Dijkstra::BoostDijkstra_map" alt=""/>
   <map id="Dijkstra::BoostDijkstra_map" name="Dijkstra::BoostDijkstra_map">
-<area href="class_dijkstra_1_1_dijkstra.html" alt="Dijkstra::Dijkstra" shape="rect" coords="0,0,133,24"/>
+<area href="class_dijkstra_1_1_dijkstra.html" title="Abstract class for various implementations of Dijkstra algorithm. " alt="Dijkstra::Dijkstra" shape="rect" coords="0,0,133,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -93,7 +93,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a027a1cca740b30ba7c3b71f98f4bda51"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classgsl_1_1_matrix.html">gsl::Matrix</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dijkstra_1_1_boost_dijkstra.html#a027a1cca740b30ba7c3b71f98f4bda51">GetDistanceMatrix</a> ()</td></tr>
 <tr class="separator:a027a1cca740b30ba7c3b71f98f4bda51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Boost Graph Library implementation of <a class="el" href="class_dijkstra_1_1_dijkstra.html" title="Abstract class for various implementations of Dijkstra algorithm. ">Dijkstra</a> algorithm. The implementation calculates the distances from the specified source vertices (in sequence) to all vertices on the graph using <a class="el" href="class_dijkstra_1_1_dijkstra.html" title="Abstract class for various implementations of Dijkstra algorithm. ">Dijkstra</a> algorithm. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0a4528e6e92026b8f1898dd777b58b74"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0a4528e6e92026b8f1898dd777b58b74">&#9670;&nbsp;</a></span>BoostDijkstra()</h2>
 
@@ -109,6 +111,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">graph</td><td>the graph to be calculated represented by <a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html">GraphUtils::BoostAdjacencyList</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -135,6 +143,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Get the distance matrix from the <a class="el" href="class_dijkstra_1_1_dijkstra.html" title="Abstract class for various implementations of Dijkstra algorithm. ">Dijkstra</a> algorithm. </p><dl class="section return"><dt>Returns</dt><dd>the calculated distance matrix as <a class="el" href="classgsl_1_1_matrix.html" title="A simple wrapper class for common matrix operations and resource management for GNU Scientific Librar...">gsl::Matrix</a>. The rows represent the source vertices, and the columns represent destination vertices. </dd></dl>
 
 <p>Implements <a class="el" href="class_dijkstra_1_1_dijkstra.html#a1b19acedd0f4884ba81b21c93502f967">Dijkstra::Dijkstra</a>.</p>
 
@@ -162,6 +171,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Run the <a class="el" href="class_dijkstra_1_1_dijkstra.html" title="Abstract class for various implementations of Dijkstra algorithm. ">Dijkstra</a> algorithm. </p><dl class="section return"><dt>Returns</dt><dd>error code. 0 if succeeded. </dd></dl>
 
 <p>Implements <a class="el" href="class_dijkstra_1_1_dijkstra.html#a70f62c14c18936c7d76af69f86e83a35">Dijkstra::Dijkstra</a>.</p>
 

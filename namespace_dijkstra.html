@@ -67,12 +67,16 @@ $(function() {
 <div class="title">Dijkstra Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A collections of implementations of <a class="el" href="namespace_dijkstra.html" title="A collections of implementations of Dijkstra multi-source all-path shortest path on graph algorithm...">Dijkstra</a> multi-source all-path shortest path on graph algorithm.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dijkstra_1_1_boost_dijkstra.html">BoostDijkstra</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dijkstra_1_1_dijkstra.html">Dijkstra</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract class for various implementations of <a class="el" href="class_dijkstra_1_1_dijkstra.html" title="Abstract class for various implementations of Dijkstra algorithm. ">Dijkstra</a> algorithm.  <a href="class_dijkstra_1_1_dijkstra.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dijkstra_1_1_dijkstra_c_l.html">DijkstraCL</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -81,7 +85,8 @@ Classes</h2></td></tr>
 Enumerations</h2></td></tr>
 <tr class="memitem:a50057c9499cc78fd219457a27f678471"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_dijkstra.html#a50057c9499cc78fd219457a27f678471">DijkstraImplementations</a> { <a class="el" href="namespace_dijkstra.html#a50057c9499cc78fd219457a27f678471ab7209c73503a42eb81b50974f5e4422b">DIJKSTRA_IMPLEMENTATION_CL</a> = 0, 
 <a class="el" href="namespace_dijkstra.html#a50057c9499cc78fd219457a27f678471afa909c69b31d2ae5954daf8052e39f8f">DIJKSTRA_IMPLEMENTATION_BOOST</a> = 1
- }</td></tr>
+ }<tr class="memdesc:a50057c9499cc78fd219457a27f678471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum to specify implementations of <a class="el" href="namespace_dijkstra.html" title="A collections of implementations of Dijkstra multi-source all-path shortest path on graph algorithm...">Dijkstra</a> algorithm.  <a href="namespace_dijkstra.html#a50057c9499cc78fd219457a27f678471">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:a50057c9499cc78fd219457a27f678471"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -89,7 +94,11 @@ Functions</h2></td></tr>
 <tr class="memitem:af5bf98618dfdd4671ef67b071be36a4c"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_dijkstra_1_1_dijkstra.html">Dijkstra</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_dijkstra.html#af5bf98618dfdd4671ef67b071be36a4c">DijkstraWithImplementation</a> (<a class="el" href="namespace_dijkstra.html#a50057c9499cc78fd219457a27f678471">DijkstraImplementations</a> dijkstraImplementations, std::shared_ptr&lt;::<a class="el" href="class_graph_utils_1_1_undirected_weighted_graph.html">GraphUtils::UndirectedWeightedGraph</a> &gt; graph)</td></tr>
 <tr class="separator:af5bf98618dfdd4671ef67b071be36a4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A collections of implementations of <a class="el" href="namespace_dijkstra.html" title="A collections of implementations of Dijkstra multi-source all-path shortest path on graph algorithm...">Dijkstra</a> multi-source all-path shortest path on graph algorithm. </p>
+<p>A collections of various implementations of <a class="el" href="namespace_dijkstra.html" title="A collections of implementations of Dijkstra multi-source all-path shortest path on graph algorithm...">Dijkstra</a> multi-source all-path shortest path on graph algorithm.</p>
+<p>Currently the implementations include an OpenCL parallel accelerated implementation, and a standard implementation in Boost Graph Library. </p>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a50057c9499cc78fd219457a27f678471"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a50057c9499cc78fd219457a27f678471">&#9670;&nbsp;</a></span>DijkstraImplementations</h2>
 
@@ -101,9 +110,13 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enum to specify implementations of <a class="el" href="namespace_dijkstra.html" title="A collections of implementations of Dijkstra multi-source all-path shortest path on graph algorithm...">Dijkstra</a> algorithm. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a50057c9499cc78fd219457a27f678471ab7209c73503a42eb81b50974f5e4422b"></a>DIJKSTRA_IMPLEMENTATION_CL&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a50057c9499cc78fd219457a27f678471afa909c69b31d2ae5954daf8052e39f8f"></a>DIJKSTRA_IMPLEMENTATION_BOOST&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a50057c9499cc78fd219457a27f678471ab7209c73503a42eb81b50974f5e4422b"></a>DIJKSTRA_IMPLEMENTATION_CL&#160;</td><td class="fielddoc"><p>OpenCL parallel accelerated implementation. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a50057c9499cc78fd219457a27f678471afa909c69b31d2ae5954daf8052e39f8f"></a>DIJKSTRA_IMPLEMENTATION_BOOST&#160;</td><td class="fielddoc"><p>Boost Graph Library implementation. </p>
+</td></tr>
 </table>
 
 </div>
@@ -134,6 +147,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Get an implementation object of <a class="el" href="namespace_dijkstra.html" title="A collections of implementations of Dijkstra multi-source all-path shortest path on graph algorithm...">Dijkstra</a> algorithm with specified implementation. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dijkstraImplementations</td><td>the implementation method of <a class="el" href="namespace_dijkstra.html" title="A collections of implementations of Dijkstra multi-source all-path shortest path on graph algorithm...">Dijkstra</a> algorithm. It is one of the enum values of DijkstraImplementations. </td></tr>
+    <tr><td class="paramname">graph</td><td>graph representation to be calculated. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the implementation object that can be called to run the algorithm. </dd></dl>
 
 </div>
 </div>

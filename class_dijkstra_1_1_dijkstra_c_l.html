@@ -79,7 +79,7 @@ Inheritance diagram for Dijkstra::DijkstraCL:</div>
  <div class="center">
   <img src="class_dijkstra_1_1_dijkstra_c_l.png" usemap="#Dijkstra::DijkstraCL_map" alt=""/>
   <map id="Dijkstra::DijkstraCL_map" name="Dijkstra::DijkstraCL_map">
-<area href="class_dijkstra_1_1_dijkstra.html" alt="Dijkstra::Dijkstra" shape="rect" coords="0,0,118,24"/>
+<area href="class_dijkstra_1_1_dijkstra.html" title="Abstract class for various implementations of Dijkstra algorithm. " alt="Dijkstra::Dijkstra" shape="rect" coords="0,0,118,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -103,11 +103,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a57a1d9f7ccc2a79654a96dc4c2fbd64f"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; std::vector&lt; <a class="el" href="class_dijkstra_1_1_dijkstra_c_l.html#a5dc96724577a49ee14d4c2e1df3c0579">cl_Scalar</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dijkstra_1_1_dijkstra_c_l.html#a57a1d9f7ccc2a79654a96dc4c2fbd64f">GetResultsArray</a> ()</td></tr>
 <tr class="separator:a57a1d9f7ccc2a79654a96dc4c2fbd64f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a617f8a4176df02eb4ab5e1b994e5413a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classgsl_1_1_matrix.html">gsl::Matrix</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dijkstra_1_1_dijkstra_c_l.html#a617f8a4176df02eb4ab5e1b994e5413a">GetDistanceMatrix</a> ()</td></tr>
-<tr class="memdesc:a617f8a4176df02eb4ab5e1b994e5413a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the result as a <a class="el" href="classgsl_1_1_matrix.html" title="A simple wrapper class for common matrix operations and resource management for GNU Scientific Librar...">gsl::Matrix</a>.  <a href="#a617f8a4176df02eb4ab5e1b994e5413a">More...</a><br /></td></tr>
 <tr class="separator:a617f8a4176df02eb4ab5e1b994e5413a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A simple wrapper class for the OpenCL implementation of the Parallel <a class="el" href="class_dijkstra_1_1_dijkstra.html">Dijkstra</a> Algorithm for all-pair or selected-pair shortest distances calculation. </p>
+<div class="textblock"><p>The OpenCL implementation of the Parallel <a class="el" href="class_dijkstra_1_1_dijkstra.html" title="Abstract class for various implementations of Dijkstra algorithm. ">Dijkstra</a> Algorithm for all-pair or selected-pair shortest distances calculation. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="aab92585b062690f0835f154dc28f8c04"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aab92585b062690f0835f154dc28f8c04">&#9670;&nbsp;</a></span>cl_Index</h2>
@@ -157,7 +156,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructor. Create the shortest path problem from a predefined AdjacencyList shared pointer. The size type and value type of the GraphArray from the AdjacencyList must be compatible with cl_Index and cl_Scalar. </p>
+<p>Constructor. Create the shortest path problem from a predefined AdjacencyList shared pointer. The size type and value type of the GraphArray from the AdjacencyList must be compatible with cl_Index and cl_Scalar. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">adjList</td><td>the graph to be calculated represented by <a class="el" href="class_graph_utils_1_1_adjacency_list.html">GraphUtils::AdjacencyList</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -184,8 +188,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Get the result as a <a class="el" href="classgsl_1_1_matrix.html" title="A simple wrapper class for common matrix operations and resource management for GNU Scientific Librar...">gsl::Matrix</a>. </p>
+<p>Get the distance matrix from the <a class="el" href="class_dijkstra_1_1_dijkstra.html" title="Abstract class for various implementations of Dijkstra algorithm. ">Dijkstra</a> algorithm. </p><dl class="section return"><dt>Returns</dt><dd>the calculated distance matrix as <a class="el" href="classgsl_1_1_matrix.html" title="A simple wrapper class for common matrix operations and resource management for GNU Scientific Librar...">gsl::Matrix</a>. The rows represent the source vertices, and the columns represent destination vertices. </dd></dl>
 
 <p>Implements <a class="el" href="class_dijkstra_1_1_dijkstra.html#a1b19acedd0f4884ba81b21c93502f967">Dijkstra::Dijkstra</a>.</p>
 
@@ -205,7 +208,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get the result array pointer. The result is a row-major linear storage of the distance matrix. </p>
+<p>Get the result array pointer. </p><dl class="section return"><dt>Returns</dt><dd>a row-major linear storage of the distance matrix. </dd></dl>
 
 </div>
 </div>
@@ -231,7 +234,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Run the parallel shortest distance calculation with default or predefined parameters. The default behavior is to calculate all-pair shortest distance matrix using one GPU with the maximum FLOPS. </p>
+<p>Run the parallel shortest distance calculation with default or predefined parameters. The default behavior is to calculate all-pair shortest distance matrix using one GPU with the maximum FLOPS. </p><dl class="section return"><dt>Returns</dt><dd>error code. 0 if succeeded. </dd></dl>
 
 <p>Implements <a class="el" href="class_dijkstra_1_1_dijkstra.html#a70f62c14c18936c7d76af69f86e83a35">Dijkstra::Dijkstra</a>.</p>
 
