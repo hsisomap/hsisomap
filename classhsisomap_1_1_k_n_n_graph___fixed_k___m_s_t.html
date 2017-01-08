@@ -71,6 +71,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>kNN graph construction with fixed k and minimum spanning tree (MST) augmented to ensure graph connectivity.  
+ <a href="classhsisomap_1_1_k_n_n_graph___fixed_k___m_s_t.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_k_n_n_graph___fixed_k___m_s_t_8h_source.html">KNNGraph_FixedK_MST.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for hsisomap::KNNGraph_FixedK_MST:</div>
@@ -78,7 +81,7 @@ Inheritance diagram for hsisomap::KNNGraph_FixedK_MST:</div>
  <div class="center">
   <img src="classhsisomap_1_1_k_n_n_graph___fixed_k___m_s_t.png" usemap="#hsisomap::KNNGraph_5FFixedK_5FMST_map" alt=""/>
   <map id="hsisomap::KNNGraph_5FFixedK_5FMST_map" name="hsisomap::KNNGraph_5FFixedK_5FMST_map">
-<area href="classhsisomap_1_1_k_n_n_graph.html" alt="hsisomap::KNNGraph" shape="rect" coords="0,0,210,24"/>
+<area href="classhsisomap_1_1_k_n_n_graph.html" title="Abstract class to manage different implementations of kNN graph. " alt="hsisomap::KNNGraph" shape="rect" coords="0,0,210,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -89,7 +92,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:abbc34b22fc87e569da6fa3f68819b19d"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="class_graph_utils_1_1_undirected_weighted_graph.html">GraphUtils::UndirectedWeightedGraph</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhsisomap_1_1_k_n_n_graph___fixed_k___m_s_t.html#abbc34b22fc87e569da6fa3f68819b19d">knngraph</a> ()</td></tr>
 <tr class="separator:abbc34b22fc87e569da6fa3f68819b19d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>kNN graph construction with fixed k and minimum spanning tree (MST) augmented to ensure graph connectivity. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abf74ab5a63543a775696cc55f67249ae"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf74ab5a63543a775696cc55f67249ae">&#9670;&nbsp;</a></span>KNNGraph_FixedK_MST()</h2>
 
@@ -115,6 +120,13 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>the pairwise distance matrix. It needs to be symmetric. </td></tr>
+    <tr><td class="paramname">property_list</td><td>the property list contains the options needed to construct the graph. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -141,6 +153,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Get the constructed kNN graph. </p><dl class="section return"><dt>Returns</dt><dd>the constructed kNN graph. It is a smart pointer to an <a class="el" href="class_graph_utils_1_1_undirected_weighted_graph.html" title="Abstract class for undirected weighted graph classes with different representations. ">GraphUtils::UndirectedWeightedGraph</a>. The underlying implementation of the graph is specified in KNNGraphWithImplementation. </dd></dl>
 
 <p>Implements <a class="el" href="classhsisomap_1_1_k_n_n_graph.html#adc7ec0d31f3579e217495413ca8746be">hsisomap::KNNGraph</a>.</p>
 

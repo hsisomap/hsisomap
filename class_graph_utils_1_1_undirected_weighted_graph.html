@@ -71,6 +71,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Abstract class for undirected weighted graph classes with different representations.  
+ <a href="class_graph_utils_1_1_undirected_weighted_graph.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_undirected_weighted_graph_8h_source.html">UndirectedWeightedGraph.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GraphUtils::UndirectedWeightedGraph:</div>
@@ -78,8 +81,8 @@ Inheritance diagram for GraphUtils::UndirectedWeightedGraph:</div>
  <div class="center">
   <img src="class_graph_utils_1_1_undirected_weighted_graph.png" usemap="#GraphUtils::UndirectedWeightedGraph_map" alt=""/>
   <map id="GraphUtils::UndirectedWeightedGraph_map" name="GraphUtils::UndirectedWeightedGraph_map">
-<area href="class_graph_utils_1_1_adjacency_list.html" alt="GraphUtils::AdjacencyList" shape="rect" coords="0,56,224,80"/>
-<area href="class_graph_utils_1_1_boost_adjacency_list.html" alt="GraphUtils::BoostAdjacencyList" shape="rect" coords="234,56,458,80"/>
+<area href="class_graph_utils_1_1_adjacency_list.html" title="Customized implemented essential Adjancency List based graph representation. " alt="GraphUtils::AdjacencyList" shape="rect" coords="0,56,224,80"/>
+<area href="class_graph_utils_1_1_boost_adjacency_list.html" title="Boost Graph Library Adjancency List based graph representation wrapper class. " alt="GraphUtils::BoostAdjacencyList" shape="rect" coords="234,56,458,80"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -92,7 +95,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:acc19ba954a62e87a086786d114f416a7"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_undirected_weighted_graph.html#acc19ba954a62e87a086786d114f416a7">NumEdges</a> () const =0</td></tr>
 <tr class="separator:acc19ba954a62e87a086786d114f416a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Abstract class for undirected weighted graph classes with different representations. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="aeee7aa9fb80e3d691f73cc7316dc6b22"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aeee7aa9fb80e3d691f73cc7316dc6b22">&#9670;&nbsp;</a></span>Connect()</h2>
 
@@ -132,6 +137,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Connect two vertices in the graph using a weighted edge. The graph is not connected at the beginning, and each edge needs to be connected by this method. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>the index of the source vertex of the edge. </td></tr>
+    <tr><td class="paramname">b</td><td>the index of the target vertex of the edge. For undirected graph, a and b can be exchanged. </td></tr>
+    <tr><td class="paramname">weight</td><td>the weight of the edge. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implemented in <a class="el" href="class_graph_utils_1_1_adjacency_list.html#a1e176ce4facc43634b10e708b3921e94">GraphUtils::AdjacencyList</a>, and <a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#ab7b67f13c67e8f7ef8b73432ba26264b">GraphUtils::BoostAdjacencyList</a>.</p>
 
@@ -159,6 +172,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Get the number of edges of the graph. </p><dl class="section return"><dt>Returns</dt><dd>the number of edges of the graph. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_graph_utils_1_1_adjacency_list.html#acddf7025dc5b4b77af875b175c8b9728">GraphUtils::AdjacencyList</a>, and <a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#ad6b6d79349a1fd89086661e2953c715e">GraphUtils::BoostAdjacencyList</a>.</p>
 
@@ -186,6 +200,16 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>[TO BE SUPPORTED] Get the weight between two vertices. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>the source vertex of the edge. </td></tr>
+    <tr><td class="paramname">b</td><td>the target vertex of the edge. For undirected graph, a and b can be exchanged. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the weight of the edge. Get the number of vertices of the graph. </dd>
+<dd>
+the number of vertices of the graph. </dd></dl>
 
 <p>Implemented in <a class="el" href="class_graph_utils_1_1_adjacency_list.html#a02777291db3467a4bdf77d6f10923a5c">GraphUtils::AdjacencyList</a>, and <a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a83d1163e952313ca8a929b20f7e3159c">GraphUtils::BoostAdjacencyList</a>.</p>
 

@@ -73,6 +73,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Boost Graph Library Adjancency List based graph representation wrapper class.  
+ <a href="class_graph_utils_1_1_boost_adjacency_list.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_boost_adjacency_list_8h_source.html">BoostAdjacencyList.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GraphUtils::BoostAdjacencyList:</div>
@@ -80,24 +83,29 @@ Inheritance diagram for GraphUtils::BoostAdjacencyList:</div>
  <div class="center">
   <img src="class_graph_utils_1_1_boost_adjacency_list.png" usemap="#GraphUtils::BoostAdjacencyList_map" alt=""/>
   <map id="GraphUtils::BoostAdjacencyList_map" name="GraphUtils::BoostAdjacencyList_map">
-<area href="class_graph_utils_1_1_undirected_weighted_graph.html" alt="GraphUtils::UndirectedWeightedGraph" shape="rect" coords="0,0,224,24"/>
+<area href="class_graph_utils_1_1_undirected_weighted_graph.html" title="Abstract class for undirected weighted graph classes with different representations. " alt="GraphUtils::UndirectedWeightedGraph" shape="rect" coords="0,0,224,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graph_utils_1_1_boost_adjacency_list_1_1_boost_graph.html">BoostGraph</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Struct to represent all the information of a graph.  <a href="struct_graph_utils_1_1_boost_adjacency_list_1_1_boost_graph.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a5a2c196bf948856a8d7b7d34ac4d763d"><td class="memItemLeft" align="right" valign="top">typedef boost::adjacency_list&lt; boost::listS, boost::vecS, boost::undirectedS, boost::no_property, boost::property&lt; boost::edge_weight_t, <a class="el" href="typedefs_8h.html#a508fc58b5dc3c81865305f6498457063">Scalar</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a5a2c196bf948856a8d7b7d34ac4d763d">BoostGraphData</a></td></tr>
+<tr class="memdesc:a5a2c196bf948856a8d7b7d34ac4d763d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data type to store graph information.  <a href="#a5a2c196bf948856a8d7b7d34ac4d763d">More...</a><br /></td></tr>
 <tr class="separator:a5a2c196bf948856a8d7b7d34ac4d763d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c218ddfa6c66ac97e85880415bf0ccc"><td class="memItemLeft" align="right" valign="top">typedef boost::graph_traits&lt; <a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a5a2c196bf948856a8d7b7d34ac4d763d">BoostGraphData</a> &gt;::vertex_descriptor&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a5c218ddfa6c66ac97e85880415bf0ccc">Vertex</a></td></tr>
+<tr class="memdesc:a5c218ddfa6c66ac97e85880415bf0ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data type to represent a vertex.  <a href="#a5c218ddfa6c66ac97e85880415bf0ccc">More...</a><br /></td></tr>
 <tr class="separator:a5c218ddfa6c66ac97e85880415bf0ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d0383241f0aea8deaf8efb320d27b48"><td class="memItemLeft" align="right" valign="top">typedef std::pair&lt; int, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a7d0383241f0aea8deaf8efb320d27b48">Edge</a></td></tr>
+<tr class="memdesc:a7d0383241f0aea8deaf8efb320d27b48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data type to represent an edge.  <a href="#a7d0383241f0aea8deaf8efb320d27b48">More...</a><br /></td></tr>
 <tr class="separator:a7d0383241f0aea8deaf8efb320d27b48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a71c49d3ad08a917d189c602b91546c05"><td class="memItemLeft" align="right" valign="top">typedef boost::property_map&lt; <a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a5a2c196bf948856a8d7b7d34ac4d763d">BoostGraphData</a>, boost::vertex_index_t &gt;::type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#a71c49d3ad08a917d189c602b91546c05">IndexMap</a></td></tr>
+<tr class="memdesc:a71c49d3ad08a917d189c602b91546c05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data type to represent an index map.  <a href="#a71c49d3ad08a917d189c602b91546c05">More...</a><br /></td></tr>
 <tr class="separator:a71c49d3ad08a917d189c602b91546c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -113,7 +121,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad6b6d79349a1fd89086661e2953c715e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_boost_adjacency_list.html#ad6b6d79349a1fd89086661e2953c715e">NumEdges</a> () const</td></tr>
 <tr class="separator:ad6b6d79349a1fd89086661e2953c715e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Typedef Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Boost Graph Library Adjancency List based graph representation wrapper class. </p>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a5a2c196bf948856a8d7b7d34ac4d763d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5a2c196bf948856a8d7b7d34ac4d763d">&#9670;&nbsp;</a></span>BoostGraphData</h2>
 
@@ -125,6 +135,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Data type to store graph information. </p>
 
 </div>
 </div>
@@ -140,6 +152,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Data type to represent an edge. </p>
+
 </div>
 </div>
 <a id="a71c49d3ad08a917d189c602b91546c05"></a>
@@ -154,6 +168,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Data type to represent an index map. </p>
+
 </div>
 </div>
 <a id="a5c218ddfa6c66ac97e85880415bf0ccc"></a>
@@ -167,6 +183,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Data type to represent a vertex. </p>
 
 </div>
 </div>
@@ -186,6 +204,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numVertices</td><td>the number of vertices. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -229,6 +253,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Connect two vertices in the graph using a weighted edge. The graph is not connected at the beginning, and each edge needs to be connected by this method. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>the index of the source vertex of the edge. </td></tr>
+    <tr><td class="paramname">b</td><td>the index of the target vertex of the edge. For undirected graph, a and b can be exchanged. </td></tr>
+    <tr><td class="paramname">weight</td><td>the weight of the edge. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="class_graph_utils_1_1_undirected_weighted_graph.html#aeee7aa9fb80e3d691f73cc7316dc6b22">GraphUtils::UndirectedWeightedGraph</a>.</p>
 
@@ -248,6 +280,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Obtain the pointer to the boost graph struct. </p><dl class="section return"><dt>Returns</dt><dd>the pointer to the boost graph struct. </dd></dl>
 
 </div>
 </div>
@@ -273,6 +306,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Get the number of edges of the graph. </p><dl class="section return"><dt>Returns</dt><dd>the number of edges of the graph. </dd></dl>
 
 <p>Implements <a class="el" href="class_graph_utils_1_1_undirected_weighted_graph.html#acc19ba954a62e87a086786d114f416a7">GraphUtils::UndirectedWeightedGraph</a>.</p>
 
@@ -300,6 +334,7 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Get the number of vertices of the graph. </p><dl class="section return"><dt>Returns</dt><dd>the number of vertices of the graph. </dd></dl>
 
 <p>Implements <a class="el" href="class_graph_utils_1_1_undirected_weighted_graph.html#aaecbff6256c24dcf46d32f7c7509821a">GraphUtils::UndirectedWeightedGraph</a>.</p>
 

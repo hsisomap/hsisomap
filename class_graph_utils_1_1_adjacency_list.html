@@ -72,6 +72,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>Customized implemented essential Adjancency List based graph representation.  
+ <a href="class_graph_utils_1_1_adjacency_list.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_adjacency_list_8h_source.html">AdjacencyList.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for GraphUtils::AdjacencyList:</div>
@@ -79,7 +82,7 @@ Inheritance diagram for GraphUtils::AdjacencyList:</div>
  <div class="center">
   <img src="class_graph_utils_1_1_adjacency_list.png" usemap="#GraphUtils::AdjacencyList_map" alt=""/>
   <map id="GraphUtils::AdjacencyList_map" name="GraphUtils::AdjacencyList_map">
-<area href="class_graph_utils_1_1_undirected_weighted_graph.html" alt="GraphUtils::UndirectedWeightedGraph" shape="rect" coords="0,0,224,24"/>
+<area href="class_graph_utils_1_1_undirected_weighted_graph.html" title="Abstract class for undirected weighted graph classes with different representations. " alt="GraphUtils::UndirectedWeightedGraph" shape="rect" coords="0,0,224,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -90,6 +93,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a3eea8afa3414a8d4bd41538346ea319f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_adjacency_list.html#a3eea8afa3414a8d4bd41538346ea319f">AdjacencyList</a> (const <a class="el" href="class_graph_utils_1_1_adjacency_list.html">AdjacencyList</a> &amp;other)</td></tr>
 <tr class="separator:a3eea8afa3414a8d4bd41538346ea319f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae25026f0472df7d6c337a24395189399"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_adjacency_list.html#ae25026f0472df7d6c337a24395189399">~AdjacencyList</a> ()</td></tr>
+<tr class="memdesc:ae25026f0472df7d6c337a24395189399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ae25026f0472df7d6c337a24395189399">More...</a><br /></td></tr>
 <tr class="separator:ae25026f0472df7d6c337a24395189399"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e176ce4facc43634b10e708b3921e94"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_adjacency_list.html#a1e176ce4facc43634b10e708b3921e94">Connect</a> (<a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a> a, <a class="el" href="typedefs_8h.html#a5d7deb06d9443e7d4a47bf078638cc91">Index</a> b, <a class="el" href="typedefs_8h.html#a508fc58b5dc3c81865305f6498457063">Scalar</a> weight)</td></tr>
 <tr class="separator:a1e176ce4facc43634b10e708b3921e94"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -105,7 +109,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aebac5fba522bdf015fd7900df565927d"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_graph_utils_1_1_adjacency_list.html">AdjacencyList</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_graph_utils_1_1_adjacency_list.html#aebac5fba522bdf015fd7900df565927d">operator=</a> (const <a class="el" href="class_graph_utils_1_1_adjacency_list.html">AdjacencyList</a> &amp;other)</td></tr>
 <tr class="separator:aebac5fba522bdf015fd7900df565927d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Customized implemented essential Adjancency List based graph representation. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8163e55786f5c81b82a4318a509b8372"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8163e55786f5c81b82a4318a509b8372">&#9670;&nbsp;</a></span>AdjacencyList() <span class="overload">[1/2]</span></h2>
 
@@ -121,6 +127,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numVertices</td><td>the number of vertices in the graph. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -139,6 +151,12 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Copy constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the adjacency list to be copied. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -156,6 +174,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Destructor. </p>
 
 </div>
 </div>
@@ -199,6 +219,14 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Connect two vertices in the graph using a weighted edge. The graph is not connected at the beginning, and each edge needs to be connected by this method. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>the index of the source vertex of the edge. </td></tr>
+    <tr><td class="paramname">b</td><td>the index of the target vertex of the edge. For undirected graph, a and b can be exchanged. </td></tr>
+    <tr><td class="paramname">weight</td><td>the weight of the edge. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Implements <a class="el" href="class_graph_utils_1_1_undirected_weighted_graph.html#aeee7aa9fb80e3d691f73cc7316dc6b22">GraphUtils::UndirectedWeightedGraph</a>.</p>
 
@@ -220,6 +248,14 @@ template&lt;typename T_Index , typename T_Scalar &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Construct and obtained graph array struct representation of the graph from the adjacency list representation. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_Index</td><td>the index type of the graph array. For example, it is cl_Index for OpenCL usages. </td></tr>
+    <tr><td class="paramname">T_Scalar</td><td>the scalar type of the graph array. For example, it is cl_Scalar for OpenCL usages. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the pointer to the graph array struct. </dd></dl>
 
 </div>
 </div>
@@ -248,6 +284,14 @@ template&lt;typename T_Index , typename T_Scalar &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>[TO BE SUPPORTED] Get the weight between two vertices. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>the source vertex of the edge. </td></tr>
+    <tr><td class="paramname">b</td><td>the target vertex of the edge. For undirected graph, a and b can be exchanged. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the weight of the edge. </dd></dl>
 
 </div>
 </div>
@@ -273,6 +317,7 @@ template&lt;typename T_Index , typename T_Scalar &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Get the number of edges of the graph. </p><dl class="section return"><dt>Returns</dt><dd>the number of edges of the graph. </dd></dl>
 
 <p>Implements <a class="el" href="class_graph_utils_1_1_undirected_weighted_graph.html#acc19ba954a62e87a086786d114f416a7">GraphUtils::UndirectedWeightedGraph</a>.</p>
 
@@ -300,6 +345,7 @@ template&lt;typename T_Index , typename T_Scalar &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Get the number of vertices of the graph. </p><dl class="section return"><dt>Returns</dt><dd>the number of vertices of the graph. </dd></dl>
 
 <p>Implements <a class="el" href="class_graph_utils_1_1_undirected_weighted_graph.html#aaecbff6256c24dcf46d32f7c7509821a">GraphUtils::UndirectedWeightedGraph</a>.</p>
 
@@ -320,6 +366,13 @@ template&lt;typename T_Index , typename T_Scalar &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Equal operator. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>the other adjacency list to be compared. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>whether they are the same. </dd></dl>
 
 </div>
 </div>

@@ -84,13 +84,28 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a4a6009e0288f2e48729566b9d9744ce5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T_Index &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graph_utils_1_1_graph_array.html#a4a6009e0288f2e48729566b9d9744ce5">vertices</a></td></tr>
+<tr class="memdesc:a4a6009e0288f2e48729566b9d9744ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compact vertex array.  <a href="#a4a6009e0288f2e48729566b9d9744ce5">More...</a><br /></td></tr>
 <tr class="separator:a4a6009e0288f2e48729566b9d9744ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5234e7b85703b4134fef532f0f09030"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T_Index &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graph_utils_1_1_graph_array.html#ad5234e7b85703b4134fef532f0f09030">edges</a></td></tr>
+<tr class="memdesc:ad5234e7b85703b4134fef532f0f09030"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compact edge array.  <a href="#ad5234e7b85703b4134fef532f0f09030">More...</a><br /></td></tr>
 <tr class="separator:ad5234e7b85703b4134fef532f0f09030"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3e657e187703954959180d573ba57271"><td class="memItemLeft" align="right" valign="top">std::vector&lt; T_Scalar &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_graph_utils_1_1_graph_array.html#a3e657e187703954959180d573ba57271">weights</a></td></tr>
+<tr class="memdesc:a3e657e187703954959180d573ba57271"><td class="mdescLeft">&#160;</td><td class="mdescRight">Weights of the edges corresponding to the edge array.  <a href="#a3e657e187703954959180d573ba57271">More...</a><br /></td></tr>
 <tr class="separator:a3e657e187703954959180d573ba57271"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><h3>template&lt;typename T_Index, typename T_Scalar&gt;<br />
+struct GraphUtils::GraphArray&lt; T_Index, T_Scalar &gt;</h3>
+
+<p>A compact array based graph representation for OpenCL parallel implementation.</p>
+<p>The graph array struct is a compact representation of the graph. It can be efficiently transferred between OpenCL devices and accessed by C code, and takes less space. It is however more difficult to construct. Therefore, the adjacency list is usually used to efficiently construct a large scale graph, and then convert to graph array representation after the construction is finished. This customized adjacency list representation is more efficient than the Boost Graph Library representation. </p><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_Index</td><td>the index type of the graph array. For example, it is cl_Index for OpenCL usages. </td></tr>
+    <tr><td class="paramname">T_Scalar</td><td>the scalar type of the graph array. For example, it is cl_Scalar for OpenCL usages. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5e4bf61ed90ee3be0954b5701ba03580"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5e4bf61ed90ee3be0954b5701ba03580">&#9670;&nbsp;</a></span>GraphArray() <span class="overload">[1/2]</span></h2>
 
@@ -115,6 +130,7 @@ template&lt;typename T_Index, typename T_Scalar&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Constructor. Construct an empty graph. </p>
 
 </div>
 </div>
@@ -143,6 +159,12 @@ template&lt;typename T_Index, typename T_Scalar&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Copy constructor. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">g</td><td>the graph array struct that needs to be copied. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -161,6 +183,8 @@ template&lt;typename T_Index, typename T_Scalar&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Compact edge array. </p>
+
 </div>
 </div>
 <a id="a4a6009e0288f2e48729566b9d9744ce5"></a>
@@ -177,6 +201,8 @@ template&lt;typename T_Index, typename T_Scalar&gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Compact vertex array. </p>
+
 </div>
 </div>
 <a id="a3e657e187703954959180d573ba57271"></a>
@@ -192,6 +218,8 @@ template&lt;typename T_Index, typename T_Scalar&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Weights of the edges corresponding to the edge array. </p>
 
 </div>
 </div>

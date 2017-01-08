@@ -84,10 +84,12 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhsisomap_1_1_hsi_data_mask.html">HsiDataMask</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhsisomap_1_1_k_n_n_graph.html">KNNGraph</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract class to manage different implementations of kNN graph.  <a href="classhsisomap_1_1_k_n_n_graph.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhsisomap_1_1_k_n_n_graph___adaptive_k___h_i_d_e_n_n.html">KNNGraph_AdaptiveK_HIDENN</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhsisomap_1_1_k_n_n_graph___fixed_k___m_s_t.html">KNNGraph_FixedK_MST</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">kNN graph construction with fixed k and minimum spanning tree (MST) augmented to ensure graph connectivity.  <a href="classhsisomap_1_1_k_n_n_graph___fixed_k___m_s_t.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhsisomap_1_1_landmark.html">Landmark</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,7 +117,8 @@ Enumerations</h2></td></tr>
 <tr class="memitem:a190054bd912c3221bd416ba760736991"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehsisomap.html#a190054bd912c3221bd416ba760736991">KNNGraphImplementation</a> { <a class="el" href="namespacehsisomap.html#a190054bd912c3221bd416ba760736991adb8f9cf342829ec77bea8aa9c6582dc6">KNNGRAPH_IMPLEMENTATION_FIXED_K</a> = 0, 
 <a class="el" href="namespacehsisomap.html#a190054bd912c3221bd416ba760736991ad295b391e558ab26c1070c64c0e5823a">KNNGRAPH_IMPLEMENTATION_FIXED_K_WITH_MST</a> = 1, 
 <a class="el" href="namespacehsisomap.html#a190054bd912c3221bd416ba760736991a90d92d5412c4c5b6d2399799dc4ffcab">KNNGRAPH_IMPLEMENTATION_ADAPTIVE_K_HIDENN</a> = 2
- }</td></tr>
+ }<tr class="memdesc:a190054bd912c3221bd416ba760736991"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enum of different kNN graph implementation.  <a href="namespacehsisomap.html#a190054bd912c3221bd416ba760736991">More...</a><br /></td></tr>
+</td></tr>
 <tr class="separator:a190054bd912c3221bd416ba760736991"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab024e3e564e4f9f10eb8f374832fb313"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehsisomap.html#ab024e3e564e4f9f10eb8f374832fb313">LandmarkImplementation</a> { <a class="el" href="namespacehsisomap.html#ab024e3e564e4f9f10eb8f374832fb313a8f0a32718dc6f4217204d50d5343d8e0">LANDMARK_IMPLEMENTATION_LIST</a> = 0, 
 <a class="el" href="namespacehsisomap.html#ab024e3e564e4f9f10eb8f374832fb313a63eefd3ac66faf9c24967546d63b00e1">LANDMARK_IMPLEMENTATION_SUBSETS</a> = 1, 
@@ -164,18 +167,25 @@ Variables</h2></td></tr>
 <tr class="memitem:a8f04c374e08bd06e5591b5fefda5a0f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#acc5f64be367360e4dec372939393e334">Key</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehsisomap.html#a8f04c374e08bd06e5591b5fefda5a0f2">BACKBONE_NNCACHE_SECONDARY_SEARCH_RANGE</a> = &quot;BACKBONE_NNCACHE_SECONDARY_SEARCH_RANGE&quot;</td></tr>
 <tr class="separator:a8f04c374e08bd06e5591b5fefda5a0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae63b1d3c350a607f838a09e09cdf0ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#acc5f64be367360e4dec372939393e334">Key</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehsisomap.html#aae63b1d3c350a607f838a09e09cdf0ae">KNNGRAPH_GRAPH_BACKEND</a> = &quot;KNNGRAPH_GRAPH_BACKEND&quot;</td></tr>
+<tr class="memdesc:aae63b1d3c350a607f838a09e09cdf0ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">kNN graph backend key for the property list.  <a href="#aae63b1d3c350a607f838a09e09cdf0ae">More...</a><br /></td></tr>
 <tr class="separator:aae63b1d3c350a607f838a09e09cdf0ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5da25cb2cf7e56f95496ae2eec65b748"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#ac3bfd38eb72e83e455430c49657a17d7">kScalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehsisomap.html#a5da25cb2cf7e56f95496ae2eec65b748">KNNGRAPH_GRAPH_BACKEND_ADJACENCYLIST</a> = 0.0</td></tr>
+<tr class="memdesc:a5da25cb2cf7e56f95496ae2eec65b748"><td class="mdescLeft">&#160;</td><td class="mdescRight">kNN graph backend value for the property list, to generate adjacency list graph representation.  <a href="#a5da25cb2cf7e56f95496ae2eec65b748">More...</a><br /></td></tr>
 <tr class="separator:a5da25cb2cf7e56f95496ae2eec65b748"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcd7a4ca8ac29884f6d2427620705cbe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#ac3bfd38eb72e83e455430c49657a17d7">kScalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehsisomap.html#abcd7a4ca8ac29884f6d2427620705cbe">KNNGRAPH_GRAPH_BACKEND_BOOST</a> = 1.0</td></tr>
+<tr class="memdesc:abcd7a4ca8ac29884f6d2427620705cbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">kNN graph backend value for the property list, to Boost Graph Library based graph representation.  <a href="#abcd7a4ca8ac29884f6d2427620705cbe">More...</a><br /></td></tr>
 <tr class="separator:abcd7a4ca8ac29884f6d2427620705cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ff81ccf66da097723f770bbf90db7da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#acc5f64be367360e4dec372939393e334">Key</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehsisomap.html#a3ff81ccf66da097723f770bbf90db7da">KNNGRAPH_ADAPTIVE_K_HIDENN_SUBSET_NUMBER</a> = &quot;KNNGRAPH_ADAPTIVE_K_HIDENN_SUBSET_NUMBER&quot;</td></tr>
+<tr class="memdesc:a3ff81ccf66da097723f770bbf90db7da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property list key, specify the number of subsets that represents local spectral region that has the local adaptive k.  <a href="#a3ff81ccf66da097723f770bbf90db7da">More...</a><br /></td></tr>
 <tr class="separator:a3ff81ccf66da097723f770bbf90db7da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a228f2bda5f71e2de85b0513d0d537134"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#acc5f64be367360e4dec372939393e334">Key</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehsisomap.html#a228f2bda5f71e2de85b0513d0d537134">KNNGRAPH_ADAPTIVE_K_WITH_MST_EDGE_POOL_DEPTH</a> = &quot;KNNGRAPH_ADAPTIVE_K_WITH_MST_EDGE_POOL_DEPTH&quot;</td></tr>
+<tr class="memdesc:a228f2bda5f71e2de85b0513d0d537134"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Optional) Property list key, specify the MST edge pool depth. It is a trade-off between space and time.  <a href="#a228f2bda5f71e2de85b0513d0d537134">More...</a><br /></td></tr>
 <tr class="separator:a228f2bda5f71e2de85b0513d0d537134"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab253bbae9fbee4744929857ee46bbbc5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#acc5f64be367360e4dec372939393e334">Key</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehsisomap.html#ab253bbae9fbee4744929857ee46bbbc5">KNNGRAPH_FIXED_K_NUMBER</a> = &quot;KNNGRAPH_FIXED_K_NUMBER&quot;</td></tr>
+<tr class="memdesc:ab253bbae9fbee4744929857ee46bbbc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Property list key, specify k value (neighborhood size).  <a href="#ab253bbae9fbee4744929857ee46bbbc5">More...</a><br /></td></tr>
 <tr class="separator:ab253bbae9fbee4744929857ee46bbbc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af033801c612867ca3f8e3d130217fa8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#acc5f64be367360e4dec372939393e334">Key</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehsisomap.html#af033801c612867ca3f8e3d130217fa8d">KNNGRAPH_FIXED_K_WITH_MST_EDGE_POOL_DEPTH</a> = &quot;KNNGRAPH_FIXED_K_WITH_MST_EDGE_POOL_DEPTH&quot;</td></tr>
+<tr class="memdesc:af033801c612867ca3f8e3d130217fa8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">(Optional) Property list key, specify the MST edge pool depth. It is a trade-off between space and time.  <a href="#af033801c612867ca3f8e3d130217fa8d">More...</a><br /></td></tr>
 <tr class="separator:af033801c612867ca3f8e3d130217fa8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f4084a18caa6d5b049abd671cc67619"><td class="memItemLeft" align="right" valign="top"><a class="el" href="typedefs_8h.html#acc5f64be367360e4dec372939393e334">Key</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacehsisomap.html#a9f4084a18caa6d5b049abd671cc67619">HSIDATA_PROPERTY_LINES</a> = &quot;lines&quot;</td></tr>
 <tr class="separator:a9f4084a18caa6d5b049abd671cc67619"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -250,10 +260,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enum of different kNN graph implementation. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a190054bd912c3221bd416ba760736991adb8f9cf342829ec77bea8aa9c6582dc6"></a>KNNGRAPH_IMPLEMENTATION_FIXED_K&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a190054bd912c3221bd416ba760736991ad295b391e558ab26c1070c64c0e5823a"></a>KNNGRAPH_IMPLEMENTATION_FIXED_K_WITH_MST&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a190054bd912c3221bd416ba760736991a90d92d5412c4c5b6d2399799dc4ffcab"></a>KNNGRAPH_IMPLEMENTATION_ADAPTIVE_K_HIDENN&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a190054bd912c3221bd416ba760736991adb8f9cf342829ec77bea8aa9c6582dc6"></a>KNNGRAPH_IMPLEMENTATION_FIXED_K&#160;</td><td class="fielddoc"><p>kNN graph with fixed k. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a190054bd912c3221bd416ba760736991ad295b391e558ab26c1070c64c0e5823a"></a>KNNGRAPH_IMPLEMENTATION_FIXED_K_WITH_MST&#160;</td><td class="fielddoc"><p>kNN graph with fixed k augmented with minimum spanning tree (MST) to ensure connectivity. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a190054bd912c3221bd416ba760736991a90d92d5412c4c5b6d2399799dc4ffcab"></a>KNNGRAPH_IMPLEMENTATION_ADAPTIVE_K_HIDENN&#160;</td><td class="fielddoc"><p>kNN graph with adaptive k from HIDENN method, also MST augmented. </p>
+</td></tr>
 </table>
 
 </div>
@@ -393,6 +408,16 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Return the implementation class and construct the kNN graph with the specified implementation type.</p>
+<p>Note that the graph construction usually happens in the constructor. Therefore this function also essentially performs the graph construction. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">knngraph_implementation</td><td>the kNN graph construction method with one of KNNGraphImplementation. </td></tr>
+    <tr><td class="paramname">data</td><td>the data matrix (the pairwise distance matrix). </td></tr>
+    <tr><td class="paramname">property_list</td><td>specify the property list used by a certain method of kNN graph. The key and value pairs could be different for different method. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>smart pointer to the implementation class of the kNN graph with the specified implementation type. </dd></dl>
 
 </div>
 </div>
@@ -889,6 +914,8 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Property list key, specify the number of subsets that represents local spectral region that has the local adaptive k. </p>
+
 </div>
 </div>
 <a id="a228f2bda5f71e2de85b0513d0d537134"></a>
@@ -902,6 +929,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>(Optional) Property list key, specify the MST edge pool depth. It is a trade-off between space and time. </p>
 
 </div>
 </div>
@@ -917,6 +946,8 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>Property list key, specify k value (neighborhood size). </p>
+
 </div>
 </div>
 <a id="af033801c612867ca3f8e3d130217fa8d"></a>
@@ -930,6 +961,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>(Optional) Property list key, specify the MST edge pool depth. It is a trade-off between space and time. </p>
 
 </div>
 </div>
@@ -945,6 +978,8 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>kNN graph backend key for the property list. </p>
+
 </div>
 </div>
 <a id="a5da25cb2cf7e56f95496ae2eec65b748"></a>
@@ -959,6 +994,8 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p>kNN graph backend value for the property list, to generate adjacency list graph representation. </p>
+
 </div>
 </div>
 <a id="abcd7a4ca8ac29884f6d2427620705cbe"></a>
@@ -972,6 +1009,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>kNN graph backend value for the property list, to Boost Graph Library based graph representation. </p>
 
 </div>
 </div>
