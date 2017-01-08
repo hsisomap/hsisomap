@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['redimension',['Redimension',['../classgsl_1_1_matrix.html#a54cc5ce3952ab512617a1cf93a611f64',1,'gsl::Matrix']]],
-  ['reset',['Reset',['../classgsl_1_1_matrix.html#aaee4099558e9d9ff6c363595f72297fd',1,'gsl::Matrix']]],
-  ['resize',['Resize',['../classgsl_1_1_matrix.html#a96a76a573e0af24b18eac7177b13038c',1,'gsl::Matrix']]],
-  ['roi',['Roi',['../class_roi.html',1,'']]],
-  ['rows',['rows',['../classgsl_1_1_matrix.html#aa0da778ed0521db179dc881d65c493c2',1,'gsl::Matrix']]],
-  ['run',['Run',['../class_dijkstra_1_1_dijkstra_c_l.html#a0343850e0dbdf06f43305d3509242c64',1,'Dijkstra::DijkstraCL']]]
+  ['operator_28_29',['operator()',['../classgsl_1_1_matrix.html#a0fdc34ab6277ce7beb409ce1927cb252',1,'gsl::Matrix::operator()(Index row, Index col) const'],['../classgsl_1_1_matrix.html#a6c7e8a759688de7c0196ed33b3d52da5',1,'gsl::Matrix::operator()(Index row, Index col)']]],
+  ['operator_3d',['operator=',['../classgsl_1_1_matrix.html#ac7aa6de9afbe1cecdb23841a34f85501',1,'gsl::Matrix']]],
+  ['operator_3d_3d',['operator==',['../classgsl_1_1_matrix.html#aeee0a26f488917b5cad54c9e3de8bc2e',1,'gsl::Matrix']]]
 ];

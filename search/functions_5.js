@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['redimension',['Redimension',['../classgsl_1_1_matrix.html#a54cc5ce3952ab512617a1cf93a611f64',1,'gsl::Matrix']]],
-  ['reset',['Reset',['../classgsl_1_1_matrix.html#aaee4099558e9d9ff6c363595f72297fd',1,'gsl::Matrix']]],
-  ['resize',['Resize',['../classgsl_1_1_matrix.html#a96a76a573e0af24b18eac7177b13038c',1,'gsl::Matrix']]],
-  ['rows',['rows',['../classgsl_1_1_matrix.html#aa0da778ed0521db179dc881d65c493c2',1,'gsl::Matrix']]],
-  ['run',['Run',['../class_dijkstra_1_1_dijkstra_c_l.html#a0343850e0dbdf06f43305d3509242c64',1,'Dijkstra::DijkstraCL']]]
+  ['matrix',['Matrix',['../classgsl_1_1_matrix.html#a356b049336e124fa680bec4d6f413b0a',1,'gsl::Matrix::Matrix()'],['../classgsl_1_1_matrix.html#a9b4fca307f0738b821a75a36ad88fd1b',1,'gsl::Matrix::Matrix(Index rows, Index cols)'],['../classgsl_1_1_matrix.html#a32251de3e652c6099966d588175018c8',1,'gsl::Matrix::Matrix(Index rows, Index cols, Scalar initialValue)'],['../classgsl_1_1_matrix.html#a675af5333664c606a16cec70533d64bb',1,'gsl::Matrix::Matrix(std::initializer_list&lt; std::initializer_list&lt; Scalar &gt;&gt; initializerList)'],['../classgsl_1_1_matrix.html#a3f94e6e4916907bd1ada857fe06c3eff',1,'gsl::Matrix::Matrix(const std::vector&lt; std::vector&lt; T &gt;&gt; vector_of_vectors)'],['../classgsl_1_1_matrix.html#aa0d577050c24af22cabee26a13d16e8c',1,'gsl::Matrix::Matrix(const Matrix &amp;other)']]],
+  ['mnf',['MNF',['../embedding_8h.html#a7e0a4113209277b8fff3d163f54d9641',1,'gsl']]],
+  ['mnfwithnearestneighbornoiseestimation',['MNFWithNearestNeighborNoiseEstimation',['../embedding_8h.html#ae63ddc4de113d5367d35dfd8377a2c3b',1,'gsl']]]
 ];
