@@ -68,6 +68,9 @@ $(function() {
 <div class="title">gsl Namespace Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A collection of matrix and vector related computation functions based on GSL (GNU Scientific Library).  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -148,11 +151,22 @@ Variables</h2></td></tr>
 <tr class="memdesc:a107a9d401512b29e094a7d70889ca1a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const to help set the <a class="el" href="namespacegsl.html#a30a5c6c1cecf77a44f699fd96ebb22aa">gsl::CMDS</a> parameters. See <a class="el" href="namespacegsl.html#a30a5c6c1cecf77a44f699fd96ebb22aa">gsl::CMDS</a> for details.  <a href="#a107a9d401512b29e094a7d70889ca1a9">More...</a><br /></td></tr>
 <tr class="separator:a107a9d401512b29e094a7d70889ca1a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6aba7aab3d0b26ce4f1ba31b09b64a2"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegsl.html#ad6aba7aab3d0b26ce4f1ba31b09b64a2">GSL_UTIL_COVARIANCE_MATRIX_BIASED</a> = 0</td></tr>
+<tr class="memdesc:ad6aba7aab3d0b26ce4f1ba31b09b64a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate biased mean / covariance when asked for unbiased option in <a class="el" href="namespacegsl.html#a3ba8927f7fec48b18e92c3a3d5166b26">gsl::mean_of</a>, <a class="el" href="namespacegsl.html#aebc521ddb0b86c8a7ea9b08b7dfb1287">gsl::gsl_util_covariance_matrix_loop</a>, <a class="el" href="namespacegsl.html#ac2f0ec1c65eb6ece4593403863dc6373">gsl::gsl_util_covariance_matrix_intrusive</a>, <a class="el" href="namespacegsl.html#a7a5fac9613ffe08a5275628ce3821a09">gsl::gsl_util_covariance_matrix</a>.  <a href="#ad6aba7aab3d0b26ce4f1ba31b09b64a2">More...</a><br /></td></tr>
 <tr class="separator:ad6aba7aab3d0b26ce4f1ba31b09b64a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c28710e44d5c63f2773401cacb1c73a"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegsl.html#a0c28710e44d5c63f2773401cacb1c73a">GSL_UTIL_COVARIANCE_MATRIX_UNBIASED</a> = 1</td></tr>
+<tr class="memdesc:a0c28710e44d5c63f2773401cacb1c73a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate unbiased mean / covariance when asked for unbiased option in <a class="el" href="namespacegsl.html#a3ba8927f7fec48b18e92c3a3d5166b26">gsl::mean_of</a>, <a class="el" href="namespacegsl.html#aebc521ddb0b86c8a7ea9b08b7dfb1287">gsl::gsl_util_covariance_matrix_loop</a>, <a class="el" href="namespacegsl.html#ac2f0ec1c65eb6ece4593403863dc6373">gsl::gsl_util_covariance_matrix_intrusive</a>, <a class="el" href="namespacegsl.html#a7a5fac9613ffe08a5275628ce3821a09">gsl::gsl_util_covariance_matrix</a>.  <a href="#a0c28710e44d5c63f2773401cacb1c73a">More...</a><br /></td></tr>
 <tr class="separator:a0c28710e44d5c63f2773401cacb1c73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A collection of matrix and vector related computation functions based on GSL (GNU Scientific Library). </p>
+<p>This is a collection of matrix and vector related computation interfaces based on GSL.</p>
+<ul>
+<li>The foundation of the collection is <a class="el" href="classgsl_1_1_matrix.html" title="A simple wrapper class for common matrix operations and resource management for GNU Scientific Librar...">gsl::Matrix</a> (<a class="el" href="_matrix_8h.html">Matrix.h</a>), a wrapper class to facilitate matrix operations and resource management for the matrix data type of GSL. Note that in the commonly usages in the library, the vectors are not represented as a separate wrapper class, but a special case of <a class="el" href="classgsl_1_1_matrix.html" title="A simple wrapper class for common matrix operations and resource management for GNU Scientific Librar...">gsl::Matrix</a>.</li>
+<li>A collection of helper functions for simple matrix manipulations are in <a class="el" href="matrix__util_8h.html">matrix_util.h</a> file.</li>
+<li>A collection of simple inline computation functions (for GSL's gsl_matrix, not <a class="el" href="classgsl_1_1_matrix.html" title="A simple wrapper class for common matrix operations and resource management for GNU Scientific Librar...">gsl::Matrix</a>, resource not managed) including some frequently used linear algebra computations is in <a class="el" href="gsl__util_8h.html">gsl_util.h</a> file.</li>
+<li>A collection of advanced embedding space computation functions, and a struct to represent information of a data embedding, is in <a class="el" href="embedding_8h.html">embedding.h</a> file. </li>
+</ul>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="afc3397e9bd1b863d4415fd3410b13612"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afc3397e9bd1b863d4415fd3410b13612">&#9670;&nbsp;</a></span>EMBEDDING_EIGENDECOMPOSITION_ALGORITHM</h2>
 
@@ -167,8 +181,10 @@ Variables</h2></td></tr>
 
 <p>Enum type to help set the <a class="el" href="namespacegsl.html#a30a5c6c1cecf77a44f699fd96ebb22aa">gsl::CMDS</a> parameters. See <a class="el" href="namespacegsl.html#a30a5c6c1cecf77a44f699fd96ebb22aa">gsl::CMDS</a> for details. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afc3397e9bd1b863d4415fd3410b13612a701652555044c088fd881a95249b3a8f"></a>EMBEDDING_EIGENDECOMPOSITION_ALGORITHM_JACOBI&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="afc3397e9bd1b863d4415fd3410b13612a30f65468f779de3f4a6394d44b748277"></a>EMBEDDING_EIGENDECOMPOSITION_ALGORITHM_QR&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afc3397e9bd1b863d4415fd3410b13612a701652555044c088fd881a95249b3a8f"></a>EMBEDDING_EIGENDECOMPOSITION_ALGORITHM_JACOBI&#160;</td><td class="fielddoc"><p>Eigendecomposition using Jacobi algorithm. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="afc3397e9bd1b863d4415fd3410b13612a30f65468f779de3f4a6394d44b748277"></a>EMBEDDING_EIGENDECOMPOSITION_ALGORITHM_QR&#160;</td><td class="fielddoc"><p>Eigendecomposition using QR decomposition algorithm. </p>
+</td></tr>
 </table>
 
 </div>
@@ -248,6 +264,13 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Generate a new matrix with the specified columns of the original matrix. It generates a new matrix with the specified columns of the original matrix. The different with the <a class="el" href="classgsl_1_1_matrix.html#addad2fde74d414b05c193277efd8a846">Matrix::GetCols</a> is that this function generates a new matrix as a copy, and uses shared_ptr. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix_ptr</td><td>smart pointer to the input matrix. </td></tr>
+    <tr><td class="paramname">cols</td><td>vector of indices of the selected columns to be copied. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -276,6 +299,13 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Generate a new matrix with the specified rows of the original matrix. It generates a new matrix with the specified rows of the original matrix. The different with the <a class="el" href="classgsl_1_1_matrix.html#af71911b8de1a1a0115669c5b34627612">Matrix::GetRows</a> is that this function generates a new matrix as a copy, and uses shared_ptr. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix_ptr</td><td>smart pointer to the input matrix. </td></tr>
+    <tr><td class="paramname">rows</td><td>vector of indices of the selected rows to be copied. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -330,6 +360,15 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculate covariance matrix using matrix multiplication non-intrusively (the original data is not modified). Calculate covariance matrix using matrix multiplication, which is much faster than using the definition. It will not modify the original data matrix so that you can use const for input data.</p>
+<p>The covariance matrix must be a square matrix with the length equal to the second dimension of the matrix to be calculated. The unbiased is 1 by default to calculate the unbiased estimated sample covariances. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>input data matrix. The rows represent the samples while the columns represent the dimensions. </td></tr>
+    <tr><td class="paramname">covariance</td><td>output covariance matrix. It is a symmetric matrix with the size equal to the number of columns of the input matrix. The output matrix needs to be allocated outside of the function. </td></tr>
+    <tr><td class="paramname">unbiased</td><td>(Optional) it can only be 0 or 1 to be meaningful, as it will be subtracted from the number of samples. When it is 1, the function is calculating the unbiased mean. When it is 0, it is biased. By default it is 1 (unbiased). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -372,6 +411,16 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculate covariance matrix using matrix multiplication and intrusively changes input data to save space and time. Calculate covariance matrix using matrix multiplication, which is much faster than using the definition. It also intrusively changes input data to save space and time.</p>
+<p>It is useful when you don't need the input data matrix anymore, or you already have a copy, and / or you need the centered data. It is also faster than non-intrusive version. The input data will become the centered data (data matrix minus mean vector).</p>
+<p>The covariance matrix must be a square matrix with the length equal to the second dimension of the matrix to be calculated. The unbiased is 1 by default to calculate the unbiased estimated sample covariances. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>input data matrix. The rows represent the samples while the columns represent the dimensions. </td></tr>
+    <tr><td class="paramname">covariance</td><td>output covariance matrix. It is a symmetric matrix with the size equal to the number of columns of the input matrix. The output matrix needs to be allocated outside of the function. </td></tr>
+    <tr><td class="paramname">unbiased</td><td>(Optional) it can only be 0 or 1 to be meaningful, as it will be subtracted from the number of samples. When it is 1, the function is calculating the unbiased mean. When it is 0, it is biased. By default it is 1 (unbiased). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -414,6 +463,15 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculate covariance matrix using loops by definition of covariance matrix. Calculate covariance matrix using loops by definition of covariance matrix. CAUTION: It is much slower than the matrix multiplication version (without '_loop' in the function name).</p>
+<p>The covariance matrix must be a square matrix with the length equal to the second dimension of the matrix to be calculated. The unbiased is 1 by default to calculate the unbiased estimated sample covariances. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>input data matrix. The rows represent the samples while the columns represent the dimensions. </td></tr>
+    <tr><td class="paramname">covariance</td><td>output covariance matrix. It is a symmetric matrix with the size equal to the number of columns of the input matrix. The output matrix needs to be allocated outside of the function. </td></tr>
+    <tr><td class="paramname">unbiased</td><td>(Optional) it can only be 0 or 1 to be meaningful, as it will be subtracted from the number of samples. When it is 1, the function is calculating the unbiased mean. When it is 0, it is biased. By default it is 1 (unbiased). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -450,6 +508,13 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Pseudo-inversion using Jacobi SVD. Calculates the pseudo-inversion of the input matrix using Jacobi SVD algorithm. The output matrix needs to be allocated outside of the function. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">A_c</td><td>pointer to input matrix. </td></tr>
+    <tr><td class="paramname">pinv</td><td>pointer to output matrix. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -523,7 +588,7 @@ Variables</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">data1</td><td>first input data matrix as <a class="el" href="classgsl_1_1_matrix.html" title="A simple wrapper class for common matrix operations and resource management for GNU Scientific Librar...">gsl::Matrix</a>. The rows are the samples. The columns are the dimensions. </td></tr>
     <tr><td class="paramname">data2</td><td>second input data matrix as <a class="el" href="classgsl_1_1_matrix.html" title="A simple wrapper class for common matrix operations and resource management for GNU Scientific Librar...">gsl::Matrix</a>. The rows are the samples. The columns are the dimensions. </td></tr>
-    <tr><td class="paramname">force_zero_diagonal</td><td>[TO BE SUPPORTED] (Optional) the option to set whether to force set the diagonal of the output matrix to zero. By default it is not to force set to zero. It could and only could be useful when data1 and data2 are the same matrix (in which case the pairwise distance of all same group of vectors are calculated), and the output matrix should be symmetrical and with its diagonal elements equal to zeros. Use this option to optionally force set the diagonal to zero to prevent the possible non-zero small number resulted at the diagonal elements due to imprecision of the floating number calculation. </td></tr>
+    <tr><td class="paramname">force_zero_diagonal</td><td>[TO BE SUPPORTED] (Optional) the option to set whether to force set the diagonal of the output matrix to zero. By default it is not to force set to zero. It could and only could be useful when data1 and data2 are the same matrix (in which case the pairwise distance of all same group of vectors are calculated), and the output matrix should be symmetric and with its diagonal elements equal to zeros. Use this option to optionally force set the diagonal to zero to prevent the possible non-zero small number resulted at the diagonal elements due to imprecision of the floating number calculation. </td></tr>
   </table>
   </dd>
 </dl>
@@ -555,6 +620,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>The function makes a set of orthogonal base vectors the same direction as the datum vector. The function takes an input matrix that represents an orthogonal base vectors as column vectors, and convert it in-place to a set of equivalent base vectors that has the same direction as the datum vector. This usually means that the absolute values of the elements in the matrix are not changed, but the signs of each column might be changed.</p>
+<p>This is useful for unit test so that the equivalent output as a base vectors have the same representation. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bases</td><td>input matrix representing base vectors as column vectors for an orthogonal space. Note that the conversion is in-place of the input variable. </td></tr>
+    <tr><td class="paramname">optional_datum</td><td>(Optional) the datum vector to represent the direction the new base vectors should be pointing at. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -603,6 +676,17 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Calculate mean value of a vector after applying a lambda function. Useful for mean and variance. The data must be represented by a vector. Data1 and 2 must have the same size.</p>
+<p>There are two input vectors, and the actual value used for each element is determined by pre_operation function. For example, one could be actual data, and another is a reference to determine the modification of the data before it accumulates.</p>
+<p>If the unbiased == 1, the mean is the unbiased estimated sample mean (the denominator is the number of samples minus 1). </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data1</td><td>first input vector </td></tr>
+    <tr><td class="paramname">data2</td><td>second input vector </td></tr>
+    <tr><td class="paramname">pre_operation</td><td>lambda function that takes two value and return one value, to be applied on each elements of the two input vectors. The result will be accumulated before dividing the sample number to get the mean. </td></tr>
+    <tr><td class="paramname">unbiased</td><td>(Optional) it can only be 0 or 1 to be meaningful, as it will be subtracted from the number of elements of the input vectors. When it is 1, the function is calculating the unbiased mean. When it is 0, it is biased. By default it is 0 (biased). </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -732,6 +816,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Output stream operator. The output stream operator will output the matrix values in normal matrix representation, with spaces to separate elements, and new line to separate rows.</p>
+<p>If the value is overflowed (or to be exactly, the maximum possible value of the representation), it will be printed as '-' (dash). </p>
 
 </div>
 </div>
@@ -760,6 +846,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Input streaming operator. It supports standard istream separators, and the value is inputed in a row-major order. </p>
 
 </div>
 </div>
@@ -829,6 +916,14 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Calculate the distance between two specified row vectors of a matrix. It calculates the distance between two specified row vectors of the input matrix. The two row vectors is specified by the row indices. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>the input matrix. Since the row vectors are calculated, it is useful when the matrix is representing a collection of row vectors, such that each row represents a sample, and each column represents a dimension. </td></tr>
+    <tr><td class="paramname">a</td><td>the index of the first row. </td></tr>
+    <tr><td class="paramname">b</td><td>the index of the second row. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -863,6 +958,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Calculate the square distance between two specified row vectors of a matrix. It calculates the square of the distance between two specified row vectors of the input matrix. The two row vectors is specified by the row indices.</p>
+<p>Since the square of the distance is calculated, the square-root operation in a distance calculation is not involved to save time for large scale data. It can be useful when only the comparison is involved, while the actual value of the distances are not as important. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>the input matrix. Since the row vectors are calculated, it is useful when the matrix is representing a collection of row vectors, such that each row represents a sample, and each column represents a dimension. </td></tr>
+    <tr><td class="paramname">a</td><td>the index of the first row. </td></tr>
+    <tr><td class="paramname">b</td><td>the index of the second row. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -903,6 +1007,16 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Calculate the square distance between two specified row vectors from two matrix. It calculates the square of the distance between two specified row vectors from two input matrices. The two row vectors is specified by the row indices. The two indices specified the indices of the row vector to be computed from each of the two input matrices.</p>
+<p>By default the indices are zero. Therefore it is useful to quickly calculate the distance between two row vectors represented as one-row matrices.</p>
+<p>Since the square of the distance is calculated, the square-root operation in a distance calculation is not involved to save time for large scale data. It can be useful when only the comparison is involved, while the actual value of the distances are not as important. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>the input matrix. Since the row vectors are calculated, it is useful when the matrix is representing a collection of row vectors, such that each row represents a sample, and each column represents a dimension. </td></tr>
+    <tr><td class="paramname">a</td><td>(Optional) the index of the first row. By default it is 0, useful to quickly calculate for two row vectors represented by matrices. </td></tr>
+    <tr><td class="paramname">b</td><td>the index of the second row. By default it is 0. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -943,6 +1057,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Calculate the distance between two specified row vectors from two matrix. It calculates the distance between two specified row vectors from two input matrices. The two row vectors is specified by the row indices. The two indices specified the indices of the row vector to be computed from each of the two input matrices.</p>
+<p>By default the indices are zero. Therefore it is useful to quickly calculate the distance between two row vectors represented as one-row matrices. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>the input matrix. Since the row vectors are calculated, it is useful when the matrix is representing a collection of row vectors, such that each row represents a sample, and each column represents a dimension. </td></tr>
+    <tr><td class="paramname">a</td><td>(Optional) the index of the first row. By default it is 0, useful to quickly calculate for two row vectors represented by matrices. </td></tr>
+    <tr><td class="paramname">b</td><td>the index of the second row. By default it is 0. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -977,6 +1100,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sort the elements of the each column of the matrix separately to ascending order, and also arrange the second matrix as the same moving operation. The function takes a matrix, and sort the elements of each column of the matrix separately to ascending order. It will also re-arrange the order of the elements of each column of the second matrix, with the same operation of the sorting. The also-rearranged matrix is useful to keep the indices of the elements.</p>
+<p>The function will sort and arrange the elements of the two input matrices in-place. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>the input matrix to be sort in-place. </td></tr>
+    <tr><td class="paramname">also_arrange</td><td>the input matrix to be also re-arranged in-place. </td></tr>
+    <tr><td class="paramname">do_not_also_arrange</td><td>if it is true, disable the also_arrange operation as if the parameter also_arrange is not supplied. It is useful for the overriding function without also-arrange operation. By default it is false. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -995,6 +1127,13 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sort the elements of the each column of the matrix separately to ascending order. The function takes a matrix, and sort the elements of each column of the matrix separately to ascending order.</p>
+<p>The function will sort and arrange the elements of the input matrix in-place. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>the input matrix to be sort in-place. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1029,6 +1168,15 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sort the elements of the each row of the matrix separately to ascending order, and also arrange the second matrix using the same moving operation. The function takes a matrix, and sort the elements of each row of the matrix separately to ascending order. It will also re-arrange the order of the elements of each row of the second matrix, with the same operation of the sorting. The also-rearranged matrix is useful to keep the indices of the elements.</p>
+<p>The function will sort and arrange the elements of the two input matrices in-place. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>the input matrix to be sort in-place. </td></tr>
+    <tr><td class="paramname">also_arrange</td><td>the input matrix to be also re-arranged in-place. </td></tr>
+    <tr><td class="paramname">do_not_also_arrange</td><td>if it is true, disable the also_arrange operation as if the parameter also_arrange is not supplied. It is useful for the overriding function without also-arrange operation. By default it is false. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1047,6 +1195,13 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Sort the elements of the each row of the matrix separately to ascending order. The function takes a matrix, and sort the elements of each row of the matrix separately to ascending order.</p>
+<p>The function will sort and arrange the elements of the input matrix in-place. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">matrix</td><td>the input matrix to be sort in-place. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1095,6 +1250,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Calculate biased mean / covariance when asked for unbiased option in <a class="el" href="namespacegsl.html#a3ba8927f7fec48b18e92c3a3d5166b26">gsl::mean_of</a>, <a class="el" href="namespacegsl.html#aebc521ddb0b86c8a7ea9b08b7dfb1287">gsl::gsl_util_covariance_matrix_loop</a>, <a class="el" href="namespacegsl.html#ac2f0ec1c65eb6ece4593403863dc6373">gsl::gsl_util_covariance_matrix_intrusive</a>, <a class="el" href="namespacegsl.html#a7a5fac9613ffe08a5275628ce3821a09">gsl::gsl_util_covariance_matrix</a>. </p>
+
 </div>
 </div>
 <a id="a0c28710e44d5c63f2773401cacb1c73a"></a>
@@ -1108,6 +1265,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Calculate unbiased mean / covariance when asked for unbiased option in <a class="el" href="namespacegsl.html#a3ba8927f7fec48b18e92c3a3d5166b26">gsl::mean_of</a>, <a class="el" href="namespacegsl.html#aebc521ddb0b86c8a7ea9b08b7dfb1287">gsl::gsl_util_covariance_matrix_loop</a>, <a class="el" href="namespacegsl.html#ac2f0ec1c65eb6ece4593403863dc6373">gsl::gsl_util_covariance_matrix_intrusive</a>, <a class="el" href="namespacegsl.html#a7a5fac9613ffe08a5275628ce3821a09">gsl::gsl_util_covariance_matrix</a>. </p>
 
 </div>
 </div>
