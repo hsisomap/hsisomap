@@ -62,12 +62,14 @@ void SortMatrixCols(Matrix &matrix);
 //! It generates a new matrix with the specified rows of the original matrix. The different with the Matrix::GetRows is that this function generates a new matrix as a copy, and uses shared_ptr.
 //! \param matrix_ptr smart pointer to the input matrix.
 //! \param rows vector of indices of the selected rows to be copied.
+//! \return smart pointer to the resulting matrix.
 std::shared_ptr<gsl::Matrix> GetRows(const std::shared_ptr<const gsl::Matrix> matrix_ptr, std::vector<Index> rows);
 
 //! Generate a new matrix with the specified columns of the original matrix.
 //! It generates a new matrix with the specified columns of the original matrix. The different with the Matrix::GetCols is that this function generates a new matrix as a copy, and uses shared_ptr.
 //! \param matrix_ptr smart pointer to the input matrix.
 //! \param cols vector of indices of the selected columns to be copied.
+//! \return smart pointer to the resulting matrix.
 std::shared_ptr<gsl::Matrix> GetCols(const std::shared_ptr<const gsl::Matrix> matrix_ptr, std::vector<Index> cols);
 
 //! Calculate the distance between two specified row vectors of a matrix.
@@ -75,6 +77,7 @@ std::shared_ptr<gsl::Matrix> GetCols(const std::shared_ptr<const gsl::Matrix> ma
 //! \param matrix the input matrix. Since the row vectors are calculated, it is useful when the matrix is representing a collection of row vectors, such that each row represents a sample, and each column represents a dimension.
 //! \param a the index of the first row.
 //! \param b the index of the second row.
+//! \return distance of the two specified row vectors in the matrix.
 Scalar RowVectorDistance(const Matrix &matrix, Index a, Index b);
 
 //! Calculate the square distance between two specified row vectors of a matrix.
@@ -84,6 +87,7 @@ Scalar RowVectorDistance(const Matrix &matrix, Index a, Index b);
 //! \param matrix the input matrix. Since the row vectors are calculated, it is useful when the matrix is representing a collection of row vectors, such that each row represents a sample, and each column represents a dimension.
 //! \param a the index of the first row.
 //! \param b the index of the second row.
+//! \return square distance of the two specified row vectors in the matrix.
 Scalar RowVectorDistanceSquare(const Matrix &matrix, Index a, Index b);
 
 //! Calculate the distance between two specified row vectors from two matrix.
@@ -94,6 +98,7 @@ Scalar RowVectorDistanceSquare(const Matrix &matrix, Index a, Index b);
 //! \param matrix the input matrix. Since the row vectors are calculated, it is useful when the matrix is representing a collection of row vectors, such that each row represents a sample, and each column represents a dimension.
 //! \param a (Optional) the index of the first row. By default it is 0, useful to quickly calculate for two row vectors represented by matrices.
 //! \param b the index of the second row. By default it is 0.
+//! \return distance of the two specified row vectors from each of the matrices.
 Scalar RowVectorDistanceToRowVector(const Matrix &matrix_a, const Matrix &matrix_b, Index a = 0, Index b = 0);
 
 
@@ -107,6 +112,7 @@ Scalar RowVectorDistanceToRowVector(const Matrix &matrix_a, const Matrix &matrix
 //! \param matrix the input matrix. Since the row vectors are calculated, it is useful when the matrix is representing a collection of row vectors, such that each row represents a sample, and each column represents a dimension.
 //! \param a (Optional) the index of the first row. By default it is 0, useful to quickly calculate for two row vectors represented by matrices.
 //! \param b the index of the second row. By default it is 0.
+//! \return square distance of the two specified row vectors from each of the matrices.
 Scalar RowVectorDistanceSquareToRowVector(const Matrix &matrix_a, const Matrix &matrix_b, Index a = 0, Index b = 0);
 
 

@@ -65,6 +65,7 @@ inline void gsl_util_pinv(const gsl_matrix *A_c, gsl_matrix *pinv) {
 //! \param data2 second input vector
 //! \param pre_operation lambda function that takes two value and return one value, to be applied on each elements of the two input vectors. The result will be accumulated before dividing the sample number to get the mean.
 //! \param unbiased (Optional) it can only be 0 or 1 to be meaningful, as it will be subtracted from the number of elements of the input vectors. When it is 1, the function is calculating the unbiased mean. When it is 0, it is biased. By default it is 0 (biased).
+//! \return the processed "mean" value.
 inline double mean_of(const gsl_vector *data1,
                const gsl_vector *data2,
                std::function<double(double, double)> pre_operation,
@@ -166,9 +167,13 @@ inline void gsl_util_covariance_matrix_intrusive(gsl_matrix *data, gsl_matrix *c
 //!
 //! The covariance matrix must be a square matrix with the length equal to the second dimension of the matrix to be calculated.
 //! The unbiased is 1 by default to calculate the unbiased estimated sample covariances.
+//!
+//! The function optionally takes a pre-allocated matrix and a pre-allocated vector to be used and return the centered data matrix and the mean vector of all row vectors.
 //! \param data input data matrix. The rows represent the samples while the columns represent the dimensions.
 //! \param covariance output covariance matrix. It is a symmetric matrix with the size equal to the number of columns of the input matrix. The output matrix needs to be allocated outside of the function.
 //! \param unbiased (Optional) it can only be 0 or 1 to be meaningful, as it will be subtracted from the number of samples. When it is 1, the function is calculating the unbiased mean. When it is 0, it is biased. By default it is 1 (unbiased).
+//! \param centered_data_return (Optional) return the centered data matrix. It needs to be pre-allocated before calling the function and the memory will be used in the calculation. If not needed, set it to NULL. By default it is NULL.
+//! \param means_return (Optional) return the means vector. It needs to be pre-allocated before calling the function and the memory will be used in the calculation. If not needed, set it to NULL. By default it is NULL.
 inline void gsl_util_covariance_matrix(const gsl_matrix *data, gsl_matrix *covariance, int unbiased = 1, gsl_matrix *centered_data_return = NULL, gsl_vector *means_return = NULL) {
 
   size_t dims = data->size2;

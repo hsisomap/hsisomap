@@ -67,6 +67,7 @@ class Matrix {
 
   //! Copy Constructor.
   //! Construct a matrix with an existing matrix. The old matrix will be copied.
+  //! \param other matrix to be copied.
   Matrix(const Matrix& other);
 
   //! Destructor.
@@ -77,18 +78,21 @@ class Matrix {
   //! Access one element of the const matrix.
   //! \param row the row index of the element.
   //! \param col the column index of the element.
+  //! \return const reference to the specified element.
   const Scalar & operator()(Index row, Index col) const;
 
   //! Element Accessor.
   //! Access one element reference of the matrix. This can be the lvalue reference.
   //! \param row the row index of the element.
   //! \param col the column index of the element.
+  //! \return reference to the specified element.
   Scalar & operator()(Index row, Index col);
 
   //! Const Element Getter.
   //! This is the named accessor which has the same effect of the const version of operator().
   //! \param row the row index of the element.
   //! \param col the column index of the element.
+  //! \return a copy of the specified element.
   Scalar Get(Index row, Index col) const;
 
   //! Element Setter.
@@ -114,9 +118,11 @@ class Matrix {
   void SetIdentity();
 
   //! Get the number of rows of the matrix.
+  //! \return the number of rows of the matrix.
   Index rows() const;
 
   //! Get the number of columns of the matrix.
+  //! \return the number of columns of the matrix.
   Index cols() const;
 
   //! Copy the new matrix to the current matrix.
@@ -127,6 +133,8 @@ class Matrix {
 
   //! Assignment operator.
   //! Copy the other matrix to this matrix.
+  //! \param other the new matrix to be assigned.
+  //! \return const reference of the new matrix to be chained in an expression.
   const Matrix& operator=(const Matrix& other);
 
   //! Resize the matrix.
@@ -148,6 +156,8 @@ class Matrix {
   //! Equality operator.
   //! Check the equality of the matrix by checking all corresponding elements.
   //! equality_limit will be used as the precision of the equality.
+  //! \param other matrix to be compared.
+  //! \return whether they are equal.
   bool operator==(const Matrix& other) const;
 
   //! Reset the gsl_matrix pointer.
@@ -156,18 +166,22 @@ class Matrix {
 
   //! Get a copy of the rows with the indices.
   //! \param rows the indices of the rows to be extracted.
+  //! \return a new matrix consisting the specified rows.
   Matrix GetRows(std::vector<Index> rows) const;
 
   //! Get a copy of the row with the index.
   //! \param row the indices of the row to be extracted.
+  //! \return a new one-row matrix consisting the specified row.
   Matrix GetRow(Index row) const;
 
   //! Get a copy of the columns with the indices.
   //! \param cols the indices of the columns to be extracted.
+  //! \return a new matrix consisting the specified columns.
   Matrix GetCols(std::vector<Index> cols) const;
 
   //! Get a copy of the column with the index.
   //! \param col the indices of the column to be extracted.
+  //! \return a new one-column matrix consisting the specified row.
   Matrix GetCol(Index col) const;
 
 };
@@ -176,10 +190,16 @@ class Matrix {
 //! The output stream operator will output the matrix values in normal matrix representation, with spaces to separate elements, and new line to separate rows.
 //!
 //! If the value is overflowed (or to be exactly, the maximum possible value of the representation), it will be printed as '-' (dash).
+//! \param os ostream object.
+//! \param matrix matrix to be streamed out.
+//! \return same ostream object to be chained in an expression.
 std::ostream& operator<<(std::ostream& os, const Matrix& matrix);
 
 //! Input streaming operator.
 //! It supports standard istream separators, and the value is inputed in a row-major order.
+//! \param is istream object.
+//! \param matrix matrix to be streamed in.
+//! \return same istream object to be chained in an expression.
 std::istream& operator>>(std::istream& is, Matrix& matrix);
 
 } // namespace gsl
